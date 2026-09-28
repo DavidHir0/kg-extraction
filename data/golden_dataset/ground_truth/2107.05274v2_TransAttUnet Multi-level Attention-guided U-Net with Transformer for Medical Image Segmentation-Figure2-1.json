@@ -1,0 +1,1133 @@
+{
+ "architecture_name": "2107.05274v2_TransAttUnet Multi-level Attention-guided U-Net with Transformer for Medical Image Segmentation-Figure2-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_in",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "Input Image",
+   "properties": {
+    "name": "Input Image",
+    "modality": "image"
+   }
+  },
+  {
+   "id": "d_enc1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "op_pool1",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Max-pooling",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ],
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_enc2_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv 3x3 + Norm. + ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_enc2_b",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Conv 3x3 + Norm. + ReLU",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  },
+  {
+   "id": "l_enc2_c",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Conv 3x3 + Norm. + ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "d_enc2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "op_pool2",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Max-pooling",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ],
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_enc3_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv 3x3 + Norm. + ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_enc3_b",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Conv 3x3 + Norm. + ReLU",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  },
+  {
+   "id": "l_enc3_c",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Conv 3x3 + Norm. + ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "d_enc3",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "op_pool3",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Max-pooling",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ],
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_enc4_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv 3x3 + Norm. + ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_enc4_b",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Conv 3x3 + Norm. + ReLU",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  },
+  {
+   "id": "l_enc4_c",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Conv 3x3 + Norm. + ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "d_enc4",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "op_flatten",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "flatten",
+   "properties": {
+    "algorithm": "Flatten"
+   }
+  },
+  {
+   "id": "l_proj",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "Linear Projection",
+   "properties": {}
+  },
+  {
+   "id": "d_pos",
+   "class": "DATA",
+   "sub_type": "constant",
+   "raw_text": "Position Encoding",
+   "properties": {
+    "name": "Position Encoding"
+   }
+  },
+  {
+   "id": "op_tsa_add",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "Element-wise Addition",
+   "properties": {}
+  },
+  {
+   "id": "d_tsa_added",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "op_reshape_q",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "Reshape/Permute",
+   "properties": {
+    "algorithm": "Reshape"
+   }
+  },
+  {
+   "id": "op_reshape_k",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "Reshape/Permute",
+   "properties": {
+    "algorithm": "Reshape"
+   }
+  },
+  {
+   "id": "op_reshape_v",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "Reshape/Permute",
+   "properties": {
+    "algorithm": "Reshape"
+   }
+  },
+  {
+   "id": "d_q",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$Q$",
+   "properties": {
+    "symbol": "Q"
+   }
+  },
+  {
+   "id": "d_k",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$K$",
+   "properties": {
+    "symbol": "K"
+   }
+  },
+  {
+   "id": "d_v",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$V$",
+   "properties": {
+    "symbol": "V"
+   }
+  },
+  {
+   "id": "l_rel1",
+   "class": "LAYER",
+   "sub_type": "embedding",
+   "raw_text": "Relevance Embedding",
+   "properties": {}
+  },
+  {
+   "id": "d_rel1_mat",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "op_tsa_mul",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "Multiplication",
+   "properties": {
+    "mechanism": "MatMul"
+   }
+  },
+  {
+   "id": "d_tsa_out_mat",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "op_reshape_tsa",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "Reshape/Permute",
+   "properties": {
+    "algorithm": "Reshape"
+   }
+  },
+  {
+   "id": "l_gsa_conv1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_gsa_conv2",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_gsa_conv3",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "d_w",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$W$",
+   "properties": {
+    "symbol": "W"
+   }
+  },
+  {
+   "id": "d_m",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$M$",
+   "properties": {
+    "symbol": "M"
+   }
+  },
+  {
+   "id": "d_n",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$N$",
+   "properties": {
+    "symbol": "N"
+   }
+  },
+  {
+   "id": "l_rel2",
+   "class": "LAYER",
+   "sub_type": "embedding",
+   "raw_text": "Relevance Embedding",
+   "properties": {}
+  },
+  {
+   "id": "d_rel2_mat",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "op_gsa_mul",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "Multiplication",
+   "properties": {
+    "mechanism": "MatMul"
+   }
+  },
+  {
+   "id": "d_gsa_out_mat",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "op_reshape_gsa",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "Reshape/Permute",
+   "properties": {
+    "algorithm": "Reshape"
+   }
+  },
+  {
+   "id": "op_main_add",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "Element-wise Addition",
+   "properties": {}
+  },
+  {
+   "id": "d_bot",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "op_up1",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Upsampling",
+   "properties": {}
+  },
+  {
+   "id": "op_concat1",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "d_dec1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "l_bilinear",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Bilinear Upsampling",
+   "properties": {
+    "algorithm": "ResizeLinear"
+   }
+  },
+  {
+   "id": "op_c1",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "Concatenation",
+   "properties": {}
+  },
+  {
+   "id": "d_dec2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "op_c2",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "Concatenation",
+   "properties": {}
+  },
+  {
+   "id": "d_out",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "Output Mask",
+   "properties": {
+    "name": "Output Mask"
+   }
+  },
+  {
+   "id": "kUVaClW8n5",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "Reshape/Permute",
+   "properties": {
+    "algorithm": "Reshape"
+   }
+  },
+  {
+   "id": "Lofj2SiX9v",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Upsampling",
+   "properties": {}
+  },
+  {
+   "id": "l5pWFToKPq",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Upsampling",
+   "properties": {}
+  },
+  {
+   "id": "FSZaMYFv3I",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Upsampling",
+   "properties": {}
+  },
+  {
+   "id": "kOM05ECR9C",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Upsampling",
+   "properties": {}
+  }
+ ],
+ "edges": [
+  {
+   "source": "l_enc2_a",
+   "target": "l_enc2_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc2_b",
+   "target": "l_enc2_c",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc4_a",
+   "target": "l_enc4_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc4_b",
+   "target": "l_enc4_c",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc3_a",
+   "target": "l_enc3_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc3_b",
+   "target": "l_enc3_c",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc1",
+   "target": "op_pool1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_pool1",
+   "target": "l_enc2_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc2_c",
+   "target": "d_enc2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc2",
+   "target": "op_pool2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_pool2",
+   "target": "l_enc3_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc3_c",
+   "target": "d_enc3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc3",
+   "target": "op_pool3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_pool3",
+   "target": "l_enc4_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc4_c",
+   "target": "d_enc4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc4",
+   "target": "op_flatten",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_flatten",
+   "target": "l_proj",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_proj",
+   "target": "op_tsa_add",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_pos",
+   "target": "op_tsa_add",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_tsa_add",
+   "target": "d_tsa_added",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_tsa_added",
+   "target": "op_reshape_q",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_tsa_added",
+   "target": "op_reshape_k",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_tsa_added",
+   "target": "op_reshape_v",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_reshape_q",
+   "target": "d_q",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_reshape_k",
+   "target": "d_k",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_reshape_v",
+   "target": "d_v",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_q",
+   "target": "l_rel1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_k",
+   "target": "l_rel1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_rel1",
+   "target": "d_rel1_mat",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_rel1_mat",
+   "target": "op_tsa_mul",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_v",
+   "target": "op_tsa_mul",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_tsa_mul",
+   "target": "d_tsa_out_mat",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_tsa_out_mat",
+   "target": "op_reshape_tsa",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_proj",
+   "target": "l_gsa_conv1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_proj",
+   "target": "l_gsa_conv2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_proj",
+   "target": "l_gsa_conv3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_gsa_conv1",
+   "target": "d_w",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_gsa_conv2",
+   "target": "d_m",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_gsa_conv3",
+   "target": "d_n",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_m",
+   "target": "l_rel2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_n",
+   "target": "l_rel2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_rel2",
+   "target": "d_rel2_mat",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_rel2_mat",
+   "target": "op_gsa_mul",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_w",
+   "target": "op_gsa_mul",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_gsa_mul",
+   "target": "d_gsa_out_mat",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_gsa_out_mat",
+   "target": "op_reshape_gsa",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_reshape_tsa",
+   "target": "op_main_add",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_reshape_gsa",
+   "target": "op_main_add",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_main_add",
+   "target": "d_bot",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_bot",
+   "target": "op_up1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_up1",
+   "target": "op_concat1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc3",
+   "target": "op_concat1",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_concat1",
+   "target": "d_dec1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_bilinear",
+   "target": "op_c1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_bilinear",
+   "target": "op_c2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_bot",
+   "target": "l_bilinear",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_dec1",
+   "target": "l_bilinear",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_proj",
+   "target": "kUVaClW8n5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "kUVaClW8n5",
+   "target": "op_main_add",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_in",
+   "target": "d_enc1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_dec1",
+   "target": "Lofj2SiX9v",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_c1",
+   "target": "l5pWFToKPq",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_dec2",
+   "target": "FSZaMYFv3I",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_c2",
+   "target": "kOM05ECR9C",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "Lofj2SiX9v",
+   "target": "op_c1",
+   "role": "forward"
+  },
+  {
+   "source": "l5pWFToKPq",
+   "target": "d_dec2",
+   "role": "forward"
+  },
+  {
+   "source": "FSZaMYFv3I",
+   "target": "op_c2",
+   "role": "forward"
+  },
+  {
+   "source": "kOM05ECR9C",
+   "target": "d_out",
+   "role": "forward"
+  }
+ ],
+ "groups": [
+  {
+   "id": "c_tsa",
+   "type": "container",
+   "label": "TSA",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "l_rel1",
+    "d_tsa_out_mat",
+    "op_reshape_k",
+    "op_reshape_q",
+    "op_tsa_add",
+    "d_tsa_added",
+    "d_rel1_mat",
+    "d_pos",
+    "op_reshape_v",
+    "d_q",
+    "d_k",
+    "d_v",
+    "op_tsa_mul",
+    "op_reshape_tsa"
+   ]
+  },
+  {
+   "id": "c_gsa",
+   "type": "container",
+   "label": "GSA",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "l_gsa_conv2",
+    "op_reshape_gsa",
+    "d_m",
+    "d_n",
+    "d_w",
+    "l_gsa_conv3",
+    "l_gsa_conv1",
+    "d_rel2_mat",
+    "l_rel2",
+    "op_gsa_mul",
+    "d_gsa_out_mat"
+   ]
+  },
+  {
+   "id": "group_lbl_enc",
+   "type": "container",
+   "label": "Encoder",
+   "boundary_type": "implicit_header",
+   "member_node_ids": [
+    "l_enc4_b",
+    "l_enc3_a",
+    "d_enc2",
+    "d_enc1",
+    "l_enc2_c",
+    "l_enc4_a",
+    "d_enc3",
+    "l_enc3_c",
+    "l_enc4_c",
+    "d_enc4",
+    "l_enc2_b",
+    "l_enc3_b",
+    "l_enc2_a"
+   ]
+  },
+  {
+   "id": "group_lbl_dec",
+   "type": "container",
+   "label": "Decoder",
+   "boundary_type": "implicit_header",
+   "member_node_ids": [
+    "d_dec2",
+    "op_up1",
+    "op_c2",
+    "op_c1",
+    "l_bilinear",
+    "d_dec1",
+    "op_concat1"
+   ]
+  }
+ ]
+}

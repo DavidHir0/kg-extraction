@@ -1,0 +1,27 @@
+__pycache__/
+*.py[cod]
+*.egg-info
+build/
+dist/
+.venv/
+venv/
+
+# Secrets
+.env
+.env.local
+.env.backup*
+
+# Run outputs
+outputs/
+
+# Downloaded by scripts/fetch_golden_figures.py; not redistributable
+data/pdf_cache/
+data/golden_dataset/images_300dpi/
+
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.log
+*.tmp
+.langgraph_api/

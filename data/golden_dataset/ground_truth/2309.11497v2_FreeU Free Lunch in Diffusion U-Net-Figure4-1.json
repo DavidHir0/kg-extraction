@@ -1,0 +1,527 @@
+{
+ "architecture_name": "2309.11497v2_FreeU Free Lunch in Diffusion U-Net-Figure4-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_img_in",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "input",
+   "properties": {}
+  },
+  {
+   "id": "l_unet_1",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "UNet",
+   "properties": {
+    "name": "UNet"
+   }
+  },
+  {
+   "id": "d_img_mid_1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "l_unet_2",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "UNet",
+   "properties": {
+    "name": "UNet"
+   }
+  },
+  {
+   "id": "d_img_mid_2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "l_unet_3",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "UNet",
+   "properties": {
+    "name": "UNet"
+   }
+  },
+  {
+   "id": "d_img_out",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "d_enc_1",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "d_enc_2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "d_enc_3",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "d_enc_4",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "d_mid_1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "d_mid_2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "d_mid_3",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "op_concat_3",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "d_dec_1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "backbone features",
+   "properties": {
+    "name": "backbone features"
+   }
+  },
+  {
+   "id": "op_concat_2",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "d_dec_2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "op_concat_1",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "d_dec_3",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "d_skip_features",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "skip features ($\\mathbf{h}$)",
+   "properties": {}
+  },
+  {
+   "id": "op_fft",
+   "class": "MODIFIER",
+   "sub_type": "custom",
+   "raw_text": "FFT",
+   "properties": {
+    "algorithm": "FFT"
+   }
+  },
+  {
+   "id": "d_s",
+   "class": "DATA",
+   "sub_type": "constant",
+   "raw_text": "$\\mathbf{s}$",
+   "properties": {
+    "symbol": "s"
+   }
+  },
+  {
+   "id": "op_mul_1",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "$\\otimes$",
+   "properties": {
+    "mechanism": "Mul"
+   }
+  },
+  {
+   "id": "op_ifft",
+   "class": "MODIFIER",
+   "sub_type": "custom",
+   "raw_text": "IFFT",
+   "properties": {
+    "algorithm": "IFFT"
+   }
+  },
+  {
+   "id": "d_backbone_features",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "backbone features ($\\mathbf{x}$)",
+   "properties": {}
+  },
+  {
+   "id": "d_b",
+   "class": "DATA",
+   "sub_type": "constant",
+   "raw_text": "$\\mathbf{b}$",
+   "properties": {
+    "symbol": "b"
+   }
+  },
+  {
+   "id": "op_mul_2",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "$\\otimes$",
+   "properties": {
+    "mechanism": "Mul"
+   }
+  },
+  {
+   "id": "d_fused_features",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "imp_cat_fused",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "d_img_in",
+   "target": "l_unet_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_unet_1",
+   "target": "d_img_mid_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_img_mid_1",
+   "target": "l_unet_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_unet_2",
+   "target": "d_img_mid_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_img_mid_2",
+   "target": "l_unet_3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_unet_3",
+   "target": "d_img_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc_1",
+   "target": "d_enc_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc_2",
+   "target": "d_enc_3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc_3",
+   "target": "d_enc_4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc_4",
+   "target": "d_mid_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_mid_1",
+   "target": "d_mid_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_mid_2",
+   "target": "d_mid_3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc_3",
+   "target": "op_concat_3",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_concat_3",
+   "target": "d_dec_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_dec_1",
+   "target": "op_concat_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc_2",
+   "target": "op_concat_2",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_concat_2",
+   "target": "d_dec_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_dec_2",
+   "target": "op_concat_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc_1",
+   "target": "op_concat_1",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_concat_1",
+   "target": "d_dec_3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_skip_features",
+   "target": "op_fft",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_fft",
+   "target": "op_mul_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_s",
+   "target": "op_mul_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_mul_1",
+   "target": "op_ifft",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_ifft",
+   "target": "imp_cat_fused",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_backbone_features",
+   "target": "op_mul_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_b",
+   "target": "op_mul_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_mul_2",
+   "target": "imp_cat_fused",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_mid_3",
+   "target": "op_concat_3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "imp_cat_fused",
+   "target": "d_fused_features",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "c_unet",
+   "type": "container",
+   "label": "(a) UNet Architecture",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "d_enc_4",
+    "d_dec_1",
+    "d_mid_1",
+    "op_concat_3",
+    "op_concat_1",
+    "d_enc_2",
+    "d_mid_3",
+    "d_enc_3",
+    "d_dec_2",
+    "d_dec_3",
+    "d_enc_1",
+    "d_mid_2",
+    "op_concat_2"
+   ]
+  },
+  {
+   "id": "group_lbl_freeu",
+   "type": "container",
+   "label": "(b) FreeU Operations",
+   "boundary_type": "implicit_header",
+   "member_node_ids": [
+    "d_skip_features",
+    "d_backbone_features",
+    "d_s",
+    "d_b",
+    "op_fft",
+    "op_mul_2",
+    "d_fused_features",
+    "op_ifft",
+    "op_mul_1",
+    "imp_cat_fused"
+   ]
+  }
+ ]
+}

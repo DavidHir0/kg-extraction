@@ -1,0 +1,1024 @@
+{
+ "architecture_name": "2109.14813v1_GT U-Net A U-Net Like Group Transformer Network for Tooth Root Segmentation-Figure2-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "l_gt_enc1",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Group Transformer",
+   "properties": {
+    "name": "Group Transformer"
+   }
+  },
+  {
+   "id": "o_pool1",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Max-pooling",
+   "properties": {
+    "kernel": [],
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_gt_enc2",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Group Transformer",
+   "properties": {
+    "name": "Group Transformer"
+   }
+  },
+  {
+   "id": "o_pool2",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Max-pooling",
+   "properties": {
+    "kernel": [],
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_gt_enc3",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Group Transformer",
+   "properties": {
+    "name": "Group Transformer"
+   }
+  },
+  {
+   "id": "o_pool3",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Max-pooling",
+   "properties": {
+    "kernel": [],
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_gt_enc4",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Group Transformer",
+   "properties": {
+    "name": "Group Transformer"
+   }
+  },
+  {
+   "id": "o_pool4",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Max-pooling",
+   "properties": {
+    "kernel": [],
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_gt_bot",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Group Transformer",
+   "properties": {
+    "name": "Group Transformer"
+   }
+  },
+  {
+   "id": "o_up1",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Upsample",
+   "properties": {}
+  },
+  {
+   "id": "o_copy4",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "Copy and Crop",
+   "properties": {
+    "algorithm": "Slice"
+   }
+  },
+  {
+   "id": "o_cat4",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "l_gt_dec4",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Group Transformer",
+   "properties": {
+    "name": "Group Transformer"
+   }
+  },
+  {
+   "id": "o_up2",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Upsample",
+   "properties": {}
+  },
+  {
+   "id": "o_copy3",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "Copy and Crop",
+   "properties": {
+    "algorithm": "Slice"
+   }
+  },
+  {
+   "id": "o_cat3",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "l_gt_dec3",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Group Transformer",
+   "properties": {
+    "name": "Group Transformer"
+   }
+  },
+  {
+   "id": "o_up3",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Upsample",
+   "properties": {}
+  },
+  {
+   "id": "o_copy2",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "Copy and Crop",
+   "properties": {
+    "algorithm": "Slice"
+   }
+  },
+  {
+   "id": "o_cat2",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "l_gt_dec2",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Group Transformer",
+   "properties": {
+    "name": "Group Transformer"
+   }
+  },
+  {
+   "id": "o_up4",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Upsample",
+   "properties": {}
+  },
+  {
+   "id": "o_copy1",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "Copy and Crop",
+   "properties": {
+    "algorithm": "Slice"
+   }
+  },
+  {
+   "id": "o_cat1",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "l_gt_dec1",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Group Transformer",
+   "properties": {
+    "name": "Group Transformer"
+   }
+  },
+  {
+   "id": "l_gt_c1_1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_gt_m1",
+   "class": "LAYER",
+   "sub_type": "attention",
+   "raw_text": "MHSA",
+   "properties": {}
+  },
+  {
+   "id": "l_gt_c1_2",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_gt_c2_1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_gt_m2",
+   "class": "LAYER",
+   "sub_type": "attention",
+   "raw_text": "MHSA",
+   "properties": {}
+  },
+  {
+   "id": "l_gt_c2_2",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_gt_c3_1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_gt_m3",
+   "class": "LAYER",
+   "sub_type": "attention",
+   "raw_text": "MHSA",
+   "properties": {}
+  },
+  {
+   "id": "l_gt_c3_2",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "o_gt_sum",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "Element Wise Sum",
+   "properties": {}
+  },
+  {
+   "id": "l_sa_1x1_top",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Pointwise Convolution",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "l_sa_1x1_mid",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Pointwise Convolution",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "l_sa_1x1_bot",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Pointwise Convolution",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "o_pos_sum",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "Element Wise Sum",
+   "properties": {}
+  },
+  {
+   "id": "o_mul_content",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "Matrix Multiplication",
+   "properties": {
+    "mechanism": "MatMul"
+   }
+  },
+  {
+   "id": "d_content_content",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "Content-content",
+   "properties": {
+    "name": "Content-content"
+   }
+  },
+  {
+   "id": "o_mul_pos",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "Matrix Multiplication",
+   "properties": {
+    "mechanism": "MatMul"
+   }
+  },
+  {
+   "id": "d_content_pos",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "Content-position",
+   "properties": {
+    "name": "Content-position"
+   }
+  },
+  {
+   "id": "o_sum_att",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "Element Wise Sum",
+   "properties": {}
+  },
+  {
+   "id": "o_mul_final",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "Matrix Multiplication",
+   "properties": {
+    "mechanism": "MatMul"
+   }
+  },
+  {
+   "id": "6SzSpJwtQ_",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "0qAACoA51T",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "dauNdfMW6F",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "4n60RFQ9PH",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "OZcGahsCfn",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "hCalzE3PuW",
+   "class": "LAYER",
+   "sub_type": "attention",
+   "raw_text": "MHSA",
+   "properties": {}
+  },
+  {
+   "id": "y2Yt9gAcC_",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "ydLY6hxsCk",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "o_mul_content",
+   "target": "d_content_content",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_mul_pos",
+   "target": "d_content_pos",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_content_content",
+   "target": "o_sum_att",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_content_pos",
+   "target": "o_sum_att",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "ydLY6hxsCk",
+   "target": "l_sa_1x1_top",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "ydLY6hxsCk",
+   "target": "l_sa_1x1_mid",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "ydLY6hxsCk",
+   "target": "l_sa_1x1_bot",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "6SzSpJwtQ_",
+   "target": "o_pos_sum",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "0qAACoA51T",
+   "target": "o_pos_sum",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_sa_1x1_top",
+   "target": "o_mul_final",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_sa_1x1_mid",
+   "target": "o_mul_content",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_sa_1x1_bot",
+   "target": "o_mul_content",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_sa_1x1_bot",
+   "target": "o_mul_pos",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_pos_sum",
+   "target": "o_mul_pos",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_sum_att",
+   "target": "dauNdfMW6F",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "dauNdfMW6F",
+   "target": "o_mul_final",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "4n60RFQ9PH",
+   "target": "l_gt_c1_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "4n60RFQ9PH",
+   "target": "l_gt_c2_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "4n60RFQ9PH",
+   "target": "l_gt_c3_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "4n60RFQ9PH",
+   "target": "OZcGahsCfn",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "OZcGahsCfn",
+   "target": "hCalzE3PuW",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_gt_c3_1",
+   "target": "l_gt_m3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_gt_c2_1",
+   "target": "l_gt_m2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_gt_c1_1",
+   "target": "l_gt_m1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_gt_m1",
+   "target": "l_gt_c1_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_gt_m2",
+   "target": "l_gt_c2_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_gt_m3",
+   "target": "l_gt_c3_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "hCalzE3PuW",
+   "target": "y2Yt9gAcC_",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_gt_c1_2",
+   "target": "o_gt_sum",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_gt_c2_2",
+   "target": "o_gt_sum",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_gt_c3_2",
+   "target": "o_gt_sum",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "y2Yt9gAcC_",
+   "target": "o_gt_sum",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_gt_enc1",
+   "target": "o_pool1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_pool1",
+   "target": "l_gt_enc2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_gt_enc2",
+   "target": "o_pool2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_pool2",
+   "target": "l_gt_enc3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_gt_enc3",
+   "target": "o_pool3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_pool3",
+   "target": "l_gt_enc4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_gt_enc4",
+   "target": "o_pool4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_pool4",
+   "target": "l_gt_bot",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_gt_bot",
+   "target": "o_up1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_gt_enc1",
+   "target": "o_copy1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_copy1",
+   "target": "o_cat1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_cat1",
+   "target": "l_gt_dec1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_gt_enc2",
+   "target": "o_copy2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_copy2",
+   "target": "o_cat2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_cat2",
+   "target": "l_gt_dec2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_gt_enc3",
+   "target": "o_copy3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_copy3",
+   "target": "o_cat3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_cat3",
+   "target": "l_gt_dec3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_gt_enc4",
+   "target": "o_copy4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_copy4",
+   "target": "o_cat4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_cat4",
+   "target": "l_gt_dec4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_up1",
+   "target": "o_cat4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_gt_dec4",
+   "target": "o_up2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_up2",
+   "target": "o_cat3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_gt_dec3",
+   "target": "o_up3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_up3",
+   "target": "o_cat2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_gt_dec2",
+   "target": "o_up4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_up4",
+   "target": "o_cat1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "c_gt",
+   "type": "container",
+   "label": "Total X",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "OZcGahsCfn",
+    "l_gt_c1_2",
+    "l_gt_c3_2",
+    "o_gt_sum",
+    "hCalzE3PuW",
+    "4n60RFQ9PH",
+    "l_gt_c2_1",
+    "l_gt_c3_1",
+    "l_gt_m3",
+    "l_gt_m1",
+    "y2Yt9gAcC_",
+    "l_gt_c2_2",
+    "l_gt_m2",
+    "l_gt_c1_1"
+   ]
+  },
+  {
+   "id": "c_sa",
+   "type": "container",
+   "label": "Self-Attention Layer",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "d_content_content",
+    "l_sa_1x1_bot",
+    "l_sa_1x1_top",
+    "dauNdfMW6F",
+    "0qAACoA51T",
+    "o_mul_content",
+    "ydLY6hxsCk",
+    "o_mul_pos",
+    "6SzSpJwtQ_",
+    "d_content_pos",
+    "l_sa_1x1_mid",
+    "o_mul_final",
+    "o_pos_sum",
+    "o_sum_att"
+   ]
+  }
+ ]
+}

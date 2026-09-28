@@ -1,0 +1,220 @@
+{
+ "architecture_name": "2110.01014v1_EAR-U-Net EfficientNet and attention-based residual U-Net for automatic liver segmentation in CT-Figure5-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_g",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$g$",
+   "properties": {
+    "symbol": "g"
+   }
+  },
+  {
+   "id": "d_x",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$x$",
+   "properties": {
+    "symbol": "x"
+   }
+  },
+  {
+   "id": "l_conv_g",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$Wg:1 \\times 1$ Conv",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "l_conv_x",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$Wx:1 \\times 1$ Conv",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "op_add",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "op_relu",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "l_conv_1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$1 \\times 1$ Conv",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "op_sigmoid",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Sigmoid",
+   "properties": {
+    "algorithm": "Sigmoid"
+   }
+  },
+  {
+   "id": "op_resampler",
+   "class": "MODIFIER",
+   "sub_type": "custom",
+   "raw_text": "Resampler",
+   "properties": {
+    "algorithm": "Resample"
+   }
+  },
+  {
+   "id": "d_alpha",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\alpha$",
+   "properties": {
+    "symbol": "alpha"
+   }
+  },
+  {
+   "id": "op_mul",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "$\\otimes$",
+   "properties": {
+    "mechanism": "Mul"
+   }
+  },
+  {
+   "id": "d_output",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "Output",
+   "properties": {
+    "name": "Output"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "d_g",
+   "target": "l_conv_g",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_x",
+   "target": "l_conv_x",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv_g",
+   "target": "op_add",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv_x",
+   "target": "op_add",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_add",
+   "target": "op_relu",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_relu",
+   "target": "l_conv_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv_1",
+   "target": "op_sigmoid",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_sigmoid",
+   "target": "op_resampler",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_resampler",
+   "target": "d_alpha",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_alpha",
+   "target": "op_mul",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_x",
+   "target": "op_mul",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_mul",
+   "target": "d_output",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": []
+}

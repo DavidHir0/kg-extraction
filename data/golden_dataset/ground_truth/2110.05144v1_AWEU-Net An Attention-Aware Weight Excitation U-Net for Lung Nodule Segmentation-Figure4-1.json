@@ -1,0 +1,1476 @@
+{
+ "architecture_name": "2110.05144v1_AWEU-Net An Attention-Aware Weight Excitation U-Net for Lung Nodule Segmentation-Figure4-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_in",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$224 \\times 224 \\times 1$",
+   "properties": {
+    "dimensions": [
+     224,
+     224,
+     1
+    ]
+   }
+  },
+  {
+   "id": "l_enc1_1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "PAWE conv $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "d_enc1_1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$224 \\times 224 \\times 64$",
+   "properties": {
+    "dimensions": [
+     224,
+     224,
+     64
+    ]
+   }
+  },
+  {
+   "id": "l_enc1_2",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "PAWE conv $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "d_enc1_2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$224 \\times 224 \\times 64$",
+   "properties": {
+    "dimensions": [
+     224,
+     224,
+     64
+    ]
+   }
+  },
+  {
+   "id": "o_copy_enc1",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "copy and crop",
+   "properties": {
+    "algorithm": "Slice"
+   }
+  },
+  {
+   "id": "o_cat_cawe1",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "concatenation",
+   "properties": {}
+  },
+  {
+   "id": "l_cawe1",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "CAWE",
+   "properties": {
+    "name": "CAWE"
+   }
+  },
+  {
+   "id": "o_copy_cawe1",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "copy and crop",
+   "properties": {
+    "algorithm": "Slice"
+   }
+  },
+  {
+   "id": "o_pool1",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "max pool $2 \\times 2$",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ],
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "o_up_main1",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "up-conv $2 \\times 2$",
+   "properties": {
+    "algorithm": "ResizeNearest"
+   }
+  },
+  {
+   "id": "d_pool1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$112 \\times 112 \\times 64$",
+   "properties": {
+    "dimensions": [
+     112,
+     112,
+     64
+    ]
+   }
+  },
+  {
+   "id": "l_enc2_1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "PAWE conv $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "d_enc2_1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$112 \\times 112 \\times 128$",
+   "properties": {
+    "dimensions": [
+     112,
+     112,
+     128
+    ]
+   }
+  },
+  {
+   "id": "l_enc2_2",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "PAWE conv $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "d_enc2_2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$112 \\times 112 \\times 128$",
+   "properties": {
+    "dimensions": [
+     112,
+     112,
+     128
+    ]
+   }
+  },
+  {
+   "id": "o_copy_enc2",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "copy and crop",
+   "properties": {
+    "algorithm": "Slice"
+   }
+  },
+  {
+   "id": "o_cat_cawe2",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "concatenation",
+   "properties": {}
+  },
+  {
+   "id": "l_cawe2",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "CAWE",
+   "properties": {
+    "name": "CAWE"
+   }
+  },
+  {
+   "id": "o_copy_cawe2",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "copy and crop",
+   "properties": {
+    "algorithm": "Slice"
+   }
+  },
+  {
+   "id": "o_pool2",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "max pool $2 \\times 2$",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ],
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "o_up_main2",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "up-conv $2 \\times 2$",
+   "properties": {
+    "algorithm": "ResizeNearest"
+   }
+  },
+  {
+   "id": "d_pool2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$56 \\times 56 \\times 128$",
+   "properties": {
+    "dimensions": [
+     56,
+     56,
+     128
+    ]
+   }
+  },
+  {
+   "id": "l_enc3_1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "PAWE conv $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "d_enc3_1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$56 \\times 56 \\times 256$",
+   "properties": {
+    "dimensions": [
+     56,
+     56,
+     256
+    ]
+   }
+  },
+  {
+   "id": "l_enc3_2",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "PAWE conv $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "d_enc3_2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$56 \\times 56 \\times 256$",
+   "properties": {
+    "dimensions": [
+     56,
+     56,
+     256
+    ]
+   }
+  },
+  {
+   "id": "o_copy_enc3",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "copy and crop",
+   "properties": {
+    "algorithm": "Slice"
+   }
+  },
+  {
+   "id": "o_cat_cawe3",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "concatenation",
+   "properties": {}
+  },
+  {
+   "id": "l_cawe3",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "CAWE",
+   "properties": {
+    "name": "CAWE"
+   }
+  },
+  {
+   "id": "o_copy_cawe3",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "copy and crop",
+   "properties": {
+    "algorithm": "Slice"
+   }
+  },
+  {
+   "id": "o_pool3",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "max pool $2 \\times 2$",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ],
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "o_up_main3",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "up-conv $2 \\times 2$",
+   "properties": {
+    "algorithm": "ResizeNearest"
+   }
+  },
+  {
+   "id": "d_pool3",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$28 \\times 28 \\times 256$",
+   "properties": {
+    "dimensions": [
+     28,
+     28,
+     256
+    ]
+   }
+  },
+  {
+   "id": "l_enc4_1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "PAWE conv $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "d_enc4_1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$28 \\times 28 \\times 512$",
+   "properties": {
+    "dimensions": [
+     28,
+     28,
+     512
+    ]
+   }
+  },
+  {
+   "id": "l_enc4_2",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "PAWE conv $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "d_enc4_2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$28 \\times 28 \\times 512$",
+   "properties": {
+    "dimensions": [
+     28,
+     28,
+     512
+    ]
+   }
+  },
+  {
+   "id": "o_pool4",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "max pool $2 \\times 2$",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ],
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_cawe4",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "CAWE",
+   "properties": {
+    "name": "CAWE"
+   }
+  },
+  {
+   "id": "o_up_main4",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "up-conv $2 \\times 2$",
+   "properties": {
+    "algorithm": "ResizeNearest"
+   }
+  },
+  {
+   "id": "d_pool4",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$16 \\times 16 \\times 512$",
+   "properties": {
+    "dimensions": [
+     16,
+     16,
+     512
+    ]
+   }
+  },
+  {
+   "id": "l_bot_1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "PAWE conv $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "d_bot_1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$16 \\times 16 \\times 1024$",
+   "properties": {
+    "dimensions": [
+     16,
+     16,
+     1024
+    ]
+   }
+  },
+  {
+   "id": "l_bot_2",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "PAWE conv $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "d_bot_2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$16 \\times 16 \\times 512$",
+   "properties": {
+    "dimensions": [
+     16,
+     16,
+     512
+    ]
+   }
+  },
+  {
+   "id": "o_cat_dec4",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "concatenation",
+   "properties": {}
+  },
+  {
+   "id": "d_dec4_1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$28 \\times 28 \\times 1024$",
+   "properties": {
+    "dimensions": [
+     28,
+     28,
+     1024
+    ]
+   }
+  },
+  {
+   "id": "l_dec4_1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "PAWE conv $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "d_dec4_2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$28 \\times 28 \\times 512$",
+   "properties": {
+    "dimensions": [
+     28,
+     28,
+     512
+    ]
+   }
+  },
+  {
+   "id": "l_dec4_2",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "PAWE conv $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "d_dec4_3",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$28 \\times 28 \\times 512$",
+   "properties": {
+    "dimensions": [
+     28,
+     28,
+     512
+    ]
+   }
+  },
+  {
+   "id": "o_cat_dec3",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "concatenation",
+   "properties": {}
+  },
+  {
+   "id": "d_dec3_1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$56 \\times 56 \\times 512$",
+   "properties": {
+    "dimensions": [
+     56,
+     56,
+     512
+    ]
+   }
+  },
+  {
+   "id": "l_dec3_1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "PAWE conv $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "d_dec3_2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$56 \\times 56 \\times 256$",
+   "properties": {
+    "dimensions": [
+     56,
+     56,
+     256
+    ]
+   }
+  },
+  {
+   "id": "l_dec3_2",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "PAWE conv $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "d_dec3_3",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$56 \\times 56 \\times 256$",
+   "properties": {
+    "dimensions": [
+     56,
+     56,
+     256
+    ]
+   }
+  },
+  {
+   "id": "o_cat_dec2",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "concatenation",
+   "properties": {}
+  },
+  {
+   "id": "d_dec2_1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$112 \\times 112 \\times 256$",
+   "properties": {
+    "dimensions": [
+     112,
+     112,
+     256
+    ]
+   }
+  },
+  {
+   "id": "l_dec2_1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "PAWE conv $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "d_dec2_2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$112 \\times 112 \\times 128$",
+   "properties": {
+    "dimensions": [
+     112,
+     112,
+     128
+    ]
+   }
+  },
+  {
+   "id": "l_dec2_2",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "PAWE conv $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "d_dec2_3",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$112 \\times 112 \\times 128$",
+   "properties": {
+    "dimensions": [
+     112,
+     112,
+     128
+    ]
+   }
+  },
+  {
+   "id": "o_cat_dec1",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "concatenation",
+   "properties": {}
+  },
+  {
+   "id": "d_dec1_1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$224 \\times 224 \\times 128$",
+   "properties": {
+    "dimensions": [
+     224,
+     224,
+     128
+    ]
+   }
+  },
+  {
+   "id": "l_dec1_1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "PAWE conv $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "d_dec1_2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$224 \\times 224 \\times 64$",
+   "properties": {
+    "dimensions": [
+     224,
+     224,
+     64
+    ]
+   }
+  },
+  {
+   "id": "l_dec1_2",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "PAWE conv $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "d_dec1_3",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$224 \\times 224 \\times 64$",
+   "properties": {
+    "dimensions": [
+     224,
+     224,
+     64
+    ]
+   }
+  },
+  {
+   "id": "l_out_conv",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv $1 \\times 1$",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "d_out",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "$224 \\times 224 \\times 2$",
+   "properties": {
+    "dimensions": [
+     224,
+     224,
+     2
+    ]
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "d_in",
+   "target": "l_enc1_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc1_1",
+   "target": "d_enc1_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc1_1",
+   "target": "l_enc1_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc1_2",
+   "target": "d_enc1_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc1_2",
+   "target": "o_pool1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_pool1",
+   "target": "d_pool1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_pool1",
+   "target": "l_enc2_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc2_1",
+   "target": "d_enc2_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc2_1",
+   "target": "l_enc2_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc2_2",
+   "target": "d_enc2_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc2_2",
+   "target": "o_pool2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_pool2",
+   "target": "d_pool2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_pool2",
+   "target": "l_enc3_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc3_1",
+   "target": "d_enc3_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc3_1",
+   "target": "l_enc3_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc3_2",
+   "target": "d_enc3_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc3_2",
+   "target": "o_pool3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_pool3",
+   "target": "d_pool3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_pool3",
+   "target": "l_enc4_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc4_1",
+   "target": "d_enc4_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc4_1",
+   "target": "l_enc4_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc4_2",
+   "target": "d_enc4_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc4_2",
+   "target": "o_pool4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_pool4",
+   "target": "d_pool4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_pool4",
+   "target": "l_bot_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_bot_1",
+   "target": "d_bot_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_bot_1",
+   "target": "l_bot_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_bot_2",
+   "target": "d_bot_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc1_2",
+   "target": "o_copy_enc1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc2_2",
+   "target": "o_copy_enc2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc3_2",
+   "target": "o_copy_enc3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc4_2",
+   "target": "l_cawe4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_bot_2",
+   "target": "o_up_main4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_cat_dec4",
+   "target": "d_dec4_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_dec4_1",
+   "target": "l_dec4_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec4_1",
+   "target": "d_dec4_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_dec4_2",
+   "target": "l_dec4_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec4_2",
+   "target": "d_dec4_3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_dec4_3",
+   "target": "o_up_main3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_cat_dec3",
+   "target": "d_dec3_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_dec3_1",
+   "target": "l_dec3_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec3_1",
+   "target": "d_dec3_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_dec3_2",
+   "target": "l_dec3_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec3_2",
+   "target": "d_dec3_3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_dec3_3",
+   "target": "o_up_main2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_cat_dec2",
+   "target": "d_dec2_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_dec2_1",
+   "target": "l_dec2_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec2_1",
+   "target": "d_dec2_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_dec2_2",
+   "target": "l_dec2_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec2_2",
+   "target": "d_dec2_3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_dec2_3",
+   "target": "o_up_main1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_cat_dec1",
+   "target": "d_dec1_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_dec1_1",
+   "target": "l_dec1_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec1_1",
+   "target": "d_dec1_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_dec1_2",
+   "target": "l_dec1_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec1_2",
+   "target": "d_dec1_3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_dec1_3",
+   "target": "l_out_conv",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_out_conv",
+   "target": "d_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc3_2",
+   "target": "o_cat_cawe2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc4_2",
+   "target": "o_cat_cawe3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc2_2",
+   "target": "o_cat_cawe1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_copy_enc1",
+   "target": "o_cat_cawe1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_copy_enc2",
+   "target": "o_cat_cawe2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_copy_enc3",
+   "target": "o_cat_cawe3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_cat_cawe2",
+   "target": "l_cawe2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_cat_cawe1",
+   "target": "l_cawe1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_cat_cawe3",
+   "target": "l_cawe3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_up_main4",
+   "target": "o_cat_dec4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_cawe4",
+   "target": "o_cat_dec4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_up_main3",
+   "target": "o_cat_dec3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_up_main2",
+   "target": "o_cat_dec2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_up_main1",
+   "target": "o_cat_dec1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_cawe1",
+   "target": "o_copy_cawe1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_cawe2",
+   "target": "o_copy_cawe2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_cawe3",
+   "target": "o_copy_cawe3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_copy_cawe2",
+   "target": "o_cat_dec2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_copy_cawe1",
+   "target": "o_cat_dec1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_copy_cawe3",
+   "target": "o_cat_dec3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_cawe4",
+   "target": "o_cat_dec3",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_cawe3",
+   "target": "o_cat_dec2",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_cawe2",
+   "target": "o_cat_dec1",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": []
+}

@@ -1,0 +1,363 @@
+{
+ "architecture_name": "1409.4842v1_Going_Deeper_with_Convolutions-Figure2-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_prev_a",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "Previous layer",
+   "properties": {
+    "name": "Previous layer"
+   }
+  },
+  {
+   "id": "l_1x1_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$1 \\times 1$ convolutions",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "l_3x3_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ convolutions",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_5x5_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$5 \\times 5$ convolutions",
+   "properties": {
+    "kernel": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "id": "o_pool_a",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "$3 \\times 3$ max pooling",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "o_concat_a",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "Filter concatenation",
+   "properties": {
+    "dim": "channel"
+   }
+  },
+  {
+   "id": "d_prev_b",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "Previous layer",
+   "properties": {
+    "name": "Previous layer"
+   }
+  },
+  {
+   "id": "l_1x1_b1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$1 \\times 1$ convolutions",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "l_1x1_b2",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$1 \\times 1$ convolutions",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "l_3x3_b",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ convolutions",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_1x1_b3",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$1 \\times 1$ convolutions",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "l_5x5_b",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$5 \\times 5$ convolutions",
+   "properties": {
+    "kernel": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "id": "o_pool_b",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "$3 \\times 3$ max pooling",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_1x1_b4",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$1 \\times 1$ convolutions",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "o_concat_b",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "Filter concatenation",
+   "properties": {
+    "dim": "channel"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "d_prev_a",
+   "target": "l_1x1_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_prev_a",
+   "target": "l_3x3_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_prev_a",
+   "target": "l_5x5_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_prev_a",
+   "target": "o_pool_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_1x1_a",
+   "target": "o_concat_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_3x3_a",
+   "target": "o_concat_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_5x5_a",
+   "target": "o_concat_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_pool_a",
+   "target": "o_concat_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_prev_b",
+   "target": "l_1x1_b1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_prev_b",
+   "target": "l_1x1_b2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_prev_b",
+   "target": "l_1x1_b3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_prev_b",
+   "target": "o_pool_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_1x1_b2",
+   "target": "l_3x3_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_1x1_b3",
+   "target": "l_5x5_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_pool_b",
+   "target": "l_1x1_b4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_1x1_b1",
+   "target": "o_concat_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_3x3_b",
+   "target": "o_concat_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_5x5_b",
+   "target": "o_concat_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_1x1_b4",
+   "target": "o_concat_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "group_lbl_a",
+   "type": "container",
+   "label": "(a) Inception module, na\u00efve version",
+   "boundary_type": "implicit_header",
+   "member_node_ids": [
+    "l_3x3_a",
+    "l_5x5_a",
+    "d_prev_a",
+    "o_concat_a",
+    "o_pool_a",
+    "l_1x1_a"
+   ]
+  },
+  {
+   "id": "group_lbl_b",
+   "type": "container",
+   "label": "(b) Inception module with dimension reductions",
+   "boundary_type": "implicit_header",
+   "member_node_ids": [
+    "l_3x3_b",
+    "l_1x1_b2",
+    "l_5x5_b",
+    "l_1x1_b3",
+    "o_pool_b",
+    "l_1x1_b1",
+    "d_prev_b",
+    "o_concat_b",
+    "l_1x1_b4"
+   ]
+  }
+ ]
+}

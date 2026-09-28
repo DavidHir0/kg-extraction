@@ -1,0 +1,671 @@
+{
+ "architecture_name": "2110.05144v1_AWEU-Net An Attention-Aware Weight Excitation U-Net for Lung Nodule Segmentation-Figure5-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "n5",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$\\mathbf{Y}$",
+   "properties": {
+    "symbol": "Y",
+    "dimensions": [
+     "C",
+     "H",
+     "W"
+    ]
+   }
+  },
+  {
+   "id": "n6",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "$\\mathbf{\\hat{Y}}$",
+   "properties": {
+    "symbol": "Y",
+    "dimensions": [
+     "C",
+     "H",
+     "W"
+    ]
+   }
+  },
+  {
+   "id": "n7",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\mathbf{A}$",
+   "properties": {
+    "symbol": "A",
+    "dimensions": [
+     "C/8",
+     "H",
+     "W"
+    ]
+   }
+  },
+  {
+   "id": "n8",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\mathbf{B}$",
+   "properties": {
+    "symbol": "B",
+    "dimensions": [
+     "C/8",
+     "H",
+     "W"
+    ]
+   }
+  },
+  {
+   "id": "n9",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\mathbf{C}$",
+   "properties": {
+    "symbol": "C",
+    "dimensions": [
+     "C",
+     "H",
+     "W"
+    ]
+   }
+  },
+  {
+   "id": "n10",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\mathbf{D}$",
+   "properties": {
+    "symbol": "D",
+    "dimensions": [
+     "HxW",
+     "HxW"
+    ]
+   }
+  },
+  {
+   "id": "n11",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\mathbf{F}$",
+   "properties": {
+    "symbol": "F",
+    "dimensions": [
+     "C",
+     "H",
+     "W"
+    ]
+   }
+  },
+  {
+   "id": "n12",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\mathbf{F}$",
+   "properties": {
+    "symbol": "F",
+    "dimensions": [
+     "C",
+     "H",
+     "W"
+    ]
+   }
+  },
+  {
+   "id": "n28",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "reshape",
+   "properties": {
+    "algorithm": "Reshape"
+   }
+  },
+  {
+   "id": "n29",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "transpose",
+   "properties": {
+    "algorithm": "Transpose"
+   }
+  },
+  {
+   "id": "n15",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$H \\times W \\times C/8$",
+   "properties": {
+    "dimensions": [
+     "H",
+     "W",
+     "C/8"
+    ]
+   }
+  },
+  {
+   "id": "n30",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "reshape",
+   "properties": {
+    "algorithm": "Reshape"
+   }
+  },
+  {
+   "id": "n40",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "Multiplication",
+   "properties": {
+    "mechanism": "MatMul"
+   }
+  },
+  {
+   "id": "n31",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "softmax",
+   "properties": {
+    "algorithm": "Softmax"
+   }
+  },
+  {
+   "id": "n32",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "reshape",
+   "properties": {
+    "algorithm": "Reshape"
+   }
+  },
+  {
+   "id": "n41",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "Multiplication",
+   "properties": {
+    "mechanism": "MatMul"
+   }
+  },
+  {
+   "id": "n33",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "reshape",
+   "properties": {
+    "algorithm": "Reshape"
+   }
+  },
+  {
+   "id": "n42",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "Addition",
+   "properties": {}
+  },
+  {
+   "id": "n34",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Average Pooling 1",
+   "properties": {
+    "kernel": [],
+    "algorithm": "AveragePool"
+   }
+  },
+  {
+   "id": "n22",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$C$",
+   "properties": {
+    "symbol": "C"
+   }
+  },
+  {
+   "id": "n35",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "Fully Connected 1",
+   "properties": {}
+  },
+  {
+   "id": "n23",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$C/16$",
+   "properties": {
+    "symbol": "C/16"
+   }
+  },
+  {
+   "id": "n36",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n24",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$C/16$",
+   "properties": {
+    "symbol": "C/16"
+   }
+  },
+  {
+   "id": "n37",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "Fully Connected 2",
+   "properties": {}
+  },
+  {
+   "id": "n25",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$C$",
+   "properties": {
+    "symbol": "C"
+   }
+  },
+  {
+   "id": "n38",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Sigmoid",
+   "properties": {
+    "algorithm": "Sigmoid"
+   }
+  },
+  {
+   "id": "n26",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$C$",
+   "properties": {
+    "symbol": "C"
+   }
+  },
+  {
+   "id": "n39",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "Reshape",
+   "properties": {
+    "algorithm": "Reshape"
+   }
+  },
+  {
+   "id": "n27",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$C \\times H \\times W$",
+   "properties": {
+    "dimensions": [
+     "C",
+     "H",
+     "W"
+    ]
+   }
+  },
+  {
+   "id": "n43",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "Multiplication",
+   "properties": {
+    "mechanism": "Mul"
+   }
+  },
+  {
+   "id": "n44",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "Addition",
+   "properties": {}
+  }
+ ],
+ "edges": [
+  {
+   "source": "n5",
+   "target": "n7",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n5",
+   "target": "n8",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n5",
+   "target": "n9",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n5",
+   "target": "n42",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n5",
+   "target": "n34",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n5",
+   "target": "n43",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n7",
+   "target": "n28",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n28",
+   "target": "n29",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n29",
+   "target": "n15",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n15",
+   "target": "n40",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n8",
+   "target": "n30",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n30",
+   "target": "n40",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n40",
+   "target": "n31",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n31",
+   "target": "n10",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n10",
+   "target": "n41",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n9",
+   "target": "n32",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n32",
+   "target": "n41",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n41",
+   "target": "n33",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n33",
+   "target": "n42",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n42",
+   "target": "n11",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n11",
+   "target": "n44",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n34",
+   "target": "n22",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n22",
+   "target": "n35",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n35",
+   "target": "n23",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n23",
+   "target": "n36",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n36",
+   "target": "n24",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n24",
+   "target": "n37",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n37",
+   "target": "n25",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n25",
+   "target": "n38",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n38",
+   "target": "n26",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n26",
+   "target": "n39",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n39",
+   "target": "n27",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n27",
+   "target": "n43",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n43",
+   "target": "n12",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n12",
+   "target": "n44",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n44",
+   "target": "n6",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "c_pos",
+   "type": "container",
+   "label": "Position Attention Block",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "n33",
+    "n30",
+    "n41",
+    "n42",
+    "n29",
+    "n32",
+    "n10",
+    "n28",
+    "n40",
+    "n7",
+    "n8",
+    "n31",
+    "n11",
+    "n9",
+    "n15"
+   ]
+  },
+  {
+   "id": "c_wei",
+   "type": "container",
+   "label": "Weight Excitation Block",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "n26",
+    "n43",
+    "n34",
+    "n38",
+    "n27",
+    "n37",
+    "n36",
+    "n35",
+    "n22",
+    "n23",
+    "n25",
+    "n39",
+    "n12",
+    "n24"
+   ]
+  }
+ ]
+}

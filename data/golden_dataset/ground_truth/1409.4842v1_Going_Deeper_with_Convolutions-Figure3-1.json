@@ -1,0 +1,2022 @@
+{
+ "architecture_name": "1409.4842v1_Going_Deeper_with_Convolutions-Figure3-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_input",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "input",
+   "properties": {}
+  },
+  {
+   "id": "l_conv1_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $7 \\times 7$+2(S)",
+   "properties": {
+    "kernel": [
+     7,
+     7
+    ],
+    "stride": 2
+   }
+  },
+  {
+   "id": "o_pool1",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "MaxPool $3 \\times 3$+2(S)",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": 2,
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "o_lrn1",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "LocalRespNorm",
+   "properties": {
+    "algorithm": "LRN"
+   }
+  },
+  {
+   "id": "l_conv2_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(V)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_conv3_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$+1(S)",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "o_lrn2",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "LocalRespNorm",
+   "properties": {
+    "algorithm": "LRN"
+   }
+  },
+  {
+   "id": "o_pool2",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "MaxPool $3 \\times 3$+2(S)",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": 2,
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_i3a_1x1_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i3a_3x3_r_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i3a_3x3_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$+1(S)",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i3a_5x5_r_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i3a_5x5_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $5 \\times 5$+1(S)",
+   "properties": {
+    "kernel": [
+     5,
+     5
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "o_i3a_pool",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "MaxPool $3 \\times 3$+1(S)",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": 1,
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_i3a_proj_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "o_i3a_concat",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "DepthConcat",
+   "properties": {
+    "dim": "channel"
+   }
+  },
+  {
+   "id": "l_i3b_1x1_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i3b_3x3_r_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i3b_3x3_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$+1(S)",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i3b_5x5_r_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i3b_5x5_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $5 \\times 5$+1(S)",
+   "properties": {
+    "kernel": [
+     5,
+     5
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "o_i3b_pool",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "MaxPool $3 \\times 3$+1(S)",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": 1,
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_i3b_proj_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "o_i3b_concat",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "DepthConcat",
+   "properties": {
+    "dim": "channel"
+   }
+  },
+  {
+   "id": "o_pool3",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "MaxPool $3 \\times 3$+2(S)",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": 2,
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_i4a_1x1_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i4a_3x3_r_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i4a_3x3_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$+1(S)",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i4a_5x5_r_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i4a_5x5_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $5 \\times 5$+1(S)",
+   "properties": {
+    "kernel": [
+     5,
+     5
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "o_i4a_pool",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "MaxPool $3 \\times 3$+1(S)",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": 1,
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_i4a_proj_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "o_i4a_concat",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "DepthConcat",
+   "properties": {
+    "dim": "channel"
+   }
+  },
+  {
+   "id": "o_a0_pool",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "AveragePool $5 \\times 5$+3(V)",
+   "properties": {
+    "kernel": [
+     5,
+     5
+    ],
+    "stride": 3,
+    "algorithm": "AveragePool"
+   }
+  },
+  {
+   "id": "l_a0_conv_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_a0_fc1",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "FC",
+   "properties": {}
+  },
+  {
+   "id": "l_a0_fc2",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "FC",
+   "properties": {}
+  },
+  {
+   "id": "o_a0_soft",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "SoftmaxActivation",
+   "properties": {
+    "algorithm": "Softmax"
+   }
+  },
+  {
+   "id": "d_a0_out",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "softmax0",
+   "properties": {
+    "name": "softmax0",
+    "dimensions": [
+     "softma",
+     0
+    ]
+   }
+  },
+  {
+   "id": "l_i4b_1x1_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i4b_3x3_r_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i4b_3x3_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$+1(S)",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i4b_5x5_r_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i4b_5x5_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $5 \\times 5$+1(S)",
+   "properties": {
+    "kernel": [
+     5,
+     5
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "o_i4b_pool",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "MaxPool $3 \\times 3$+1(S)",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": 1,
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_i4b_proj_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "o_i4b_concat",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "DepthConcat",
+   "properties": {
+    "dim": "channel"
+   }
+  },
+  {
+   "id": "l_i4c_1x1_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i4c_3x3_r_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i4c_3x3_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$+1(S)",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i4c_5x5_r_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i4c_5x5_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $5 \\times 5$+1(S)",
+   "properties": {
+    "kernel": [
+     5,
+     5
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "o_i4c_pool",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "MaxPool $3 \\times 3$+1(S)",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": 1,
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_i4c_proj_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "o_i4c_concat",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "DepthConcat",
+   "properties": {
+    "dim": "channel"
+   }
+  },
+  {
+   "id": "l_i4d_1x1_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i4d_3x3_r_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i4d_3x3_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$+1(S)",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i4d_5x5_r_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i4d_5x5_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $5 \\times 5$+1(S)",
+   "properties": {
+    "kernel": [
+     5,
+     5
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "o_i4d_pool",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "MaxPool $3 \\times 3$+1(S)",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": 1,
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_i4d_proj_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "o_i4d_concat",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "DepthConcat",
+   "properties": {
+    "dim": "channel"
+   }
+  },
+  {
+   "id": "o_a1_pool",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "AveragePool $5 \\times 5$+3(V)",
+   "properties": {
+    "kernel": [
+     5,
+     5
+    ],
+    "stride": 3,
+    "algorithm": "AveragePool"
+   }
+  },
+  {
+   "id": "l_a1_conv_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_a1_fc1",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "FC",
+   "properties": {}
+  },
+  {
+   "id": "l_a1_fc2",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "FC",
+   "properties": {}
+  },
+  {
+   "id": "o_a1_soft",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "SoftmaxActivation",
+   "properties": {
+    "algorithm": "Softmax"
+   }
+  },
+  {
+   "id": "d_a1_out",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "softmax1",
+   "properties": {
+    "name": "softmax1",
+    "dimensions": [
+     "softma",
+     1
+    ]
+   }
+  },
+  {
+   "id": "l_i4e_1x1_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i4e_3x3_r_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i4e_3x3_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$+1(S)",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i4e_5x5_r_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i4e_5x5_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $5 \\times 5$+1(S)",
+   "properties": {
+    "kernel": [
+     5,
+     5
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "o_i4e_pool",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "MaxPool $3 \\times 3$+1(S)",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": 1,
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_i4e_proj_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "o_i4e_concat",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "DepthConcat",
+   "properties": {
+    "dim": "channel"
+   }
+  },
+  {
+   "id": "o_pool4",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "MaxPool $3 \\times 3$+2(S)",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": 2,
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_i5a_1x1_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i5a_3x3_r_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i5a_3x3_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$+1(S)",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i5a_5x5_r_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i5a_5x5_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $5 \\times 5$+1(S)",
+   "properties": {
+    "kernel": [
+     5,
+     5
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "o_i5a_pool",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "MaxPool $3 \\times 3$+1(S)",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": 1,
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_i5a_proj_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "o_i5a_concat",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "DepthConcat",
+   "properties": {
+    "dim": "channel"
+   }
+  },
+  {
+   "id": "l_i5b_1x1_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i5b_3x3_r_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i5b_3x3_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$+1(S)",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i5b_5x5_r_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "l_i5b_5x5_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $5 \\times 5$+1(S)",
+   "properties": {
+    "kernel": [
+     5,
+     5
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "o_i5b_pool",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "MaxPool $3 \\times 3$+1(S)",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": 1,
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_i5b_proj_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$+1(S)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "o_i5b_concat",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "DepthConcat",
+   "properties": {
+    "dim": "channel"
+   }
+  },
+  {
+   "id": "o_out_pool",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "AveragePool $7 \\times 7$+1(V)",
+   "properties": {
+    "kernel": [
+     7,
+     7
+    ],
+    "stride": 1,
+    "algorithm": "AveragePool"
+   }
+  },
+  {
+   "id": "l_out_fc",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "FC",
+   "properties": {}
+  },
+  {
+   "id": "o_out_soft",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "SoftmaxActivation",
+   "properties": {
+    "algorithm": "Softmax"
+   }
+  },
+  {
+   "id": "d_out_final",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "softmax2",
+   "properties": {
+    "name": "softmax2",
+    "dimensions": [
+     "softma",
+     2
+    ]
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "d_input",
+   "target": "l_conv1_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_pool1",
+   "target": "o_lrn1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_lrn1",
+   "target": "l_conv2_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_lrn2",
+   "target": "o_pool2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_pool2",
+   "target": "l_i3a_1x1_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_pool2",
+   "target": "l_i3a_3x3_r_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_pool2",
+   "target": "l_i3a_5x5_r_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_pool2",
+   "target": "o_i3a_pool",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i3a_pool",
+   "target": "l_i3a_proj_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i3a_concat",
+   "target": "l_i3b_1x1_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i3a_concat",
+   "target": "l_i3b_3x3_r_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i3a_concat",
+   "target": "l_i3b_5x5_r_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i3a_concat",
+   "target": "o_i3b_pool",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i3b_pool",
+   "target": "l_i3b_proj_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i3b_concat",
+   "target": "o_pool3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_pool3",
+   "target": "l_i4a_1x1_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_pool3",
+   "target": "l_i4a_3x3_r_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_pool3",
+   "target": "l_i4a_5x5_r_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_pool3",
+   "target": "o_i4a_pool",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i4a_pool",
+   "target": "l_i4a_proj_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i4a_concat",
+   "target": "o_a0_pool",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_a0_pool",
+   "target": "l_a0_conv_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_a0_fc1",
+   "target": "l_a0_fc2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_a0_fc2",
+   "target": "o_a0_soft",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_a0_soft",
+   "target": "d_a0_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i4a_concat",
+   "target": "l_i4b_1x1_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i4a_concat",
+   "target": "l_i4b_3x3_r_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i4a_concat",
+   "target": "l_i4b_5x5_r_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i4a_concat",
+   "target": "o_i4b_pool",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i4b_pool",
+   "target": "l_i4b_proj_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i4b_concat",
+   "target": "l_i4c_1x1_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i4b_concat",
+   "target": "l_i4c_3x3_r_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i4b_concat",
+   "target": "l_i4c_5x5_r_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i4b_concat",
+   "target": "o_i4c_pool",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i4c_pool",
+   "target": "l_i4c_proj_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i4c_concat",
+   "target": "l_i4d_1x1_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i4c_concat",
+   "target": "l_i4d_3x3_r_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i4c_concat",
+   "target": "l_i4d_5x5_r_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i4c_concat",
+   "target": "o_i4d_pool",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i4d_pool",
+   "target": "l_i4d_proj_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i4d_concat",
+   "target": "o_a1_pool",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_a1_pool",
+   "target": "l_a1_conv_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_a1_fc1",
+   "target": "l_a1_fc2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_a1_fc2",
+   "target": "o_a1_soft",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_a1_soft",
+   "target": "d_a1_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i4d_concat",
+   "target": "l_i4e_1x1_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i4d_concat",
+   "target": "l_i4e_3x3_r_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i4d_concat",
+   "target": "l_i4e_5x5_r_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i4d_concat",
+   "target": "o_i4e_pool",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i4e_pool",
+   "target": "l_i4e_proj_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i4e_concat",
+   "target": "o_pool4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_pool4",
+   "target": "l_i5a_1x1_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_pool4",
+   "target": "l_i5a_3x3_r_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_pool4",
+   "target": "l_i5a_5x5_r_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_pool4",
+   "target": "o_i5a_pool",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i5a_pool",
+   "target": "l_i5a_proj_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i5a_concat",
+   "target": "l_i5b_1x1_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i5a_concat",
+   "target": "l_i5b_3x3_r_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i5a_concat",
+   "target": "l_i5b_5x5_r_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i5a_concat",
+   "target": "o_i5b_pool",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i5b_pool",
+   "target": "l_i5b_proj_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_i5b_concat",
+   "target": "o_out_pool",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_out_pool",
+   "target": "l_out_fc",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_out_fc",
+   "target": "o_out_soft",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_out_soft",
+   "target": "d_out_final",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv1_a",
+   "target": "o_pool1",
+   "role": "forward"
+  },
+  {
+   "source": "l_conv2_a",
+   "target": "l_conv3_a",
+   "role": "forward"
+  },
+  {
+   "source": "l_conv3_a",
+   "target": "o_lrn2",
+   "role": "forward"
+  },
+  {
+   "source": "l_i3a_1x1_a",
+   "target": "o_i3a_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_i3a_3x3_r_a",
+   "target": "l_i3a_3x3_a",
+   "role": "forward"
+  },
+  {
+   "source": "l_i3a_3x3_a",
+   "target": "o_i3a_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_i3a_5x5_r_a",
+   "target": "l_i3a_5x5_a",
+   "role": "forward"
+  },
+  {
+   "source": "l_i3a_5x5_a",
+   "target": "o_i3a_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_i3a_proj_a",
+   "target": "o_i3a_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_i3b_1x1_a",
+   "target": "o_i3b_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_i3b_3x3_r_a",
+   "target": "l_i3b_3x3_a",
+   "role": "forward"
+  },
+  {
+   "source": "l_i3b_3x3_a",
+   "target": "o_i3b_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_i3b_5x5_r_a",
+   "target": "l_i3b_5x5_a",
+   "role": "forward"
+  },
+  {
+   "source": "l_i3b_5x5_a",
+   "target": "o_i3b_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_i3b_proj_a",
+   "target": "o_i3b_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_i4a_1x1_a",
+   "target": "o_i4a_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_i4a_3x3_r_a",
+   "target": "l_i4a_3x3_a",
+   "role": "forward"
+  },
+  {
+   "source": "l_i4a_3x3_a",
+   "target": "o_i4a_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_i4a_5x5_r_a",
+   "target": "l_i4a_5x5_a",
+   "role": "forward"
+  },
+  {
+   "source": "l_i4a_5x5_a",
+   "target": "o_i4a_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_i4a_proj_a",
+   "target": "o_i4a_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_a0_conv_a",
+   "target": "l_a0_fc1",
+   "role": "forward"
+  },
+  {
+   "source": "l_i4b_1x1_a",
+   "target": "o_i4b_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_i4b_3x3_r_a",
+   "target": "l_i4b_3x3_a",
+   "role": "forward"
+  },
+  {
+   "source": "l_i4b_3x3_a",
+   "target": "o_i4b_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_i4b_5x5_r_a",
+   "target": "l_i4b_5x5_a",
+   "role": "forward"
+  },
+  {
+   "source": "l_i4b_5x5_a",
+   "target": "o_i4b_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_i4b_proj_a",
+   "target": "o_i4b_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_i4c_1x1_a",
+   "target": "o_i4c_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_i4c_3x3_r_a",
+   "target": "l_i4c_3x3_a",
+   "role": "forward"
+  },
+  {
+   "source": "l_i4c_3x3_a",
+   "target": "o_i4c_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_i4c_5x5_r_a",
+   "target": "l_i4c_5x5_a",
+   "role": "forward"
+  },
+  {
+   "source": "l_i4c_5x5_a",
+   "target": "o_i4c_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_i4c_proj_a",
+   "target": "o_i4c_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_i4d_1x1_a",
+   "target": "o_i4d_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_i4d_3x3_r_a",
+   "target": "l_i4d_3x3_a",
+   "role": "forward"
+  },
+  {
+   "source": "l_i4d_3x3_a",
+   "target": "o_i4d_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_i4d_5x5_r_a",
+   "target": "l_i4d_5x5_a",
+   "role": "forward"
+  },
+  {
+   "source": "l_i4d_5x5_a",
+   "target": "o_i4d_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_i4d_proj_a",
+   "target": "o_i4d_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_a1_conv_a",
+   "target": "l_a1_fc1",
+   "role": "forward"
+  },
+  {
+   "source": "l_i4e_1x1_a",
+   "target": "o_i4e_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_i4e_3x3_r_a",
+   "target": "l_i4e_3x3_a",
+   "role": "forward"
+  },
+  {
+   "source": "l_i4e_3x3_a",
+   "target": "o_i4e_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_i4e_5x5_r_a",
+   "target": "l_i4e_5x5_a",
+   "role": "forward"
+  },
+  {
+   "source": "l_i4e_5x5_a",
+   "target": "o_i4e_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_i4e_proj_a",
+   "target": "o_i4e_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_i5a_1x1_a",
+   "target": "o_i5a_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_i5a_3x3_r_a",
+   "target": "l_i5a_3x3_a",
+   "role": "forward"
+  },
+  {
+   "source": "l_i5a_3x3_a",
+   "target": "o_i5a_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_i5a_5x5_r_a",
+   "target": "l_i5a_5x5_a",
+   "role": "forward"
+  },
+  {
+   "source": "l_i5a_5x5_a",
+   "target": "o_i5a_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_i5a_proj_a",
+   "target": "o_i5a_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_i5b_1x1_a",
+   "target": "o_i5b_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_i5b_3x3_r_a",
+   "target": "l_i5b_3x3_a",
+   "role": "forward"
+  },
+  {
+   "source": "l_i5b_3x3_a",
+   "target": "o_i5b_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_i5b_5x5_r_a",
+   "target": "l_i5b_5x5_a",
+   "role": "forward"
+  },
+  {
+   "source": "l_i5b_5x5_a",
+   "target": "o_i5b_concat",
+   "role": "forward"
+  },
+  {
+   "source": "l_i5b_proj_a",
+   "target": "o_i5b_concat",
+   "role": "forward"
+  }
+ ],
+ "groups": []
+}

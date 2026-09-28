@@ -1,0 +1,428 @@
+{
+ "architecture_name": "2501.03538v1_Efficient and Accurate Tuberculosis Diagnosis Attention Residual U-Net and Vision Transformer Based -Figure4-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "in_root",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "input",
+   "properties": {}
+  },
+  {
+   "id": "n1",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "Input Layer",
+   "properties": {}
+  },
+  {
+   "id": "d1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$64 \\times 64 \\times 3$",
+   "properties": {
+    "dimensions": [
+     64,
+     64,
+     3
+    ]
+   }
+  },
+  {
+   "id": "n3",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Patch Embedding",
+   "properties": {
+    "name": "Patch Embedding"
+   }
+  },
+  {
+   "id": "d2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$16 \\times 64$",
+   "properties": {
+    "dimensions": [
+     16,
+     64
+    ]
+   }
+  },
+  {
+   "id": "n5",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Transformer Block",
+   "properties": {
+    "name": "Transformer Block"
+   }
+  },
+  {
+   "id": "n6",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Transformer Block",
+   "properties": {
+    "name": "Transformer Block"
+   }
+  },
+  {
+   "id": "n7",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Transformer Block",
+   "properties": {
+    "name": "Transformer Block"
+   }
+  },
+  {
+   "id": "n8",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Transformer Block",
+   "properties": {
+    "name": "Transformer Block"
+   }
+  },
+  {
+   "id": "n9",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Transformer Block",
+   "properties": {
+    "name": "Transformer Block"
+   }
+  },
+  {
+   "id": "n10",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Transformer Block",
+   "properties": {
+    "name": "Transformer Block"
+   }
+  },
+  {
+   "id": "n11",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Transformer Block",
+   "properties": {
+    "name": "Transformer Block"
+   }
+  },
+  {
+   "id": "n12",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Transformer Block",
+   "properties": {
+    "name": "Transformer Block"
+   }
+  },
+  {
+   "id": "d3",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$16 \\times 64$",
+   "properties": {
+    "dimensions": [
+     16,
+     64
+    ]
+   }
+  },
+  {
+   "id": "n14",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Layer Normalization",
+   "properties": {
+    "algorithm": "LayerNormalization"
+   }
+  },
+  {
+   "id": "d4",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "Single 64 dimension vector",
+   "properties": {
+    "name": "Single 64 dimension vector"
+   }
+  },
+  {
+   "id": "n16_17",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "Dense Block 1 (2048 Units)",
+   "properties": {
+    "units": 2048
+   }
+  },
+  {
+   "id": "n19_20",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "Dense Block 2 (1024 Units)",
+   "properties": {
+    "units": 1024
+   }
+  },
+  {
+   "id": "n22_23",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "Output Dense Block (2 Units)",
+   "properties": {
+    "units": 2
+   }
+  },
+  {
+   "id": "out1",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "Bacilli",
+   "properties": {
+    "name": "Bacilli"
+   }
+  },
+  {
+   "id": "out2",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "Non Bacilli",
+   "properties": {
+    "name": "Non Bacilli"
+   }
+  },
+  {
+   "id": "wfSmOtuSRR",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "activation",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "M_Xym_76On",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "activation",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "Ij5_tgxHpz",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "activation",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "in_root",
+   "target": "n1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n1",
+   "target": "d1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d1",
+   "target": "n3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n3",
+   "target": "d2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d2",
+   "target": "n5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n5",
+   "target": "n6",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n6",
+   "target": "n7",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n7",
+   "target": "n8",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n8",
+   "target": "n9",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n9",
+   "target": "n10",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n10",
+   "target": "n11",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n11",
+   "target": "n12",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n12",
+   "target": "d3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d3",
+   "target": "n14",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n14",
+   "target": "d4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d4",
+   "target": "n16_17",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n16_17",
+   "target": "wfSmOtuSRR",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n19_20",
+   "target": "M_Xym_76On",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n22_23",
+   "target": "Ij5_tgxHpz",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "wfSmOtuSRR",
+   "target": "n19_20",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "M_Xym_76On",
+   "target": "n22_23",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "Ij5_tgxHpz",
+   "target": "out1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "Ij5_tgxHpz",
+   "target": "out2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "group_l_mlp",
+   "type": "container",
+   "label": "MLP Head",
+   "boundary_type": "implicit_header",
+   "member_node_ids": [
+    "n19_20",
+    "n16_17",
+    "M_Xym_76On",
+    "wfSmOtuSRR"
+   ]
+  }
+ ]
+}

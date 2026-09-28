@@ -1,0 +1,1213 @@
+{
+ "architecture_name": "1804.03999v3_Attention U-Net Learning Where to Look for the Pancreas-Figure1-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "n_in",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "Input Image",
+   "properties": {
+    "name": "Input Image",
+    "dimensions": [
+     1,
+     "h1",
+     "w1",
+     "d1"
+    ],
+    "modality": "image"
+   }
+  },
+  {
+   "id": "l_enc1_conv_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "(Conv $3 \\times 3 \\times 3$ + ReLU) (x2)",
+   "properties": {
+    "kernel": [
+     3,
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_enc1_conv_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "(Conv $3 \\times 3 \\times 3$ + ReLU) (x2)",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "l_enc1_conv_c",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "(Conv $3 \\times 3 \\times 3$ + ReLU) (x2)",
+   "properties": {
+    "kernel": [
+     3,
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_enc1_conv_d",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "(Conv $3 \\times 3 \\times 3$ + ReLU) (x2)",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n_enc1_a",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$F_1 \\times H_1 \\times W_1 \\times D_1$",
+   "properties": {
+    "dimensions": [
+     "F_1",
+     "H_1",
+     "W_1",
+     "D_1"
+    ]
+   }
+  },
+  {
+   "id": "op_pool1",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Max-pooling (by 2)",
+   "properties": {
+    "kernel": [
+     2,
+     2,
+     2
+    ],
+    "stride": 2,
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "n_pool1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$F_1 \\times H_2 \\times W_2 \\times D_2$",
+   "properties": {
+    "dimensions": [
+     "F_1",
+     "H_2",
+     "W_2",
+     "D_2"
+    ]
+   }
+  },
+  {
+   "id": "l_enc2_conv_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "(Conv $3 \\times 3 \\times 3$ + ReLU) (x2)",
+   "properties": {
+    "kernel": [
+     3,
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_enc2_conv_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "(Conv $3 \\times 3 \\times 3$ + ReLU) (x2)",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "l_enc2_conv_c",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "(Conv $3 \\times 3 \\times 3$ + ReLU) (x2)",
+   "properties": {
+    "kernel": [
+     3,
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_enc2_conv_d",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "(Conv $3 \\times 3 \\times 3$ + ReLU) (x2)",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n_enc2_a",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$F_2 \\times H_2 \\times W_2 \\times D_2$",
+   "properties": {
+    "dimensions": [
+     "F_2",
+     "H_2",
+     "W_2",
+     "D_2"
+    ]
+   }
+  },
+  {
+   "id": "op_pool2",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Max-pooling (by 2)",
+   "properties": {
+    "kernel": [
+     2,
+     2,
+     2
+    ],
+    "stride": 2,
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "n_pool2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$F_2 \\times H_3 \\times W_3 \\times D_3$",
+   "properties": {
+    "dimensions": [
+     "F_2",
+     "H_3",
+     "W_3",
+     "D_3"
+    ]
+   }
+  },
+  {
+   "id": "l_enc3_conv_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "(Conv $3 \\times 3 \\times 3$ + ReLU) (x2)",
+   "properties": {
+    "kernel": [
+     3,
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_enc3_conv_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "(Conv $3 \\times 3 \\times 3$ + ReLU) (x2)",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "l_enc3_conv_c",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "(Conv $3 \\times 3 \\times 3$ + ReLU) (x2)",
+   "properties": {
+    "kernel": [
+     3,
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_enc3_conv_d",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "(Conv $3 \\times 3 \\times 3$ + ReLU) (x2)",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n_enc3_a",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$F_3 \\times H_3 \\times W_3 \\times D_3$",
+   "properties": {
+    "dimensions": [
+     "F_3",
+     "H_3",
+     "W_3",
+     "D_3"
+    ]
+   }
+  },
+  {
+   "id": "op_pool3",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Max-pooling (by 2)",
+   "properties": {
+    "kernel": [
+     2,
+     2,
+     2
+    ],
+    "stride": 2,
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "n_pool3",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$F_3 \\times H_4 \\times W_4 \\times D_4$",
+   "properties": {
+    "dimensions": [
+     "F_3",
+     "H_4",
+     "W_4",
+     "D_4"
+    ]
+   }
+  },
+  {
+   "id": "l_enc4_conv_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "(Conv $3 \\times 3 \\times 3$ + ReLU) (x2)",
+   "properties": {
+    "kernel": [
+     3,
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_enc4_conv_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "(Conv $3 \\times 3 \\times 3$ + ReLU) (x2)",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "l_enc4_conv_c",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "(Conv $3 \\times 3 \\times 3$ + ReLU) (x2)",
+   "properties": {
+    "kernel": [
+     3,
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_enc4_conv_d",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "(Conv $3 \\times 3 \\times 3$ + ReLU) (x2)",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n_enc4_a",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$F_4 \\times H_4 \\times W_4 \\times D_4$",
+   "properties": {
+    "dimensions": [
+     "F_4",
+     "H_4",
+     "W_4",
+     "D_4"
+    ]
+   }
+  },
+  {
+   "id": "op_gate3",
+   "class": "MODIFIER",
+   "sub_type": "custom",
+   "raw_text": "Gating Signal (Query)",
+   "properties": {
+    "algorithm": "gating_signal"
+   }
+  },
+  {
+   "id": "op_up3",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Upsampling (by 2)",
+   "properties": {
+    "algorithm": "ResizeNearest"
+   }
+  },
+  {
+   "id": "n_up3_out",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$F_3 \\times H_3 \\times W_3 \\times D_3$",
+   "properties": {
+    "dimensions": [
+     "F_3",
+     "H_3",
+     "W_3",
+     "D_3"
+    ]
+   }
+  },
+  {
+   "id": "l_att3",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Attention Gate",
+   "properties": {
+    "name": "Attention Gate",
+    "algorithm": "AttentionGate"
+   }
+  },
+  {
+   "id": "n_att3_out",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$F_3 \\times H_3 \\times W_3 \\times D_3$",
+   "properties": {
+    "dimensions": [
+     "F_3",
+     "H_3",
+     "W_3",
+     "D_3"
+    ]
+   }
+  },
+  {
+   "id": "op_concat3",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "Concatenation",
+   "properties": {}
+  },
+  {
+   "id": "l_dec3_conv_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "(Conv $3 \\times 3 \\times 3$ + ReLU) (x2)",
+   "properties": {
+    "kernel": [
+     3,
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_dec3_conv_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "(Conv $3 \\times 3 \\times 3$ + ReLU) (x2)",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "l_dec3_conv_c",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "(Conv $3 \\times 3 \\times 3$ + ReLU) (x2)",
+   "properties": {
+    "kernel": [
+     3,
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_dec3_conv_d",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "(Conv $3 \\times 3 \\times 3$ + ReLU) (x2)",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n_dec3_a",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$F_2 \\times H_3 \\times W_3 \\times D_3$",
+   "properties": {
+    "dimensions": [
+     "F_2",
+     "H_3",
+     "W_3",
+     "D_3"
+    ]
+   }
+  },
+  {
+   "id": "op_gate2",
+   "class": "MODIFIER",
+   "sub_type": "custom",
+   "raw_text": "Gating Signal (Query)",
+   "properties": {
+    "algorithm": "gating_signal"
+   }
+  },
+  {
+   "id": "op_up2",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Upsampling (by 2)",
+   "properties": {
+    "algorithm": "ResizeNearest"
+   }
+  },
+  {
+   "id": "n_up2_out",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$F_2 \\times H_2 \\times W_2 \\times D_2$",
+   "properties": {
+    "dimensions": [
+     "F_2",
+     "H_2",
+     "W_2",
+     "D_2"
+    ]
+   }
+  },
+  {
+   "id": "l_att2",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Attention Gate",
+   "properties": {
+    "name": "Attention Gate",
+    "algorithm": "AttentionGate"
+   }
+  },
+  {
+   "id": "n_att2_out",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$F_2 \\times H_2 \\times W_2 \\times D_2$",
+   "properties": {
+    "dimensions": [
+     "F_2",
+     "H_2",
+     "W_2",
+     "D_2"
+    ]
+   }
+  },
+  {
+   "id": "op_concat2",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "Concatenation",
+   "properties": {}
+  },
+  {
+   "id": "l_dec2_conv_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "(Conv $3 \\times 3 \\times 3$ + ReLU) (x2)",
+   "properties": {
+    "kernel": [
+     3,
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_dec2_conv_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "(Conv $3 \\times 3 \\times 3$ + ReLU) (x2)",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "l_dec2_conv_c",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "(Conv $3 \\times 3 \\times 3$ + ReLU) (x2)",
+   "properties": {
+    "kernel": [
+     3,
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_dec2_conv_d",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "(Conv $3 \\times 3 \\times 3$ + ReLU) (x2)",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n_dec2_a",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$F_1 \\times H_2 \\times W_2 \\times D_2$",
+   "properties": {
+    "dimensions": [
+     "F_1",
+     "H_2",
+     "W_2",
+     "D_2"
+    ]
+   }
+  },
+  {
+   "id": "op_gate1",
+   "class": "MODIFIER",
+   "sub_type": "custom",
+   "raw_text": "Gating Signal (Query)",
+   "properties": {
+    "algorithm": "gating_signal"
+   }
+  },
+  {
+   "id": "op_up1",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Upsampling (by 2)",
+   "properties": {
+    "algorithm": "ResizeNearest"
+   }
+  },
+  {
+   "id": "n_up1_out",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$F_1 \\times H_1 \\times W_1 \\times D_1$",
+   "properties": {
+    "dimensions": [
+     "F_1",
+     "H_1",
+     "W_1",
+     "D_1"
+    ]
+   }
+  },
+  {
+   "id": "l_att1",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Attention Gate",
+   "properties": {
+    "name": "Attention Gate",
+    "algorithm": "AttentionGate"
+   }
+  },
+  {
+   "id": "n_att1_out",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$F_1 \\times H_1 \\times W_1 \\times D_1$",
+   "properties": {
+    "dimensions": [
+     "F_1",
+     "H_1",
+     "W_1",
+     "D_1"
+    ]
+   }
+  },
+  {
+   "id": "op_concat1",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "Concatenation",
+   "properties": {}
+  },
+  {
+   "id": "l_dec1_conv_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "(Conv $3 \\times 3 \\times 3$ + ReLU) (x2)",
+   "properties": {
+    "kernel": [
+     3,
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_dec1_conv_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "(Conv $3 \\times 3 \\times 3$ + ReLU) (x2)",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n_out",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "Segmentation Map",
+   "properties": {
+    "name": "Segmentation Map",
+    "dimensions": [
+     "nc",
+     "h1",
+     "w1",
+     "d1"
+    ]
+   }
+  },
+  {
+   "id": "l_dec1_conv_c",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "(Conv $3 \\times 3 \\times 3$ + ReLU) (x2)",
+   "properties": {
+    "kernel": [
+     3,
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_dec1_conv_d",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "(Conv $3 \\times 3 \\times 3$ + ReLU) (x2)",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "l_enc3_conv_a",
+   "target": "l_enc3_conv_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc3_conv_b",
+   "target": "l_enc3_conv_c",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc3_conv_c",
+   "target": "l_enc3_conv_d",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec1_conv_a",
+   "target": "l_dec1_conv_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec1_conv_b",
+   "target": "l_dec1_conv_c",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec1_conv_c",
+   "target": "l_dec1_conv_d",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc1_conv_a",
+   "target": "l_enc1_conv_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc1_conv_b",
+   "target": "l_enc1_conv_c",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc1_conv_c",
+   "target": "l_enc1_conv_d",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc2_conv_a",
+   "target": "l_enc2_conv_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc2_conv_b",
+   "target": "l_enc2_conv_c",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc2_conv_c",
+   "target": "l_enc2_conv_d",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec2_conv_a",
+   "target": "l_dec2_conv_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec2_conv_b",
+   "target": "l_dec2_conv_c",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec2_conv_c",
+   "target": "l_dec2_conv_d",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec3_conv_a",
+   "target": "l_dec3_conv_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec3_conv_b",
+   "target": "l_dec3_conv_c",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec3_conv_c",
+   "target": "l_dec3_conv_d",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc4_conv_a",
+   "target": "l_enc4_conv_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc4_conv_b",
+   "target": "l_enc4_conv_c",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc4_conv_c",
+   "target": "l_enc4_conv_d",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc1_conv_d",
+   "target": "n_enc1_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_enc1_a",
+   "target": "op_pool1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_pool1",
+   "target": "n_pool1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_pool1",
+   "target": "l_enc2_conv_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc2_conv_d",
+   "target": "n_enc2_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_enc2_a",
+   "target": "op_pool2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_pool2",
+   "target": "n_pool2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_pool2",
+   "target": "l_enc3_conv_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc3_conv_d",
+   "target": "n_enc3_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_enc3_a",
+   "target": "op_pool3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_pool3",
+   "target": "n_pool3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_pool3",
+   "target": "l_enc4_conv_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc4_conv_d",
+   "target": "n_enc4_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_enc4_a",
+   "target": "op_gate3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_enc4_a",
+   "target": "op_up3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_up3",
+   "target": "n_up3_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_att3",
+   "target": "n_att3_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_att3_out",
+   "target": "op_concat3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_up3_out",
+   "target": "op_concat3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec3_conv_d",
+   "target": "n_dec3_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_dec3_a",
+   "target": "op_gate2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_dec3_a",
+   "target": "op_up2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_up2",
+   "target": "n_up2_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_att2",
+   "target": "n_att2_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_att2_out",
+   "target": "op_concat2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_up2_out",
+   "target": "op_concat2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec2_conv_d",
+   "target": "n_dec2_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_dec2_a",
+   "target": "op_gate1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_dec2_a",
+   "target": "op_up1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_up1",
+   "target": "n_up1_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_att1",
+   "target": "n_att1_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_att1_out",
+   "target": "op_concat1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_up1_out",
+   "target": "op_concat1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_concat3",
+   "target": "l_dec3_conv_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_concat2",
+   "target": "l_dec2_conv_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_concat1",
+   "target": "l_dec1_conv_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_enc3_a",
+   "target": "l_att3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_enc2_a",
+   "target": "l_att2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_enc1_a",
+   "target": "l_att1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_in",
+   "target": "l_enc1_conv_a",
+   "role": "forward"
+  },
+  {
+   "source": "l_dec1_conv_d",
+   "target": "n_out",
+   "role": "forward"
+  },
+  {
+   "source": "op_gate3",
+   "target": "l_att3",
+   "role": "forward"
+  },
+  {
+   "source": "op_gate2",
+   "target": "l_att2",
+   "role": "forward"
+  },
+  {
+   "source": "op_gate1",
+   "target": "l_att1",
+   "role": "forward"
+  }
+ ],
+ "groups": []
+}

@@ -1,0 +1,373 @@
+{
+ "architecture_name": "2111.10591v1_AGA-GAN Attribute Guided Attention Generative Adversarial Network with U-Net for Face Hallucination-Figure4-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_prev",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "Previous Decoder Output",
+   "properties": {
+    "name": "Previous Decoder Output"
+   }
+  },
+  {
+   "id": "d_skip",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "Skip-Connection",
+   "properties": {
+    "name": "Skip-Connection"
+   }
+  },
+  {
+   "id": "l_subpix",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Sub-Pixel Conv",
+   "properties": {
+    "name": "Sub-Pixel Conv"
+   }
+  },
+  {
+   "id": "o_cat1",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "Concatenation",
+   "properties": {}
+  },
+  {
+   "id": "l_conv3x3_1_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$ + BN + ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_conv3x3_1_b",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Conv $3 \\times 3$ + BN + ReLU",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  },
+  {
+   "id": "l_conv3x3_1_c",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Conv $3 \\times 3$ + BN + ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "l_conv1x1_1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "o_sig",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Sigmoid",
+   "properties": {
+    "algorithm": "Sigmoid"
+   }
+  },
+  {
+   "id": "l_se",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Squeeze and Excitation Block",
+   "properties": {
+    "name": "Squeeze and Excitation Block"
+   }
+  },
+  {
+   "id": "o_mul_att",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "Multiplication",
+   "properties": {
+    "mechanism": "Mul"
+   }
+  },
+  {
+   "id": "o_mul_se",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "Multiplication",
+   "properties": {
+    "mechanism": "Mul"
+   }
+  },
+  {
+   "id": "l_conv1x1_2",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "l_conv3x3_2_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$ + BN + ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_conv3x3_2_b",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Conv $3 \\times 3$ + BN + ReLU",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  },
+  {
+   "id": "l_conv3x3_2_c",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Conv $3 \\times 3$ + BN + ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "o_add",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "Addition",
+   "properties": {}
+  },
+  {
+   "id": "2sqz0YkXra_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$ + BN + ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "2sqz0YkXra_b",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Conv $3 \\times 3$ + BN + ReLU",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  },
+  {
+   "id": "2sqz0YkXra_c",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Conv $3 \\times 3$ + BN + ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "l_conv3x3_2_a",
+   "target": "l_conv3x3_2_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv3x3_2_b",
+   "target": "l_conv3x3_2_c",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv3x3_1_a",
+   "target": "l_conv3x3_1_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv3x3_1_b",
+   "target": "l_conv3x3_1_c",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "2sqz0YkXra_a",
+   "target": "2sqz0YkXra_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "2sqz0YkXra_b",
+   "target": "2sqz0YkXra_c",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_prev",
+   "target": "l_subpix",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_subpix",
+   "target": "o_cat1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_skip",
+   "target": "o_cat1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_cat1",
+   "target": "l_conv3x3_1_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv3x3_1_c",
+   "target": "l_conv1x1_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv1x1_1",
+   "target": "o_sig",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_sig",
+   "target": "o_mul_att",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv3x3_1_c",
+   "target": "l_se",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_se",
+   "target": "o_mul_se",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv3x3_1_c",
+   "target": "o_mul_se",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_mul_se",
+   "target": "o_mul_att",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_mul_att",
+   "target": "l_conv1x1_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv1x1_2",
+   "target": "l_conv3x3_2_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "2sqz0YkXra_c",
+   "target": "o_add",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv1x1_2",
+   "target": "o_add",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv3x3_2_c",
+   "target": "2sqz0YkXra_a",
+   "role": "forward"
+  }
+ ],
+ "groups": []
+}

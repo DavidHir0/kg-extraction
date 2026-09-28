@@ -1,0 +1,155 @@
+{
+ "architecture_name": "1704.04861v1_MobileNets Efficient Convolutional Neural Networks for Mobile Vision Applications-Figure3-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "n1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ Conv",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "n2",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "BN",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  },
+  {
+   "id": "n3",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n4",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ Depthwise Conv",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "n5",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "BN",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  },
+  {
+   "id": "n6",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n7",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$1 \\times 1$ Conv",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "n8",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "BN",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  },
+  {
+   "id": "n9",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "n1",
+   "target": "n2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n2",
+   "target": "n3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n4",
+   "target": "n5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n5",
+   "target": "n6",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n6",
+   "target": "n7",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n7",
+   "target": "n8",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n8",
+   "target": "n9",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": []
+}

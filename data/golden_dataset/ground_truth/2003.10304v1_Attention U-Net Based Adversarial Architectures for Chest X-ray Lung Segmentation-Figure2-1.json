@@ -1,0 +1,148 @@
+{
+ "architecture_name": "2003.10304v1_Attention U-Net Based Adversarial Architectures for Chest X-ray Lung Segmentation-Figure2-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_input",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "input",
+   "properties": {}
+  },
+  {
+   "id": "d_gt",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "Ground Truth Mask",
+   "properties": {
+    "name": "Ground Truth Mask"
+   }
+  },
+  {
+   "id": "l_seg",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Fully Convolutional Network",
+   "properties": {
+    "name": "Fully Convolutional Network"
+   }
+  },
+  {
+   "id": "d_pred",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "Predicted Mask",
+   "properties": {
+    "name": "Predicted Mask"
+   }
+  },
+  {
+   "id": "op_or",
+   "class": "JUNCTION",
+   "sub_type": "gating",
+   "raw_text": "or",
+   "properties": {
+    "mechanism": "Or"
+   }
+  },
+  {
+   "id": "l_crit",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Fully Convolutional Network",
+   "properties": {
+    "name": "Fully Convolutional Network"
+   }
+  },
+  {
+   "id": "d_out",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "$0/1$",
+   "properties": {
+    "dimensions": [
+     1
+    ]
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "d_input",
+   "target": "l_seg",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_seg",
+   "target": "d_pred",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_input",
+   "target": "op_or",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_gt",
+   "target": "op_or",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_pred",
+   "target": "op_or",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_or",
+   "target": "l_crit",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_crit",
+   "target": "d_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "c_seg",
+   "type": "container",
+   "label": "Segmentation Network",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "l_seg"
+   ]
+  },
+  {
+   "id": "c_crit",
+   "type": "container",
+   "label": "Critic Network",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "d_out",
+    "l_crit"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,678 @@
+{
+ "architecture_name": "2506.15562v2_Automated MRI Tumor Segmentation using hybrid U-Net with Transformer and Efficient Attention-Figure4-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_in",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "Input\n$512 \\times 512 \\times 3$",
+   "properties": {
+    "dimensions": [
+     512,
+     512,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_enc1",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Enc Stage 1",
+   "properties": {
+    "name": "Enc Stage 1"
+   }
+  },
+  {
+   "id": "d_enc1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$256 \\times 256 \\times 64$",
+   "properties": {
+    "dimensions": [
+     256,
+     256,
+     64
+    ]
+   }
+  },
+  {
+   "id": "l_enc2",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Enc Stage 2",
+   "properties": {
+    "name": "Enc Stage 2"
+   }
+  },
+  {
+   "id": "d_enc2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$128 \\times 128 \\times 256$",
+   "properties": {
+    "dimensions": [
+     128,
+     128,
+     256
+    ]
+   }
+  },
+  {
+   "id": "l_enc3",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Enc Stage 3",
+   "properties": {
+    "name": "Enc Stage 3"
+   }
+  },
+  {
+   "id": "d_enc3",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$128 \\times 128 \\times 512$",
+   "properties": {
+    "dimensions": [
+     128,
+     128,
+     512
+    ]
+   }
+  },
+  {
+   "id": "l_enc4",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Enc Stage 4",
+   "properties": {
+    "name": "Enc Stage 4"
+   }
+  },
+  {
+   "id": "d_enc4",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$32 \\times 32 \\times 1024$",
+   "properties": {
+    "dimensions": [
+     32,
+     32,
+     1024
+    ]
+   }
+  },
+  {
+   "id": "l_attn1",
+   "class": "LAYER",
+   "sub_type": "attention",
+   "raw_text": "Attn Gate",
+   "properties": {}
+  },
+  {
+   "id": "l_attn2",
+   "class": "LAYER",
+   "sub_type": "attention",
+   "raw_text": "Attn Gate",
+   "properties": {}
+  },
+  {
+   "id": "l_attn3",
+   "class": "LAYER",
+   "sub_type": "attention",
+   "raw_text": "Attn Gate",
+   "properties": {}
+  },
+  {
+   "id": "o_resh1",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "reshape",
+   "properties": {
+    "algorithm": "Reshape"
+   }
+  },
+  {
+   "id": "l_trans",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Transformer Block",
+   "properties": {
+    "name": "Transformer Block"
+   }
+  },
+  {
+   "id": "o_resh2",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "reshape",
+   "properties": {
+    "algorithm": "Reshape"
+   }
+  },
+  {
+   "id": "S4niE00GJF",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$1024$ tokens $\\times$ $1024$ channels",
+   "properties": {}
+  },
+  {
+   "id": "aQywBFqJqF",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$32 \\times 32 \\times 1024$",
+   "properties": {
+    "dimensions": [
+     32,
+     32,
+     1024
+    ]
+   }
+  },
+  {
+   "id": "orDk6ubSMo",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Upsample",
+   "properties": {}
+  },
+  {
+   "id": "Xcb_7UIPt1",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Upsample",
+   "properties": {}
+  },
+  {
+   "id": "rB9rPz9zAL",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Upsample",
+   "properties": {}
+  },
+  {
+   "id": "8vR7CVDpD6",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Upsample",
+   "properties": {}
+  },
+  {
+   "id": "_QTTY28c3f",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "M0Nptnb9d-",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "ZtwWFqAn0r",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "lDSpDxin45",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$512 \\times 512$",
+   "properties": {
+    "dimensions": [
+     512,
+     512
+    ]
+   }
+  },
+  {
+   "id": "L2fUxT6_Cb",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$256 \\times 256$",
+   "properties": {
+    "dimensions": [
+     256,
+     256
+    ]
+   }
+  },
+  {
+   "id": "FQMlkjW5yG",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$128 \\times 128$",
+   "properties": {
+    "dimensions": [
+     128,
+     128
+    ]
+   }
+  },
+  {
+   "id": "ftp9Ut_HBF",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$64 \\times 64$",
+   "properties": {
+    "dimensions": [
+     64,
+     64
+    ]
+   }
+  },
+  {
+   "id": "D0MpiSSHgu",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Dec Stage 4",
+   "properties": {
+    "name": "Dec Stage 4"
+   }
+  },
+  {
+   "id": "z0bJ7IoSFj",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Dec Stage 3",
+   "properties": {
+    "name": "Dec Stage 3"
+   }
+  },
+  {
+   "id": "KQ60zIB9T7",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Dec Stage 2",
+   "properties": {
+    "name": "Dec Stage 2"
+   }
+  },
+  {
+   "id": "bk_s5yDBMO",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Dec Stage 1",
+   "properties": {
+    "name": "Dec Stage 1"
+   }
+  },
+  {
+   "id": "kKNy3g-UGs",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "Output\n$512 \\times 512 \\times 1$",
+   "properties": {
+    "dimensions": [
+     512,
+     512,
+     1
+    ]
+   }
+  },
+  {
+   "id": "hYz2n-VH8l",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$1 \\times 1$ Conv + Sigmoid",
+   "properties": {}
+  }
+ ],
+ "edges": [
+  {
+   "source": "d_in",
+   "target": "l_enc1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc1",
+   "target": "d_enc1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc1",
+   "target": "l_enc2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc2",
+   "target": "d_enc2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc2",
+   "target": "l_enc3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc3",
+   "target": "d_enc3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc3",
+   "target": "l_enc4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc4",
+   "target": "d_enc4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc3",
+   "target": "l_attn3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc2",
+   "target": "l_attn2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc1",
+   "target": "l_attn1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_resh1",
+   "target": "S4niE00GJF",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "S4niE00GJF",
+   "target": "l_trans",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc4",
+   "target": "o_resh1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_trans",
+   "target": "o_resh2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_resh2",
+   "target": "aQywBFqJqF",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "aQywBFqJqF",
+   "target": "orDk6ubSMo",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "orDk6ubSMo",
+   "target": "lDSpDxin45",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "lDSpDxin45",
+   "target": "D0MpiSSHgu",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "D0MpiSSHgu",
+   "target": "_QTTY28c3f",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_attn3",
+   "target": "_QTTY28c3f",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "_QTTY28c3f",
+   "target": "Xcb_7UIPt1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "Xcb_7UIPt1",
+   "target": "L2fUxT6_Cb",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "L2fUxT6_Cb",
+   "target": "z0bJ7IoSFj",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "z0bJ7IoSFj",
+   "target": "M0Nptnb9d-",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "M0Nptnb9d-",
+   "target": "rB9rPz9zAL",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "rB9rPz9zAL",
+   "target": "FQMlkjW5yG",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "FQMlkjW5yG",
+   "target": "KQ60zIB9T7",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "KQ60zIB9T7",
+   "target": "ZtwWFqAn0r",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_attn2",
+   "target": "M0Nptnb9d-",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_attn1",
+   "target": "ZtwWFqAn0r",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "ZtwWFqAn0r",
+   "target": "8vR7CVDpD6",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "8vR7CVDpD6",
+   "target": "ftp9Ut_HBF",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "ftp9Ut_HBF",
+   "target": "bk_s5yDBMO",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "bk_s5yDBMO",
+   "target": "hYz2n-VH8l",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "hYz2n-VH8l",
+   "target": "kKNy3g-UGs",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "8v44Wm71YT",
+   "type": "container",
+   "label": "Transformer Bottleneck",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "l_trans",
+    "S4niE00GJF",
+    "o_resh2",
+    "aQywBFqJqF",
+    "o_resh1"
+   ]
+  },
+  {
+   "id": "group_lbl_enc",
+   "type": "container",
+   "label": "Encoder",
+   "boundary_type": "implicit_header",
+   "member_node_ids": [
+    "d_enc1",
+    "d_enc2",
+    "l_enc4",
+    "l_enc1",
+    "l_enc3",
+    "d_in",
+    "d_enc3",
+    "l_enc2",
+    "d_enc4"
+   ]
+  },
+  {
+   "id": "group_lbl_dec",
+   "type": "container",
+   "label": "Decoder",
+   "boundary_type": "implicit_header",
+   "member_node_ids": [
+    "L2fUxT6_Cb",
+    "bk_s5yDBMO",
+    "lDSpDxin45",
+    "D0MpiSSHgu",
+    "rB9rPz9zAL",
+    "FQMlkjW5yG",
+    "hYz2n-VH8l",
+    "Xcb_7UIPt1",
+    "kKNy3g-UGs",
+    "orDk6ubSMo",
+    "KQ60zIB9T7",
+    "8vR7CVDpD6",
+    "ftp9Ut_HBF",
+    "z0bJ7IoSFj"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,603 @@
+{
+ "architecture_name": "2110.05144v1_AWEU-Net An Attention-Aware Weight Excitation U-Net for Lung Nodule Segmentation-Figure6-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "n3",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$\\mathbf{Y}$",
+   "properties": {
+    "symbol": "Y",
+    "dimensions": [
+     "C",
+     "H",
+     "W"
+    ]
+   }
+  },
+  {
+   "id": "n6",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "transpose",
+   "properties": {
+    "algorithm": "Transpose"
+   }
+  },
+  {
+   "id": "n7",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "reshape",
+   "properties": {
+    "algorithm": "Reshape"
+   }
+  },
+  {
+   "id": "n9",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$H \\times W \\times C$",
+   "properties": {
+    "dimensions": [
+     "h",
+     "w",
+     "c"
+    ]
+   }
+  },
+  {
+   "id": "n10",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "reshape",
+   "properties": {
+    "algorithm": "Reshape"
+   }
+  },
+  {
+   "id": "n11",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "Multiplication",
+   "properties": {
+    "mechanism": "MatMul"
+   }
+  },
+  {
+   "id": "n12",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "softmax",
+   "properties": {
+    "algorithm": "Softmax"
+   }
+  },
+  {
+   "id": "n13",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\mathbf{E}$",
+   "properties": {
+    "symbol": "E",
+    "dimensions": [
+     "C",
+     "C"
+    ]
+   }
+  },
+  {
+   "id": "n16",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "reshape",
+   "properties": {
+    "algorithm": "Reshape"
+   }
+  },
+  {
+   "id": "n17",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "reshape",
+   "properties": {
+    "algorithm": "Reshape"
+   }
+  },
+  {
+   "id": "n18",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "Multiplication",
+   "properties": {
+    "mechanism": "MatMul"
+   }
+  },
+  {
+   "id": "n19",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "Addition",
+   "properties": {}
+  },
+  {
+   "id": "n20",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\mathbf{F}$",
+   "properties": {
+    "symbol": "F",
+    "dimensions": [
+     "C",
+     "H",
+     "W"
+    ]
+   }
+  },
+  {
+   "id": "n23",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Average Pooling 1",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "algorithm": "AveragePool"
+   }
+  },
+  {
+   "id": "n24",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$C$",
+   "properties": {
+    "symbol": "C"
+   }
+  },
+  {
+   "id": "n25",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "Fully Connected 1",
+   "properties": {}
+  },
+  {
+   "id": "n26",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$C/16$",
+   "properties": {
+    "symbol": "C/16"
+   }
+  },
+  {
+   "id": "n27",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n28",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$C/16$",
+   "properties": {
+    "symbol": "C/16"
+   }
+  },
+  {
+   "id": "n29",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "Fully Connected 2",
+   "properties": {}
+  },
+  {
+   "id": "n30",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$C$",
+   "properties": {
+    "symbol": "C"
+   }
+  },
+  {
+   "id": "n31",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Sigmoid",
+   "properties": {
+    "algorithm": "Sigmoid"
+   }
+  },
+  {
+   "id": "n32",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$C$",
+   "properties": {
+    "symbol": "C"
+   }
+  },
+  {
+   "id": "n33",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "Reshape",
+   "properties": {
+    "algorithm": "Reshape"
+   }
+  },
+  {
+   "id": "n34",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$C \\times H \\times W$",
+   "properties": {
+    "dimensions": [
+     "c",
+     "h",
+     "w"
+    ]
+   }
+  },
+  {
+   "id": "n35",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "Multiplication",
+   "properties": {
+    "mechanism": "Mul"
+   }
+  },
+  {
+   "id": "n36",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\mathbf{F}$",
+   "properties": {
+    "symbol": "F",
+    "dimensions": [
+     "C",
+     "H",
+     "W"
+    ]
+   }
+  },
+  {
+   "id": "n39",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "Addition",
+   "properties": {}
+  },
+  {
+   "id": "n40",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "$\\mathbf{\\hat{Y}}$",
+   "properties": {
+    "symbol": "Y",
+    "dimensions": [
+     "C",
+     "H",
+     "W"
+    ]
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "n3",
+   "target": "n7",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n3",
+   "target": "n10",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n3",
+   "target": "n17",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n3",
+   "target": "n19",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n3",
+   "target": "n23",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n3",
+   "target": "n35",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n7",
+   "target": "n6",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n6",
+   "target": "n9",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n9",
+   "target": "n11",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n10",
+   "target": "n11",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n11",
+   "target": "n12",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n12",
+   "target": "n13",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n13",
+   "target": "n16",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n17",
+   "target": "n18",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n16",
+   "target": "n18",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n18",
+   "target": "n19",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n19",
+   "target": "n20",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n23",
+   "target": "n24",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n24",
+   "target": "n25",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n25",
+   "target": "n26",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n26",
+   "target": "n27",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n27",
+   "target": "n28",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n28",
+   "target": "n29",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n29",
+   "target": "n30",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n30",
+   "target": "n31",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n31",
+   "target": "n32",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n32",
+   "target": "n33",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n33",
+   "target": "n34",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n34",
+   "target": "n35",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n35",
+   "target": "n36",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n20",
+   "target": "n39",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n36",
+   "target": "n39",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n39",
+   "target": "n40",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "c_cab",
+   "type": "container",
+   "label": "Channel Attention Block",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "n17",
+    "n13",
+    "n10",
+    "n6",
+    "n7",
+    "n16",
+    "n11",
+    "n9",
+    "n19",
+    "n12",
+    "n18"
+   ]
+  },
+  {
+   "id": "c_web",
+   "type": "container",
+   "label": "Weight Excitation Block",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "n33",
+    "n30",
+    "n29",
+    "n26",
+    "n32",
+    "n34",
+    "n27",
+    "n28",
+    "n35",
+    "n25",
+    "n23",
+    "n31",
+    "n24"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,335 @@
+{
+ "architecture_name": "2503.18414v3_U-REPA Aligning Diffusion U-Nets to ViTs-Figure1-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "n3",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "Linear",
+   "properties": {}
+  },
+  {
+   "id": "n4",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Transformer Block",
+   "properties": {
+    "name": "Transformer Block"
+   }
+  },
+  {
+   "id": "n5",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Transformer Block",
+   "properties": {
+    "name": "Transformer Block"
+   }
+  },
+  {
+   "id": "n6",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Transformer Block",
+   "properties": {
+    "name": "Transformer Block"
+   }
+  },
+  {
+   "id": "n7",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Upscaler",
+   "properties": {}
+  },
+  {
+   "id": "n8",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "MLP",
+   "properties": {
+    "name": "MLP"
+   }
+  },
+  {
+   "id": "n9",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Transformer Block",
+   "properties": {
+    "name": "Transformer Block"
+   }
+  },
+  {
+   "id": "n10",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Transformer Block",
+   "properties": {
+    "name": "Transformer Block"
+   }
+  },
+  {
+   "id": "n11",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Transformer Block",
+   "properties": {
+    "name": "Transformer Block"
+   }
+  },
+  {
+   "id": "n12",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Transformer Block",
+   "properties": {
+    "name": "Transformer Block"
+   }
+  },
+  {
+   "id": "n13",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Transformer Block",
+   "properties": {
+    "name": "Transformer Block"
+   }
+  },
+  {
+   "id": "n14",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Patch Embed",
+   "properties": {
+    "name": "Patch Embed"
+   }
+  },
+  {
+   "id": "n15",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Patch Embed",
+   "properties": {
+    "name": "Patch Embed"
+   }
+  },
+  {
+   "id": "op_add_5",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "op_add_4",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "03LWsL7n8y",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "4gXPqRsLOY",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "KqSc9sh787",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "",
+   "properties": {}
+  }
+ ],
+ "edges": [
+  {
+   "source": "n14",
+   "target": "n12",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n12",
+   "target": "n10",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n15",
+   "target": "n13",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n13",
+   "target": "n11",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n11",
+   "target": "n9",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n8",
+   "target": "n7",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n6",
+   "target": "op_add_5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n11",
+   "target": "op_add_5",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_add_5",
+   "target": "n5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n5",
+   "target": "op_add_4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n13",
+   "target": "op_add_4",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_add_4",
+   "target": "n4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n4",
+   "target": "n3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n9",
+   "target": "03LWsL7n8y",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "03LWsL7n8y",
+   "target": "n8",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "03LWsL7n8y",
+   "target": "n6",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n7",
+   "target": "4gXPqRsLOY",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n10",
+   "target": "KqSc9sh787",
+   "role": "forward"
+  }
+ ],
+ "groups": [
+  {
+   "id": "group_n16",
+   "type": "container",
+   "label": "ViT-Based Encoder",
+   "boundary_type": "implicit_header",
+   "member_node_ids": [
+    "n10",
+    "n14",
+    "n12"
+   ]
+  },
+  {
+   "id": "group_n17",
+   "type": "container",
+   "label": "Diffusion U-Net",
+   "boundary_type": "implicit_header",
+   "member_node_ids": [
+    "03LWsL7n8y",
+    "n4",
+    "n13",
+    "n5",
+    "n6",
+    "n8",
+    "n7",
+    "n11",
+    "n9",
+    "op_add_4",
+    "n15",
+    "n3",
+    "op_add_5"
+   ]
+  }
+ ]
+}

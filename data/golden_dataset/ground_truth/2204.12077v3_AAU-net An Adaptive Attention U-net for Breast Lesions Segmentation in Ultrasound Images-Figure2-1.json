@@ -1,0 +1,1667 @@
+{
+ "architecture_name": "2204.12077v3_AAU-net An Adaptive Attention U-net for Breast Lesions Segmentation in Ultrasound Images-Figure2-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_f_input",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$F_{input}$",
+   "properties": {
+    "symbol": "F_input"
+   }
+  },
+  {
+   "id": "l_conv_3x3_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv+BNorm+LeakyReLu $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_conv_3x3_b",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Conv+BNorm+LeakyReLu $3 \\times 3$",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  },
+  {
+   "id": "l_conv_3x3_c",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Conv+BNorm+LeakyReLu $3 \\times 3$",
+   "properties": {
+    "algorithm": "LeakyRelu"
+   }
+  },
+  {
+   "id": "d_f3",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$F^3$",
+   "properties": {
+    "symbol": "F^3"
+   }
+  },
+  {
+   "id": "l_conv_1x1_1_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv+BNorm+LeakyReLu ($1, 1$)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "l_conv_1x1_1_b",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Conv+BNorm+LeakyReLu ($1, 1$)",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  },
+  {
+   "id": "l_conv_1x1_1_c",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Conv+BNorm+LeakyReLu ($1, 1$)",
+   "properties": {
+    "algorithm": "LeakyRelu"
+   }
+  },
+  {
+   "id": "d_fs1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$F^{S1}$",
+   "properties": {
+    "symbol": "F^S1"
+   }
+  },
+  {
+   "id": "l_conv_5x5_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv+BNorm+LeakyReLu $5 \\times 5$",
+   "properties": {
+    "kernel": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "id": "l_conv_5x5_b",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Conv+BNorm+LeakyReLu $5 \\times 5$",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  },
+  {
+   "id": "l_conv_5x5_c",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Conv+BNorm+LeakyReLu $5 \\times 5$",
+   "properties": {
+    "algorithm": "LeakyRelu"
+   }
+  },
+  {
+   "id": "d_f5",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$F^5$",
+   "properties": {
+    "symbol": "F^5"
+   }
+  },
+  {
+   "id": "l_dconv_rate3_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "DConv+BNorm+LeakyReLu rate=$3$",
+   "properties": {
+    "dilation": 3
+   }
+  },
+  {
+   "id": "l_dconv_rate3_b",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "DConv+BNorm+LeakyReLu rate=$3$",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  },
+  {
+   "id": "l_dconv_rate3_c",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "DConv+BNorm+LeakyReLu rate=$3$",
+   "properties": {
+    "algorithm": "LeakyRelu"
+   }
+  },
+  {
+   "id": "d_fd",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$F^D$",
+   "properties": {
+    "symbol": "F^D"
+   }
+  },
+  {
+   "id": "o_add_1",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "o_gap",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "GAP",
+   "properties": {
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "d_fg",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$F^G$",
+   "properties": {
+    "symbol": "F^G"
+   }
+  },
+  {
+   "id": "l_fc_1",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "FC",
+   "properties": {}
+  },
+  {
+   "id": "d_ffg",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$F_f^G$",
+   "properties": {
+    "symbol": "F_f^G"
+   }
+  },
+  {
+   "id": "l_fc_2",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "FC",
+   "properties": {}
+  },
+  {
+   "id": "d_ffgp",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$F_f^{G'}$",
+   "properties": {
+    "symbol": "F_f^G'"
+   }
+  },
+  {
+   "id": "o_sig_1",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "$\\sigma(\\cdot)$",
+   "properties": {
+    "algorithm": "Sigmoid"
+   }
+  },
+  {
+   "id": "d_alpha_p",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\alpha'$",
+   "properties": {
+    "symbol": "alpha'"
+   }
+  },
+  {
+   "id": "d_alpha",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\alpha$",
+   "properties": {
+    "symbol": "alpha"
+   }
+  },
+  {
+   "id": "o_mult_1",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "$\\otimes$",
+   "properties": {
+    "mechanism": "Mul"
+   }
+  },
+  {
+   "id": "d_fc5",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$F_C^5$",
+   "properties": {
+    "symbol": "F_C^5"
+   }
+  },
+  {
+   "id": "o_mult_2",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "$\\otimes$",
+   "properties": {
+    "mechanism": "Mul"
+   }
+  },
+  {
+   "id": "d_fcd",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$F_C^D$",
+   "properties": {
+    "symbol": "F_C^D"
+   }
+  },
+  {
+   "id": "o_add_2",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "l_conv_1x1_2_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv+BNorm+LeakyReLu ($1, 1$)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "l_conv_1x1_2_b",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Conv+BNorm+LeakyReLu ($1, 1$)",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  },
+  {
+   "id": "l_conv_1x1_2_c",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Conv+BNorm+LeakyReLu ($1, 1$)",
+   "properties": {
+    "algorithm": "LeakyRelu"
+   }
+  },
+  {
+   "id": "d_fcs1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$F_C^{S1}$",
+   "properties": {
+    "symbol": "F_C^S1"
+   }
+  },
+  {
+   "id": "o_add_3",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "o_relu",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "ReLu",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "d_post_relu",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "l_conv_1x1_3_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv+BNorm+LeakyReLu ($1 ,1$)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "l_conv_1x1_3_b",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Conv+BNorm+LeakyReLu ($1 ,1$)",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  },
+  {
+   "id": "l_conv_1x1_3_c",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Conv+BNorm+LeakyReLu ($1 ,1$)",
+   "properties": {
+    "algorithm": "LeakyRelu"
+   }
+  },
+  {
+   "id": "d_pre_sig",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "o_sig_2",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "$\\sigma(\\cdot)$",
+   "properties": {
+    "algorithm": "Sigmoid"
+   }
+  },
+  {
+   "id": "d_beta_p",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\beta'$",
+   "properties": {
+    "symbol": "beta'"
+   }
+  },
+  {
+   "id": "d_beta",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\beta$",
+   "properties": {
+    "symbol": "beta"
+   }
+  },
+  {
+   "id": "o_resample_1",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Resample",
+   "properties": {}
+  },
+  {
+   "id": "d_resampled_beta_p",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "o_resample_2",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Resample",
+   "properties": {}
+  },
+  {
+   "id": "d_resampled_beta",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "o_mult_3",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "$\\otimes$",
+   "properties": {
+    "mechanism": "Mul"
+   }
+  },
+  {
+   "id": "d_fs1p",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$F^{S1'}$",
+   "properties": {
+    "symbol": "F^S1'"
+   }
+  },
+  {
+   "id": "o_mult_4",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "$\\otimes$",
+   "properties": {
+    "mechanism": "Mul"
+   }
+  },
+  {
+   "id": "d_fcs1p",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$F_C^{S1'}$",
+   "properties": {
+    "symbol": "F_C^S1'"
+   }
+  },
+  {
+   "id": "o_add_4",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "l_conv_1x1_4_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv+BNorm+LeakyReLu ($1, 1$)",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "l_conv_1x1_4_b",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Conv+BNorm+LeakyReLu ($1, 1$)",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  },
+  {
+   "id": "l_conv_1x1_4_c",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Conv+BNorm+LeakyReLu ($1, 1$)",
+   "properties": {
+    "algorithm": "LeakyRelu"
+   }
+  },
+  {
+   "id": "d_fout",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "$F_{out}$",
+   "properties": {
+    "symbol": "F_out"
+   }
+  },
+  {
+   "id": "d_unet_in",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "Input",
+   "properties": {}
+  },
+  {
+   "id": "l_hham_e1",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "HHAM",
+   "properties": {
+    "name": "HHAM"
+   }
+  },
+  {
+   "id": "d_enc_32",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$32$",
+   "properties": {
+    "dimensions": [
+     32
+    ]
+   }
+  },
+  {
+   "id": "o_pool_1",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "MaxPooling",
+   "properties": {
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_hham_e2",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "HHAM",
+   "properties": {
+    "name": "HHAM"
+   }
+  },
+  {
+   "id": "d_enc_64",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$64$",
+   "properties": {
+    "dimensions": [
+     64
+    ]
+   }
+  },
+  {
+   "id": "o_pool_2",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "MaxPooling",
+   "properties": {
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_hham_e3",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "HHAM",
+   "properties": {
+    "name": "HHAM"
+   }
+  },
+  {
+   "id": "d_enc_128",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$128$",
+   "properties": {
+    "dimensions": [
+     128
+    ]
+   }
+  },
+  {
+   "id": "o_pool_3",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "MaxPooling",
+   "properties": {
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_hham_e4",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "HHAM",
+   "properties": {
+    "name": "HHAM"
+   }
+  },
+  {
+   "id": "d_enc_256",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$256$",
+   "properties": {
+    "dimensions": [
+     256
+    ]
+   }
+  },
+  {
+   "id": "o_pool_4",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "MaxPooling",
+   "properties": {
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_hham_e5",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "HHAM",
+   "properties": {
+    "name": "HHAM"
+   }
+  },
+  {
+   "id": "d_enc_512",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$512$",
+   "properties": {
+    "dimensions": [
+     512
+    ]
+   }
+  },
+  {
+   "id": "o_up_1",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Upsample",
+   "properties": {}
+  },
+  {
+   "id": "o_concat_1",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "Concat",
+   "properties": {}
+  },
+  {
+   "id": "l_hham_d1",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "HHAM",
+   "properties": {
+    "name": "HHAM"
+   }
+  },
+  {
+   "id": "d_dec_256",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$256$",
+   "properties": {
+    "dimensions": [
+     256
+    ]
+   }
+  },
+  {
+   "id": "o_up_2",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Upsample",
+   "properties": {}
+  },
+  {
+   "id": "o_concat_2",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "Concat",
+   "properties": {}
+  },
+  {
+   "id": "l_hham_d2",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "HHAM",
+   "properties": {
+    "name": "HHAM"
+   }
+  },
+  {
+   "id": "d_dec_128",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$128$",
+   "properties": {
+    "dimensions": [
+     128
+    ]
+   }
+  },
+  {
+   "id": "o_up_3",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Upsample",
+   "properties": {}
+  },
+  {
+   "id": "o_concat_3",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "Concat",
+   "properties": {}
+  },
+  {
+   "id": "l_hham_d3",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "HHAM",
+   "properties": {
+    "name": "HHAM"
+   }
+  },
+  {
+   "id": "d_dec_64",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$64$",
+   "properties": {
+    "dimensions": [
+     64
+    ]
+   }
+  },
+  {
+   "id": "o_up_4",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Upsample",
+   "properties": {}
+  },
+  {
+   "id": "o_concat_4",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "Concat",
+   "properties": {}
+  },
+  {
+   "id": "l_hham_d4",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "HHAM",
+   "properties": {
+    "name": "HHAM"
+   }
+  },
+  {
+   "id": "d_dec_32",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$32$",
+   "properties": {
+    "dimensions": [
+     32
+    ]
+   }
+  },
+  {
+   "id": "l_proj",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "projection",
+   "properties": {
+    "name": "projection"
+   }
+  },
+  {
+   "id": "d_out",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "Output",
+   "properties": {}
+  }
+ ],
+ "edges": [
+  {
+   "source": "l_conv_5x5_a",
+   "target": "l_conv_5x5_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv_5x5_b",
+   "target": "l_conv_5x5_c",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv_1x1_1_a",
+   "target": "l_conv_1x1_1_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv_1x1_1_b",
+   "target": "l_conv_1x1_1_c",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv_1x1_4_a",
+   "target": "l_conv_1x1_4_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv_1x1_4_b",
+   "target": "l_conv_1x1_4_c",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv_1x1_3_a",
+   "target": "l_conv_1x1_3_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv_1x1_3_b",
+   "target": "l_conv_1x1_3_c",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dconv_rate3_a",
+   "target": "l_dconv_rate3_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dconv_rate3_b",
+   "target": "l_dconv_rate3_c",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv_3x3_a",
+   "target": "l_conv_3x3_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv_3x3_b",
+   "target": "l_conv_3x3_c",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv_1x1_2_a",
+   "target": "l_conv_1x1_2_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv_1x1_2_b",
+   "target": "l_conv_1x1_2_c",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_f_input",
+   "target": "l_conv_3x3_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv_3x3_c",
+   "target": "d_f3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_f3",
+   "target": "l_conv_1x1_1_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv_1x1_1_c",
+   "target": "d_fs1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_f_input",
+   "target": "l_conv_5x5_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv_5x5_c",
+   "target": "d_f5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_f_input",
+   "target": "l_dconv_rate3_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dconv_rate3_c",
+   "target": "d_fd",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_f5",
+   "target": "o_add_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_fd",
+   "target": "o_add_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_gap",
+   "target": "d_fg",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_fg",
+   "target": "l_fc_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_fc_1",
+   "target": "d_ffg",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_ffg",
+   "target": "l_fc_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_fc_2",
+   "target": "d_ffgp",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_ffgp",
+   "target": "o_sig_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_sig_1",
+   "target": "d_alpha_p",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_sig_1",
+   "target": "d_alpha",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_f5",
+   "target": "o_mult_1",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_alpha_p",
+   "target": "o_mult_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_mult_1",
+   "target": "d_fc5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_fd",
+   "target": "o_mult_2",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_alpha",
+   "target": "o_mult_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_mult_2",
+   "target": "d_fcd",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_fc5",
+   "target": "o_add_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_fcd",
+   "target": "o_add_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv_1x1_2_c",
+   "target": "d_fcs1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_fs1",
+   "target": "o_add_3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_fcs1",
+   "target": "o_add_3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_relu",
+   "target": "d_post_relu",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_post_relu",
+   "target": "l_conv_1x1_3_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv_1x1_3_c",
+   "target": "d_pre_sig",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_pre_sig",
+   "target": "o_sig_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_sig_2",
+   "target": "d_beta_p",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_sig_2",
+   "target": "d_beta",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_beta_p",
+   "target": "o_resample_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_resample_1",
+   "target": "d_resampled_beta_p",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_beta",
+   "target": "o_resample_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_resample_2",
+   "target": "d_resampled_beta",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_fs1",
+   "target": "o_mult_3",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_resampled_beta_p",
+   "target": "o_mult_3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_mult_3",
+   "target": "d_fs1p",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_fcs1",
+   "target": "o_mult_4",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_resampled_beta",
+   "target": "o_mult_4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_mult_4",
+   "target": "d_fcs1p",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_fs1p",
+   "target": "o_add_4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_fcs1p",
+   "target": "o_add_4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv_1x1_4_c",
+   "target": "d_fout",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_unet_in",
+   "target": "l_hham_e1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_hham_e1",
+   "target": "d_enc_32",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc_32",
+   "target": "o_pool_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_pool_1",
+   "target": "l_hham_e2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_hham_e2",
+   "target": "d_enc_64",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc_64",
+   "target": "o_pool_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_pool_2",
+   "target": "l_hham_e3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_hham_e3",
+   "target": "d_enc_128",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc_128",
+   "target": "o_pool_3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_pool_3",
+   "target": "l_hham_e4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_hham_e4",
+   "target": "d_enc_256",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc_256",
+   "target": "o_pool_4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_pool_4",
+   "target": "l_hham_e5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_hham_e5",
+   "target": "d_enc_512",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc_512",
+   "target": "o_up_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc_256",
+   "target": "o_concat_1",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_hham_d1",
+   "target": "d_dec_256",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_dec_256",
+   "target": "o_up_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc_128",
+   "target": "o_concat_2",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_hham_d2",
+   "target": "d_dec_128",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_dec_128",
+   "target": "o_up_3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc_64",
+   "target": "o_concat_3",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_hham_d3",
+   "target": "d_dec_64",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_dec_64",
+   "target": "o_up_4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc_32",
+   "target": "o_concat_4",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_hham_d4",
+   "target": "d_dec_32",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_dec_32",
+   "target": "l_proj",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_proj",
+   "target": "d_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_add_1",
+   "target": "o_gap",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_add_2",
+   "target": "l_conv_1x1_2_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_add_3",
+   "target": "o_relu",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_add_4",
+   "target": "l_conv_1x1_4_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_up_1",
+   "target": "o_concat_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_concat_1",
+   "target": "l_hham_d1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_up_2",
+   "target": "o_concat_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_concat_2",
+   "target": "l_hham_d2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_up_3",
+   "target": "o_concat_3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_concat_3",
+   "target": "l_hham_d3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_up_4",
+   "target": "o_concat_4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_concat_4",
+   "target": "l_hham_d4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "c_haam",
+   "type": "container",
+   "label": "Hybrid adaptive attention module (HAAM)",
+   "boundary_type": "explicit_box",
+   "member_node_ids": []
+  },
+  {
+   "id": "c_channel_att",
+   "type": "container",
+   "label": "(a) Channel Self-attention Block",
+   "boundary_type": "explicit_box",
+   "member_node_ids": []
+  },
+  {
+   "id": "c_spatial_att",
+   "type": "container",
+   "label": "(b) Spatial Self-attention Block",
+   "boundary_type": "explicit_box",
+   "member_node_ids": []
+  }
+ ]
+}

@@ -1,0 +1,400 @@
+{
+ "architecture_name": "2203.01932v2_Contextual Attention Network Transformer Meets U-Net-Figure1-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_in_img",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "Input Image",
+   "properties": {
+    "name": "Input Image",
+    "dimensions": [
+     "",
+     ""
+    ],
+    "modality": "image"
+   }
+  },
+  {
+   "id": "d_patches",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "Patches",
+   "properties": {
+    "name": "Patches"
+   }
+  },
+  {
+   "id": "l_semi_unet",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Semi-U-Net Model",
+   "properties": {
+    "name": "Semi-U-Net Model"
+   }
+  },
+  {
+   "id": "d_boundary",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "Boundary",
+   "properties": {
+    "name": "Boundary"
+   }
+  },
+  {
+   "id": "d_features",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "Features",
+   "properties": {}
+  },
+  {
+   "id": "l_channel_norm",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Channel Normalization",
+   "properties": {}
+  },
+  {
+   "id": "d_recalibrated",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "Recalibrated Features",
+   "properties": {
+    "name": "Recalibrated Features"
+   }
+  },
+  {
+   "id": "l_patch_enc",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Patch Encoder $\\mathbf{E}(\\mathbf{x}_p; \\omega)$",
+   "properties": {}
+  },
+  {
+   "id": "d_pos_embed",
+   "class": "DATA",
+   "sub_type": "constant",
+   "raw_text": "Position Embedding",
+   "properties": {
+    "name": "Position Embedding"
+   }
+  },
+  {
+   "id": "d_embed_patches",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "Embedded Patches",
+   "properties": {
+    "name": "Embedded Patches"
+   }
+  },
+  {
+   "id": "o_add_pos",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "l_mha",
+   "class": "LAYER",
+   "sub_type": "attention",
+   "raw_text": "Multi-Head Attention",
+   "properties": {}
+  },
+  {
+   "id": "l_norm_mlp",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Norm/MLP",
+   "properties": {
+    "name": "Norm/MLP",
+    "sequence": [
+     {
+      "class": "MODIFIER",
+      "sub_type": "normalization",
+      "properties": {}
+     },
+     {
+      "class": "LAYER",
+      "sub_type": "custom",
+      "properties": {
+       "name": "MLP"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "d_ric_gamma",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "RIC Coefficient $\\gamma$",
+   "properties": {}
+  },
+  {
+   "id": "d_icr_alpha",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "ICR Representation $\\alpha$",
+   "properties": {}
+  },
+  {
+   "id": "l_spatial_norm",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Spatial Normalization",
+   "properties": {}
+  },
+  {
+   "id": "d_spatial_out",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "l_decoder",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Decoder",
+   "properties": {
+    "name": "Decoder"
+   }
+  },
+  {
+   "id": "d_prediction",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "Prediction: $Y'$",
+   "properties": {}
+  },
+  {
+   "id": "mpO23N2pof",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "d_in_img",
+   "target": "l_semi_unet",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_in_img",
+   "target": "d_patches",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_semi_unet",
+   "target": "d_boundary",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_semi_unet",
+   "target": "d_features",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_features",
+   "target": "l_channel_norm",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_patches",
+   "target": "l_patch_enc",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_patch_enc",
+   "target": "d_embed_patches",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_pos_embed",
+   "target": "o_add_pos",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_embed_patches",
+   "target": "o_add_pos",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_mha",
+   "target": "l_norm_mlp",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_mha",
+   "target": "d_icr_alpha",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_norm_mlp",
+   "target": "d_ric_gamma",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_recalibrated",
+   "target": "l_spatial_norm",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_ric_gamma",
+   "target": "l_spatial_norm",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_icr_alpha",
+   "target": "l_spatial_norm",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_spatial_norm",
+   "target": "d_spatial_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_spatial_out",
+   "target": "l_decoder",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_decoder",
+   "target": "d_prediction",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_channel_norm",
+   "target": "mpO23N2pof",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_boundary",
+   "target": "mpO23N2pof",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "mpO23N2pof",
+   "target": "d_recalibrated",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_add_pos",
+   "target": "l_mha",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "c_recalibration",
+   "type": "container",
+   "label": "",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "d_features",
+    "d_recalibrated",
+    "l_channel_norm",
+    "d_boundary"
+   ]
+  },
+  {
+   "id": "c_transformer",
+   "type": "container",
+   "label": "Transformer",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "l_norm_mlp",
+    "l_mha"
+   ]
+  },
+  {
+   "id": "c_context_att",
+   "type": "container",
+   "label": "Contextual Attention",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "d_spatial_out",
+    "l_spatial_norm",
+    "l_decoder"
+   ]
+  }
+ ]
+}

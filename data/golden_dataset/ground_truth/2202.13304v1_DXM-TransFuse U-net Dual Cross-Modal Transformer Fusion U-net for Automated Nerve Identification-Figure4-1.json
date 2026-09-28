@@ -1,0 +1,228 @@
+{
+ "architecture_name": "2202.13304v1_DXM-TransFuse U-net Dual Cross-Modal Transformer Fusion U-net for Automated Nerve Identification-Figure4-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "in_a",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "Modality A",
+   "properties": {
+    "name": "Modality A"
+   }
+  },
+  {
+   "id": "in_b",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "Modality B",
+   "properties": {
+    "name": "Modality B"
+   }
+  },
+  {
+   "id": "n3",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$K$",
+   "properties": {
+    "symbol": "K"
+   }
+  },
+  {
+   "id": "n4",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$V$",
+   "properties": {
+    "symbol": "V"
+   }
+  },
+  {
+   "id": "n5",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$Q$",
+   "properties": {
+    "symbol": "Q"
+   }
+  },
+  {
+   "id": "n6",
+   "class": "LAYER",
+   "sub_type": "attention",
+   "raw_text": "Multi-Head Attention",
+   "properties": {}
+  },
+  {
+   "id": "n7",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "Add, Layer Norm & DropOut",
+   "properties": {
+    "sequence": [
+     {
+      "class": "JUNCTION",
+      "sub_type": "add",
+      "properties": {}
+     },
+     {
+      "class": "MODIFIER",
+      "sub_type": "normalization",
+      "properties": {
+       "algorithm": "LayerNormalization"
+      }
+     },
+     {
+      "class": "MODIFIER",
+      "sub_type": "dropout",
+      "properties": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "n8",
+   "class": "MACRO",
+   "sub_type": "block",
+   "raw_text": "Feed Forward",
+   "properties": {
+    "name": "Feed Forward"
+   }
+  },
+  {
+   "id": "n9",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "Add, Layer Norm & DropOut",
+   "properties": {
+    "sequence": [
+     {
+      "class": "JUNCTION",
+      "sub_type": "add",
+      "properties": {}
+     },
+     {
+      "class": "MODIFIER",
+      "sub_type": "normalization",
+      "properties": {
+       "algorithm": "LayerNormalization"
+      }
+     },
+     {
+      "class": "MODIFIER",
+      "sub_type": "dropout",
+      "properties": {}
+     }
+    ]
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "in_a",
+   "target": "n3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "in_a",
+   "target": "n4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "in_b",
+   "target": "n5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "in_b",
+   "target": "n7",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n3",
+   "target": "n6",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n4",
+   "target": "n6",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n5",
+   "target": "n6",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n6",
+   "target": "n7",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n7",
+   "target": "n8",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n7",
+   "target": "n9",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n8",
+   "target": "n9",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "n10",
+   "type": "container",
+   "label": "",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "n4",
+    "n5",
+    "n6",
+    "n7",
+    "n8",
+    "n9",
+    "n3"
+   ]
+  }
+ ]
+}

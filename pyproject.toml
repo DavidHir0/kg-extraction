@@ -1,0 +1,40 @@
+[project]
+name = "kg-extraction"
+version = "0.1.0"
+description = "Knowledge-graph extraction from neural network architecture figures"
+requires-python = ">=3.13"
+dependencies = [
+    "langchain-core>=1.4.8",
+    "langchain-openai>=1.3.3",
+    "langgraph>=1.2.7",
+    "numpy>=2.5.0",
+    "pillow>=12.3.0",
+    "pydantic>=2.13.4",
+    "pydantic-settings>=2.14.2",
+    "python-dotenv>=1.2.2",
+    "scipy>=1.18.0",
+]
+
+[project.optional-dependencies]
+# The ResNet figure classifier (`main.py classify`) is the only consumer of
+# torch; it is a lazy import behind that one command and the pipeline's
+# figure-to-graph path never touches it. Kept out of the base install so a
+# clone that only runs extraction and the benchmark does not pull ~2 GB.
+#   uv sync --extra classify
+classify = [
+    "torch>=2.12.1",
+    "torchvision>=0.27.1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/kg_pipeline"]
+
+[dependency-groups]
+# Tests only.
+dev = [
+    "pytest>=9.1.1",
+]

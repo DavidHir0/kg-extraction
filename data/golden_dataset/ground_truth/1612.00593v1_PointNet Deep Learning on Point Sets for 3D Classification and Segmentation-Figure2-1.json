@@ -1,0 +1,662 @@
+{
+ "architecture_name": "1612.00593v1_PointNet Deep Learning on Point Sets for 3D Classification and Segmentation-Figure2-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_nx3_1",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$n \\times 3$",
+   "properties": {
+    "dimensions": [
+     "n",
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_in_trans",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "input transform",
+   "properties": {
+    "name": "input transform"
+   }
+  },
+  {
+   "id": "d_nx3_2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$n \\times 3$",
+   "properties": {
+    "dimensions": [
+     "n",
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_mlp1",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "mlp ($64, 64$) shared",
+   "properties": {
+    "sequence": [
+     {
+      "class": "LAYER",
+      "sub_type": "linear",
+      "properties": {
+       "units": 64
+      }
+     },
+     {
+      "class": "LAYER",
+      "sub_type": "linear",
+      "properties": {
+       "units": 64
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "d_nx64_1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$n \\times 64$",
+   "properties": {
+    "dimensions": [
+     "n",
+     64
+    ]
+   }
+  },
+  {
+   "id": "l_feat_trans",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "feature transform",
+   "properties": {
+    "name": "feature transform"
+   }
+  },
+  {
+   "id": "d_nx64_2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$n \\times 64$",
+   "properties": {
+    "dimensions": [
+     "n",
+     64
+    ]
+   }
+  },
+  {
+   "id": "l_mlp2",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "mlp ($64, 128, 1024$) ",
+   "properties": {
+    "sequence": [
+     {
+      "class": "LAYER",
+      "sub_type": "linear",
+      "properties": {
+       "units": 64
+      }
+     },
+     {
+      "class": "LAYER",
+      "sub_type": "linear",
+      "properties": {
+       "units": 128
+      }
+     },
+     {
+      "class": "LAYER",
+      "sub_type": "linear",
+      "properties": {
+       "units": 1024
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "d_nx1024",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$n \\times 1024$",
+   "properties": {
+    "dimensions": [
+     "n",
+     1024
+    ]
+   }
+  },
+  {
+   "id": "op_max",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "max pool",
+   "properties": {
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "d_global",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "global feature",
+   "properties": {
+    "name": "global feature",
+    "dimensions": [
+     1024
+    ]
+   }
+  },
+  {
+   "id": "l_mlp3",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "mlp ($512, 256, k$)",
+   "properties": {
+    "sequence": [
+     {
+      "class": "LAYER",
+      "sub_type": "linear",
+      "properties": {
+       "units": 512
+      }
+     },
+     {
+      "class": "LAYER",
+      "sub_type": "linear",
+      "properties": {
+       "units": 256
+      }
+     },
+     {
+      "class": "LAYER",
+      "sub_type": "linear",
+      "properties": {
+       "units": "k"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "d_out_k",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "output scores",
+   "properties": {
+    "name": "output scores",
+    "dimensions": [
+     "k"
+    ]
+   }
+  },
+  {
+   "id": "d_concat",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$n \\times 1088$",
+   "properties": {
+    "dimensions": [
+     "n",
+     1088
+    ]
+   }
+  },
+  {
+   "id": "l_mlp4",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "mlp ($512, 256, 128$) ",
+   "properties": {
+    "sequence": [
+     {
+      "class": "LAYER",
+      "sub_type": "linear",
+      "properties": {
+       "units": 512
+      }
+     },
+     {
+      "class": "LAYER",
+      "sub_type": "linear",
+      "properties": {
+       "units": 256
+      }
+     },
+     {
+      "class": "LAYER",
+      "sub_type": "linear",
+      "properties": {
+       "units": 128
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "d_nx128",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$n \\times 128$",
+   "properties": {
+    "dimensions": [
+     "n",
+     128
+    ]
+   }
+  },
+  {
+   "id": "l_mlp5",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "mlp ($128, m$) ",
+   "properties": {
+    "sequence": [
+     {
+      "class": "LAYER",
+      "sub_type": "linear",
+      "properties": {
+       "units": 128
+      }
+     },
+     {
+      "class": "LAYER",
+      "sub_type": "linear",
+      "properties": {
+       "units": "m"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "d_nxm",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "$n \\times m$",
+   "properties": {
+    "dimensions": [
+     "n",
+     "m"
+    ]
+   }
+  },
+  {
+   "id": "sub1_in",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "sub1_tnet",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "T-Net",
+   "properties": {
+    "name": "T-Net"
+   }
+  },
+  {
+   "id": "d_sub1_trans",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$3 \\times 3$ transform",
+   "properties": {
+    "name": "transform matrix",
+    "dimensions": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "sub1_mul",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "matrix multiply",
+   "properties": {
+    "mechanism": "MatMul"
+   }
+  },
+  {
+   "id": "sub2_in",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "sub2_tnet",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "T-Net",
+   "properties": {
+    "name": "T-Net"
+   }
+  },
+  {
+   "id": "d_sub2_trans",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$64 \\times 64$ transform",
+   "properties": {
+    "name": "transform matrix",
+    "dimensions": [
+     64,
+     64
+    ]
+   }
+  },
+  {
+   "id": "sub2_mul",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "matrix multiply",
+   "properties": {
+    "mechanism": "MatMul"
+   }
+  },
+  {
+   "id": "imp_cat_1088",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "d_nx3_1",
+   "target": "l_in_trans",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_in_trans",
+   "target": "d_nx3_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_nx3_2",
+   "target": "l_mlp1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_mlp1",
+   "target": "d_nx64_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_nx64_1",
+   "target": "l_feat_trans",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_feat_trans",
+   "target": "d_nx64_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_nx64_2",
+   "target": "l_mlp2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_mlp2",
+   "target": "d_nx1024",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_nx1024",
+   "target": "op_max",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_max",
+   "target": "d_global",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_global",
+   "target": "l_mlp3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_mlp3",
+   "target": "d_out_k",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_nx64_2",
+   "target": "imp_cat_1088",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_global",
+   "target": "imp_cat_1088",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_concat",
+   "target": "l_mlp4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_mlp4",
+   "target": "d_nx128",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_nx128",
+   "target": "l_mlp5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_mlp5",
+   "target": "d_nxm",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "sub1_in",
+   "target": "sub1_tnet",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "sub1_in",
+   "target": "sub1_mul",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "sub1_tnet",
+   "target": "d_sub1_trans",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_sub1_trans",
+   "target": "sub1_mul",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "sub2_in",
+   "target": "sub2_tnet",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "sub2_in",
+   "target": "sub2_mul",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "sub2_tnet",
+   "target": "d_sub2_trans",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_sub2_trans",
+   "target": "sub2_mul",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "imp_cat_1088",
+   "target": "d_concat",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "cont_class",
+   "type": "container",
+   "label": "Classification Network",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "d_nx3_2",
+    "l_mlp2",
+    "l_feat_trans",
+    "op_max",
+    "d_nx64_1",
+    "d_global",
+    "d_nx3_1",
+    "d_nx64_2",
+    "d_out_k",
+    "l_in_trans",
+    "d_nx1024",
+    "l_mlp1",
+    "l_mlp3"
+   ]
+  },
+  {
+   "id": "cont_seg",
+   "type": "container",
+   "label": "Segmentation Network",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "d_concat",
+    "l_mlp4",
+    "d_nx128",
+    "l_mlp5",
+    "d_nxm",
+    "imp_cat_1088"
+   ]
+  },
+  {
+   "id": "cont_tnet1",
+   "type": "container",
+   "label": "input transform",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "d_sub1_trans",
+    "sub1_in",
+    "sub1_tnet",
+    "sub1_mul"
+   ]
+  },
+  {
+   "id": "cont_tnet2",
+   "type": "container",
+   "label": "feature transform",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "d_sub2_trans",
+    "sub2_in",
+    "sub2_tnet",
+    "sub2_mul"
+   ]
+  }
+ ]
+}

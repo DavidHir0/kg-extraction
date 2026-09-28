@@ -1,0 +1,460 @@
+{
+ "architecture_name": "1706.03762v1_Attention Is All You Need-Figure1-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "n1",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "Output Probabilities",
+   "properties": {
+    "name": "Output Probabilities"
+   }
+  },
+  {
+   "id": "n2",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Softmax",
+   "properties": {
+    "algorithm": "Softmax"
+   }
+  },
+  {
+   "id": "n3",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "Linear",
+   "properties": {}
+  },
+  {
+   "id": "n4",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "Add & Norm",
+   "properties": {
+    "sequence": [
+     {
+      "class": "JUNCTION",
+      "sub_type": "add",
+      "properties": {}
+     },
+     {
+      "class": "MODIFIER",
+      "sub_type": "normalization",
+      "properties": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "n5",
+   "class": "MACRO",
+   "sub_type": "block",
+   "raw_text": "Feed Forward",
+   "properties": {
+    "name": "Feed Foward"
+   }
+  },
+  {
+   "id": "n6",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "Add & Norm",
+   "properties": {
+    "sequence": [
+     {
+      "class": "JUNCTION",
+      "sub_type": "add",
+      "properties": {}
+     },
+     {
+      "class": "MODIFIER",
+      "sub_type": "normalization",
+      "properties": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "n7",
+   "class": "LAYER",
+   "sub_type": "attention",
+   "raw_text": "Multi-Head Attention",
+   "properties": {}
+  },
+  {
+   "id": "n8",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "Add & Norm",
+   "properties": {
+    "sequence": [
+     {
+      "class": "JUNCTION",
+      "sub_type": "add",
+      "properties": {}
+     },
+     {
+      "class": "MODIFIER",
+      "sub_type": "normalization",
+      "properties": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "n9",
+   "class": "LAYER",
+   "sub_type": "attention",
+   "raw_text": "Masked Multi-Head Attention",
+   "properties": {}
+  },
+  {
+   "id": "n10",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "Add & Norm",
+   "properties": {
+    "sequence": [
+     {
+      "class": "JUNCTION",
+      "sub_type": "add",
+      "properties": {}
+     },
+     {
+      "class": "MODIFIER",
+      "sub_type": "normalization",
+      "properties": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "n11",
+   "class": "MACRO",
+   "sub_type": "block",
+   "raw_text": "Feed Forward",
+   "properties": {
+    "name": "Feed Foward"
+   }
+  },
+  {
+   "id": "n12",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "Add & Norm",
+   "properties": {
+    "sequence": [
+     {
+      "class": "JUNCTION",
+      "sub_type": "add",
+      "properties": {}
+     },
+     {
+      "class": "MODIFIER",
+      "sub_type": "normalization",
+      "properties": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "n13",
+   "class": "LAYER",
+   "sub_type": "attention",
+   "raw_text": "Multi-Head Attention",
+   "properties": {}
+  },
+  {
+   "id": "n16",
+   "class": "DATA",
+   "sub_type": "constant",
+   "raw_text": "Positional Encoding",
+   "properties": {
+    "name": "Positional Encoding"
+   }
+  },
+  {
+   "id": "n17",
+   "class": "DATA",
+   "sub_type": "constant",
+   "raw_text": "Positional Encoding",
+   "properties": {
+    "name": "Positional Encoding"
+   }
+  },
+  {
+   "id": "n18",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "n19",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "n20",
+   "class": "LAYER",
+   "sub_type": "embedding",
+   "raw_text": "Input Embedding",
+   "properties": {}
+  },
+  {
+   "id": "n21",
+   "class": "LAYER",
+   "sub_type": "embedding",
+   "raw_text": "Output Embedding",
+   "properties": {}
+  },
+  {
+   "id": "n22",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "Inputs",
+   "properties": {}
+  },
+  {
+   "id": "n23",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "Outputs (shifted right)",
+   "properties": {}
+  }
+ ],
+ "edges": [
+  {
+   "source": "n22",
+   "target": "n20",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n23",
+   "target": "n21",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n16",
+   "target": "n18",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n17",
+   "target": "n19",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n20",
+   "target": "n18",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n18",
+   "target": "n13",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n18",
+   "target": "n12",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n13",
+   "target": "n12",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n12",
+   "target": "n11",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n12",
+   "target": "n10",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n11",
+   "target": "n10",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n10",
+   "target": "n7",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n21",
+   "target": "n19",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n19",
+   "target": "n9",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n19",
+   "target": "n8",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n9",
+   "target": "n8",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n8",
+   "target": "n7",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n8",
+   "target": "n6",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n7",
+   "target": "n6",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n6",
+   "target": "n5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n6",
+   "target": "n4",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n5",
+   "target": "n4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n4",
+   "target": "n3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n3",
+   "target": "n2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n2",
+   "target": "n1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "n24",
+   "type": "container",
+   "label": "$N \\times$",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "n13",
+    "n10",
+    "n12",
+    "n11"
+   ]
+  },
+  {
+   "id": "n25",
+   "type": "container",
+   "label": "$N \\times$",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "n4",
+    "n5",
+    "n6",
+    "n7",
+    "n8",
+    "n9"
+   ]
+  }
+ ]
+}

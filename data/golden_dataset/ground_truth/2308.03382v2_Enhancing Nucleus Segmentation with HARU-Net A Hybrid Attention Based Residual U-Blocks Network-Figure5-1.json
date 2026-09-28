@@ -1,0 +1,194 @@
+{
+ "architecture_name": "2308.03382v2_Enhancing Nucleus Segmentation with HARU-Net A Hybrid Attention Based Residual U-Blocks Network-Figure5-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "n1",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "Input",
+   "properties": {}
+  },
+  {
+   "id": "n2",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Avg Pooling",
+   "properties": {
+    "algorithm": "AveragePool"
+   }
+  },
+  {
+   "id": "n3",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Max Pooling",
+   "properties": {
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "n4",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "n5",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "FC",
+   "properties": {}
+  },
+  {
+   "id": "n6",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n7",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "FC",
+   "properties": {}
+  },
+  {
+   "id": "n8",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Sigmoid",
+   "properties": {
+    "algorithm": "Sigmoid"
+   }
+  },
+  {
+   "id": "n9",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "$\\otimes$",
+   "properties": {
+    "mechanism": "Mul"
+   }
+  },
+  {
+   "id": "n10",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv",
+   "properties": {}
+  },
+  {
+   "id": "n11",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "Output",
+   "properties": {
+    "name": "Output"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "n1",
+   "target": "n2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n1",
+   "target": "n3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n1",
+   "target": "n9",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n2",
+   "target": "n4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n3",
+   "target": "n4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n4",
+   "target": "n5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n5",
+   "target": "n6",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n6",
+   "target": "n7",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n7",
+   "target": "n8",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n8",
+   "target": "n9",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n9",
+   "target": "n10",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n10",
+   "target": "n11",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": []
+}

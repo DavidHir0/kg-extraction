@@ -1,0 +1,313 @@
+{
+ "architecture_name": "2310.02486v1_OCU-Net A Novel U-Net Architecture for Enhanced Oral Cancer Segmentation-Figure6-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "n2",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "Input Feature",
+   "properties": {
+    "name": "Input Feature"
+   }
+  },
+  {
+   "id": "n3",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv. $1 \\times 1$",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "n4",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv. $1 \\times 1$ rate $3$",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "dilation": 3
+   }
+  },
+  {
+   "id": "n5",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv. $1 \\times 1$ rate $6$",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "dilation": 6
+   }
+  },
+  {
+   "id": "n6",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv. $1 \\times 1$ rate $9$",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "dilation": 9
+   }
+  },
+  {
+   "id": "n7",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Image Pooling",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "n8",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "n9",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "n10",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "n11",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "n12",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "n13",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "Concat",
+   "properties": {}
+  },
+  {
+   "id": "n14",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "n15_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv. $1 \\times 1$ + LeakyReLU",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "n15_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Conv. $1 \\times 1$ + LeakyReLU",
+   "properties": {
+    "algorithm": "LeakyRelu"
+   }
+  },
+  {
+   "id": "n16",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "Output Feature",
+   "properties": {
+    "name": "Output Feature"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "n15_a",
+   "target": "n15_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n2",
+   "target": "n3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n2",
+   "target": "n4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n2",
+   "target": "n5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n2",
+   "target": "n6",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n2",
+   "target": "n7",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n3",
+   "target": "n8",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n4",
+   "target": "n9",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n5",
+   "target": "n10",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n6",
+   "target": "n11",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n7",
+   "target": "n12",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n8",
+   "target": "n13",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n9",
+   "target": "n13",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n10",
+   "target": "n13",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n11",
+   "target": "n13",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n12",
+   "target": "n13",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n13",
+   "target": "n14",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n14",
+   "target": "n15_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n15_b",
+   "target": "n16",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": []
+}

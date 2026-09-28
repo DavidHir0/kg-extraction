@@ -1,0 +1,593 @@
+{
+ "architecture_name": "2409.11223v1_Multimodal_Attention_Enhanced_Feature_Fusion_based_Weekly_Supervised_Anomaly_Violence_Detection-Figure4-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_in_macro",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "l_gl_mhsa_macro",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "GL-MHSA",
+   "properties": {
+    "name": "GL-MHSA"
+   }
+  },
+  {
+   "id": "d_X",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\mathbf{X} \\in \\mathbb{R}^{N \\times D}$",
+   "properties": {
+    "dimensions": [
+     "N",
+     "D"
+    ]
+   }
+  },
+  {
+   "id": "l_a_mem",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "A-Mem Unit",
+   "properties": {
+    "name": "A-Mem Unit"
+   }
+  },
+  {
+   "id": "l_n_mem",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "N-Mem Unit",
+   "properties": {
+    "name": "N-Mem Unit"
+   }
+  },
+  {
+   "id": "d_mu_nv_av",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\mu(NV / AV)$",
+   "properties": {}
+  },
+  {
+   "id": "d_nul_nv_mu_av",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$NUL(NV) / \\mu(AV)$",
+   "properties": {}
+  },
+  {
+   "id": "op_add",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "op_concat",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "C",
+   "properties": {}
+  },
+  {
+   "id": "d_X_aug",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "$\\mathbf{X}_{aug} \\in \\mathbb{R}^{N \\times 2D}$",
+   "properties": {
+    "dimensions": [
+     "N",
+     "2D"
+    ]
+   }
+  },
+  {
+   "id": "d_q",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$q$",
+   "properties": {
+    "symbol": "q"
+   }
+  },
+  {
+   "id": "d_k",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$k$",
+   "properties": {
+    "symbol": "k"
+   }
+  },
+  {
+   "id": "d_vg",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$v_g$",
+   "properties": {
+    "symbol": "v_g"
+   }
+  },
+  {
+   "id": "d_vl",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$v_l$",
+   "properties": {
+    "symbol": "v_l"
+   }
+  },
+  {
+   "id": "op_merge_qkv",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "d_block1_mhsa",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "op_tmask",
+   "class": "MODIFIER",
+   "sub_type": "custom",
+   "raw_text": "T-Mask",
+   "properties": {
+    "algorithm": "T-Mask"
+   }
+  },
+  {
+   "id": "d_block2_mhsa",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "op_concat_mhsa",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "C",
+   "properties": {}
+  },
+  {
+   "id": "d_block3_mhsa",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "d_X_mem",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$\\mathbf{X}$",
+   "properties": {
+    "symbol": "X"
+   }
+  },
+  {
+   "id": "d_mem_banks",
+   "class": "DATA",
+   "sub_type": "constant",
+   "raw_text": "Memory Banks",
+   "properties": {
+    "name": "Memory Banks"
+   }
+  },
+  {
+   "id": "op_query",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "Query",
+   "properties": {
+    "mechanism": "MatMul",
+    "name": "Query"
+   }
+  },
+  {
+   "id": "d_S",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\mathbf{S}$",
+   "properties": {
+    "symbol": "S"
+   }
+  },
+  {
+   "id": "op_read",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "$\\otimes$",
+   "properties": {
+    "mechanism": "MatMul"
+   }
+  },
+  {
+   "id": "d_M_aug",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "$\\mathbf{M}_{aug}$",
+   "properties": {
+    "symbol": "M_aug"
+   }
+  },
+  {
+   "id": "d_mu_nul",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$\\mu$",
+   "properties": {
+    "symbol": "mu"
+   }
+  },
+  {
+   "id": "d_sigma_nul",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$\\sigma$",
+   "properties": {
+    "symbol": "sigma"
+   }
+  },
+  {
+   "id": "op_reparam",
+   "class": "MODIFIER",
+   "sub_type": "custom",
+   "raw_text": "$\\mu + \\sigma\\epsilon$",
+   "properties": {
+    "algorithm": "mu + sigmaepsilon"
+   }
+  },
+  {
+   "id": "d_mu_a",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\mu_a(AV)$",
+   "properties": {
+    "symbol": "mu_a(AV)"
+   }
+  },
+  {
+   "id": "d_nul_n",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$NUL_n(NV)$",
+   "properties": {
+    "symbol": "NUL_n(NV)"
+   }
+  },
+  {
+   "id": "d_nul_area",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$NUL_{area}(\\text{NV})$",
+   "properties": {
+    "symbol": "NUL_area(NV)"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "d_in_macro",
+   "target": "l_gl_mhsa_macro",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_gl_mhsa_macro",
+   "target": "d_X",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_X",
+   "target": "l_a_mem",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_X",
+   "target": "l_n_mem",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_X",
+   "target": "op_concat",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_a_mem",
+   "target": "d_mu_nv_av",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_n_mem",
+   "target": "d_nul_nv_mu_av",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_mu_nv_av",
+   "target": "op_add",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_nul_nv_mu_av",
+   "target": "op_add",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_add",
+   "target": "op_concat",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_concat",
+   "target": "d_X_aug",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_q",
+   "target": "op_merge_qkv",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_k",
+   "target": "op_merge_qkv",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_vg",
+   "target": "op_merge_qkv",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_merge_qkv",
+   "target": "d_block1_mhsa",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_vl",
+   "target": "op_tmask",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_tmask",
+   "target": "d_block2_mhsa",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_block1_mhsa",
+   "target": "op_concat_mhsa",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_block2_mhsa",
+   "target": "op_concat_mhsa",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_concat_mhsa",
+   "target": "d_block3_mhsa",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_X_mem",
+   "target": "op_query",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_mem_banks",
+   "target": "op_query",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_query",
+   "target": "d_S",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_S",
+   "target": "op_read",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_mem_banks",
+   "target": "op_read",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_read",
+   "target": "d_M_aug",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_mu_nul",
+   "target": "op_reparam",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_sigma_nul",
+   "target": "op_reparam",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "c_ur_dmu",
+   "type": "container",
+   "label": "UR-DMU",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "op_concat_mhsa",
+    "d_in_macro",
+    "d_X_aug",
+    "d_X_mem",
+    "d_mu_nv_av",
+    "d_nul_nv_mu_av",
+    "l_gl_mhsa_macro",
+    "op_add"
+   ]
+  },
+  {
+   "id": "c_dmu",
+   "type": "container",
+   "label": "DMU",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "l_a_mem",
+    "l_n_mem"
+   ]
+  },
+  {
+   "id": "c_gl_mhsa",
+   "type": "container",
+   "label": "GL-MHSA",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "op_merge_qkv",
+    "op_concat_mhsa",
+    "d_vl",
+    "d_vg",
+    "d_block1_mhsa",
+    "d_q",
+    "d_k",
+    "d_block3_mhsa",
+    "d_block2_mhsa",
+    "op_tmask"
+   ]
+  },
+  {
+   "id": "c_mem",
+   "type": "container",
+   "label": "Memory Unit",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "d_S",
+    "op_read",
+    "d_mem_banks",
+    "op_query",
+    "d_X_mem",
+    "d_M_aug"
+   ]
+  },
+  {
+   "id": "c_nul",
+   "type": "container",
+   "label": "NUL",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "d_mu_nul",
+    "op_reparam",
+    "d_sigma_nul"
+   ]
+  },
+  {
+   "id": "c_nul_margin",
+   "type": "container",
+   "label": "NUL Margin",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "d_nul_n",
+    "d_nul_area",
+    "d_mu_a"
+   ]
+  }
+ ]
+}

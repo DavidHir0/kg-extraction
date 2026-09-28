@@ -1,0 +1,695 @@
+{
+ "architecture_name": "2207.02390v1_Swin Deformable Attention U-Net Transformer SDAUT for Explainable Fast MRI-Figure1-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_in_a",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$B \\times 1 \\times h \\times w$",
+   "properties": {
+    "dimensions": [
+     "B",
+     1,
+     "h",
+     "w"
+    ]
+   }
+  },
+  {
+   "id": "l_in_mod",
+   "class": "MACRO",
+   "sub_type": "block",
+   "raw_text": "Input Module",
+   "properties": {
+    "name": "Input Module"
+   }
+  },
+  {
+   "id": "d_c1_a",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$B \\times C \\times H \\times W$",
+   "properties": {
+    "dimensions": [
+     "B",
+     "C",
+     "H",
+     "W"
+    ]
+   }
+  },
+  {
+   "id": "l_e1",
+   "class": "MACRO",
+   "sub_type": "block",
+   "raw_text": "RSDTB E1 \u2193",
+   "properties": {
+    "name": "RSDTB E1"
+   }
+  },
+  {
+   "id": "d_c2_a",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$B \\times 2C \\times H/2 \\times W/2$",
+   "properties": {
+    "dimensions": [
+     "B",
+     "2C",
+     "H/2",
+     "W/2"
+    ]
+   }
+  },
+  {
+   "id": "l_e2",
+   "class": "MACRO",
+   "sub_type": "block",
+   "raw_text": "RSDTB E2 \u2193",
+   "properties": {
+    "name": "RSDTB E2"
+   }
+  },
+  {
+   "id": "d_c3_a",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$B \\times 4C \\times H/4 \\times W/4$",
+   "properties": {
+    "dimensions": [
+     "B",
+     "4C",
+     "H/4",
+     "W/4"
+    ]
+   }
+  },
+  {
+   "id": "l_e3",
+   "class": "MACRO",
+   "sub_type": "block",
+   "raw_text": "RDTB E3 \u2193",
+   "properties": {
+    "name": "RDTB E3"
+   }
+  },
+  {
+   "id": "d_c4_a",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$B \\times 8C \\times H/8 \\times W/8$",
+   "properties": {
+    "dimensions": [
+     "B",
+     "8C",
+     "H/8",
+     "W/8"
+    ]
+   }
+  },
+  {
+   "id": "l_d3",
+   "class": "MACRO",
+   "sub_type": "block",
+   "raw_text": "RDTB D3 \u2191",
+   "properties": {
+    "name": "RDTB D3"
+   }
+  },
+  {
+   "id": "d_c5_a",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$B \\times 4C \\times H/4 \\times W/4$",
+   "properties": {
+    "dimensions": [
+     "B",
+     "4C",
+     "H/4",
+     "W/4"
+    ]
+   }
+  },
+  {
+   "id": "op_concat_2",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "concat",
+   "properties": {}
+  },
+  {
+   "id": "l_d2",
+   "class": "MACRO",
+   "sub_type": "block",
+   "raw_text": "RSDTB D2 \u2191",
+   "properties": {
+    "name": "RSDTB D2"
+   }
+  },
+  {
+   "id": "d_c6_a",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$B \\times 2C \\times H/2 \\times W/2$",
+   "properties": {
+    "dimensions": [
+     "B",
+     "2C",
+     "H/2",
+     "W/2"
+    ]
+   }
+  },
+  {
+   "id": "op_concat_1",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "concat",
+   "properties": {}
+  },
+  {
+   "id": "l_d1",
+   "class": "MACRO",
+   "sub_type": "block",
+   "raw_text": "RSDTB D1 \u2191",
+   "properties": {
+    "name": "RSDTB D1"
+   }
+  },
+  {
+   "id": "l_conv_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv2D",
+   "properties": {}
+  },
+  {
+   "id": "d_c7_a",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$B \\times C \\times H \\times W$",
+   "properties": {
+    "dimensions": [
+     "B",
+     "C",
+     "H",
+     "W"
+    ]
+   }
+  },
+  {
+   "id": "op_add_1",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "l_out_mod",
+   "class": "MACRO",
+   "sub_type": "block",
+   "raw_text": "Output Module",
+   "properties": {
+    "name": "Output Module"
+   }
+  },
+  {
+   "id": "op_add_2",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "d_out_a",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "$B \\times 1 \\times h \\times w$",
+   "properties": {
+    "dimensions": [
+     "B",
+     1,
+     "h",
+     "w"
+    ]
+   }
+  },
+  {
+   "id": "d_in_b",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "l_pm_left_b",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Patch Merge \u2193",
+   "properties": {
+    "algorithm": "PatchMerge"
+   }
+  },
+  {
+   "id": "l_sdtl_b",
+   "class": "MACRO",
+   "sub_type": "block",
+   "raw_text": "SDTL/DTL \\n $\\times L$",
+   "properties": {
+    "name": "SDTL/DTL",
+    "repetition": "L"
+   }
+  },
+  {
+   "id": "l_pm_right_b",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Patch Merge \u2193",
+   "properties": {
+    "algorithm": "PatchMerge"
+   }
+  },
+  {
+   "id": "l_conv_b",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv2D",
+   "properties": {}
+  },
+  {
+   "id": "op_add_b",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "d_in_c",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "l_pe_left_c",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Patch Expand \u2191",
+   "properties": {
+    "algorithm": "PatchExpand"
+   }
+  },
+  {
+   "id": "l_sdtl_c",
+   "class": "MACRO",
+   "sub_type": "block",
+   "raw_text": "SDTL/DTL \\n $\\times L$",
+   "properties": {
+    "name": "SDTL/DTL",
+    "repetition": "L"
+   }
+  },
+  {
+   "id": "l_pe_right_c",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Patch Expand \u2191",
+   "properties": {
+    "algorithm": "PatchExpand"
+   }
+  },
+  {
+   "id": "l_conv_c",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv2D",
+   "properties": {}
+  },
+  {
+   "id": "op_add_c",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  }
+ ],
+ "edges": [
+  {
+   "source": "d_in_a",
+   "target": "l_in_mod",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_in_a",
+   "target": "op_add_2",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_in_mod",
+   "target": "d_c1_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_in_mod",
+   "target": "op_add_1",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_c1_a",
+   "target": "l_e1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_e1",
+   "target": "d_c2_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_e1",
+   "target": "op_concat_1",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_c2_a",
+   "target": "l_e2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_e2",
+   "target": "d_c3_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_e2",
+   "target": "op_concat_2",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_c3_a",
+   "target": "l_e3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_e3",
+   "target": "d_c4_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_c4_a",
+   "target": "l_d3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_d3",
+   "target": "d_c5_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_c5_a",
+   "target": "op_concat_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_concat_2",
+   "target": "l_d2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_d2",
+   "target": "d_c6_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_c6_a",
+   "target": "op_concat_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_concat_1",
+   "target": "l_d1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_d1",
+   "target": "l_conv_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv_a",
+   "target": "op_add_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_add_1",
+   "target": "d_c7_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_c7_a",
+   "target": "l_out_mod",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_out_mod",
+   "target": "op_add_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_add_2",
+   "target": "d_out_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_in_b",
+   "target": "l_pm_left_b",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_in_b",
+   "target": "l_sdtl_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_sdtl_b",
+   "target": "l_pm_right_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_pm_right_b",
+   "target": "l_conv_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_pm_left_b",
+   "target": "op_add_b",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv_b",
+   "target": "op_add_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_in_c",
+   "target": "l_pe_left_c",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_in_c",
+   "target": "l_sdtl_c",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_sdtl_c",
+   "target": "l_pe_right_c",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_pe_right_c",
+   "target": "l_conv_c",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_pe_left_c",
+   "target": "op_add_c",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv_c",
+   "target": "op_add_c",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "c_a",
+   "type": "container",
+   "label": "SDAUT",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "l_e3",
+    "d_c6_a",
+    "d_c7_a",
+    "d_c1_a",
+    "l_in_mod",
+    "d_c3_a",
+    "d_in_a",
+    "op_concat_2",
+    "l_e2",
+    "op_concat_1",
+    "d_c4_a",
+    "op_add_1",
+    "l_conv_a",
+    "d_c5_a",
+    "l_d3",
+    "l_d2",
+    "l_out_mod",
+    "l_e1",
+    "d_out_a",
+    "op_add_2",
+    "l_d1",
+    "d_c2_a"
+   ]
+  },
+  {
+   "id": "c_b",
+   "type": "subgraph_definition",
+   "label": "RSDTB/RDTB in Encoder",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "op_add_b",
+    "l_pm_left_b",
+    "l_sdtl_b",
+    "l_pm_right_b",
+    "d_in_b",
+    "l_conv_b"
+   ]
+  },
+  {
+   "id": "c_c",
+   "type": "subgraph_definition",
+   "label": "RSDTB/RDTB in Decoder",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "l_pe_left_c",
+    "l_conv_c",
+    "l_pe_right_c",
+    "l_sdtl_c",
+    "d_in_c",
+    "op_add_c"
+   ]
+  }
+ ]
+}

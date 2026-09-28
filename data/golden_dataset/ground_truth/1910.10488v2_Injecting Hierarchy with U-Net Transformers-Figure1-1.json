@@ -1,0 +1,431 @@
+{
+ "architecture_name": "1910.10488v2_Injecting Hierarchy with U-Net Transformers-Figure1-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "in_left",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "l_conv",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "1D Convolution",
+   "properties": {}
+  },
+  {
+   "id": "l_addnorm1",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "Add & Norm",
+   "properties": {
+    "sequence": [
+     {
+      "class": "JUNCTION",
+      "sub_type": "add",
+      "properties": {}
+     },
+     {
+      "class": "MODIFIER",
+      "sub_type": "normalization",
+      "properties": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "d_q",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$Q$",
+   "properties": {
+    "symbol": "Q"
+   }
+  },
+  {
+   "id": "d_k",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$K$",
+   "properties": {
+    "symbol": "K"
+   }
+  },
+  {
+   "id": "d_v",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$V$",
+   "properties": {
+    "symbol": "V"
+   }
+  },
+  {
+   "id": "l_mha",
+   "class": "LAYER",
+   "sub_type": "attention",
+   "raw_text": "Multi-Head Attention",
+   "properties": {}
+  },
+  {
+   "id": "l_addnorm2",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "Add & Norm",
+   "properties": {
+    "sequence": [
+     {
+      "class": "JUNCTION",
+      "sub_type": "add",
+      "properties": {}
+     },
+     {
+      "class": "MODIFIER",
+      "sub_type": "normalization",
+      "properties": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "l_ff",
+   "class": "MACRO",
+   "sub_type": "block",
+   "raw_text": "Feed Forward",
+   "properties": {
+    "name": "Feed Foward"
+   }
+  },
+  {
+   "id": "l_addnorm3",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "Add & Norm",
+   "properties": {
+    "sequence": [
+     {
+      "class": "JUNCTION",
+      "sub_type": "add",
+      "properties": {}
+     },
+     {
+      "class": "MODIFIER",
+      "sub_type": "normalization",
+      "properties": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "r_word",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "Word Embeddings + Positional Encodings",
+   "properties": {
+    "name": "Word Embeddings + Positional Encodings"
+   }
+  },
+  {
+   "id": "r_in",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Input Layer",
+   "properties": {
+    "name": "Input Layer"
+   }
+  },
+  {
+   "id": "r_down_blue",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Down Layer",
+   "properties": {
+    "name": "Down Layer"
+   }
+  },
+  {
+   "id": "r_down_red",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Down Layer",
+   "properties": {
+    "name": "Down Layer"
+   }
+  },
+  {
+   "id": "r_up_red",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Up Layer",
+   "properties": {
+    "name": "Up Layer"
+   }
+  },
+  {
+   "id": "r_oplus_bottom",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "r_up_blue",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Up Layer",
+   "properties": {
+    "name": "Up Layer"
+   }
+  },
+  {
+   "id": "r_oplus_top",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "r_out",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Output Layer",
+   "properties": {
+    "name": "Output Layer"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "in_left",
+   "target": "l_conv",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "in_left",
+   "target": "l_addnorm1",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "in_left",
+   "target": "d_k",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "in_left",
+   "target": "d_v",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv",
+   "target": "l_addnorm1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_addnorm1",
+   "target": "d_q",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_addnorm1",
+   "target": "l_addnorm2",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_q",
+   "target": "l_mha",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_k",
+   "target": "l_mha",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_v",
+   "target": "l_mha",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_mha",
+   "target": "l_addnorm2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_addnorm2",
+   "target": "l_ff",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_addnorm2",
+   "target": "l_addnorm3",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_ff",
+   "target": "l_addnorm3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "r_word",
+   "target": "r_in",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "r_in",
+   "target": "r_down_blue",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "r_down_blue",
+   "target": "r_down_red",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "r_down_blue",
+   "target": "r_oplus_bottom",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "r_down_red",
+   "target": "r_up_red",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "r_up_red",
+   "target": "r_oplus_bottom",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "r_oplus_bottom",
+   "target": "r_up_blue",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "r_up_blue",
+   "target": "r_oplus_top",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "r_oplus_top",
+   "target": "r_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "r_in",
+   "target": "r_oplus_top",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "cont_left",
+   "type": "container",
+   "label": "U-Net Encoder Layer",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "in_left",
+    "l_mha",
+    "l_ff",
+    "l_addnorm3",
+    "d_q",
+    "l_conv",
+    "d_k",
+    "d_v",
+    "l_addnorm1",
+    "l_addnorm2"
+   ]
+  },
+  {
+   "id": "group_lbl_right",
+   "type": "container",
+   "label": "U-Net Encoder Architecture",
+   "boundary_type": "implicit_header",
+   "member_node_ids": [
+    "r_down_blue",
+    "r_oplus_top",
+    "r_word",
+    "r_up_blue",
+    "r_oplus_bottom",
+    "r_down_red",
+    "r_in",
+    "r_out",
+    "r_up_red"
+   ]
+  }
+ ]
+}

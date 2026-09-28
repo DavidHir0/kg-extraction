@@ -1,0 +1,704 @@
+{
+ "architecture_name": "1603.08029v1_Resnet in Resnet Generalizing Residual Architectures-Figure1-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "input_a",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "input",
+   "properties": {}
+  },
+  {
+   "id": "input_d",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "n1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv",
+   "properties": {}
+  },
+  {
+   "id": "n2",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv",
+   "properties": {}
+  },
+  {
+   "id": "n3",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "n5",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "residual stream",
+   "properties": {
+    "name": "residual stream"
+   }
+  },
+  {
+   "id": "n6",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "transient stream",
+   "properties": {
+    "name": "transient stream"
+   }
+  },
+  {
+   "id": "n8",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv",
+   "properties": {}
+  },
+  {
+   "id": "n9",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv",
+   "properties": {}
+  },
+  {
+   "id": "n10",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv",
+   "properties": {}
+  },
+  {
+   "id": "n11",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv",
+   "properties": {}
+  },
+  {
+   "id": "n12",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "n13",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "n15",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv",
+   "properties": {}
+  },
+  {
+   "id": "n16",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv",
+   "properties": {}
+  },
+  {
+   "id": "n17",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv",
+   "properties": {}
+  },
+  {
+   "id": "n18",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv",
+   "properties": {}
+  },
+  {
+   "id": "n19",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "n20",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "n22",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "residual stream",
+   "properties": {
+    "name": "residual stream"
+   }
+  },
+  {
+   "id": "n23",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "transient stream",
+   "properties": {
+    "name": "transient stream"
+   }
+  },
+  {
+   "id": "n25",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv",
+   "properties": {}
+  },
+  {
+   "id": "n26",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv",
+   "properties": {}
+  },
+  {
+   "id": "n27",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv",
+   "properties": {}
+  },
+  {
+   "id": "n28",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv",
+   "properties": {}
+  },
+  {
+   "id": "n29",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "n30",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "n32",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv",
+   "properties": {}
+  },
+  {
+   "id": "n33",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv",
+   "properties": {}
+  },
+  {
+   "id": "n34",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv",
+   "properties": {}
+  },
+  {
+   "id": "n35",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv",
+   "properties": {}
+  },
+  {
+   "id": "n36",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "n37",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "n39",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "ResNet init",
+   "properties": {}
+  },
+  {
+   "id": "n40",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "ResNet init",
+   "properties": {}
+  },
+  {
+   "id": "n41",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  }
+ ],
+ "edges": [
+  {
+   "source": "input_a",
+   "target": "n1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "input_a",
+   "target": "n3",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n1",
+   "target": "n2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n2",
+   "target": "n3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n5",
+   "target": "n8",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n5",
+   "target": "n9",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n5",
+   "target": "n12",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n6",
+   "target": "n10",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n6",
+   "target": "n11",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n8",
+   "target": "n12",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n9",
+   "target": "n13",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n10",
+   "target": "n12",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n11",
+   "target": "n13",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n12",
+   "target": "n15",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n12",
+   "target": "n16",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n12",
+   "target": "n19",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n13",
+   "target": "n17",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n13",
+   "target": "n18",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n15",
+   "target": "n19",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n16",
+   "target": "n20",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n17",
+   "target": "n19",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n18",
+   "target": "n20",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n22",
+   "target": "n25",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n22",
+   "target": "n26",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n22",
+   "target": "n29",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n23",
+   "target": "n27",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n23",
+   "target": "n28",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n25",
+   "target": "n29",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n26",
+   "target": "n30",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n27",
+   "target": "n29",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n28",
+   "target": "n30",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n29",
+   "target": "n32",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n29",
+   "target": "n33",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n29",
+   "target": "n36",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n30",
+   "target": "n34",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n30",
+   "target": "n35",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n32",
+   "target": "n36",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n33",
+   "target": "n37",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n34",
+   "target": "n36",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n35",
+   "target": "n37",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "input_d",
+   "target": "n39",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "input_d",
+   "target": "n41",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n39",
+   "target": "n40",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n40",
+   "target": "n41",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "n7",
+   "type": "container",
+   "label": "",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "n13",
+    "n10",
+    "n8",
+    "n11",
+    "n9",
+    "n12"
+   ]
+  },
+  {
+   "id": "n14",
+   "type": "container",
+   "label": "",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "n17",
+    "n16",
+    "n20",
+    "n19",
+    "n18",
+    "n15"
+   ]
+  },
+  {
+   "id": "n24",
+   "type": "container",
+   "label": "",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "n30",
+    "n29",
+    "n26",
+    "n27",
+    "n28",
+    "n25"
+   ]
+  },
+  {
+   "id": "n31",
+   "type": "container",
+   "label": "",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "n33",
+    "n32",
+    "n34",
+    "n37",
+    "n35",
+    "n36"
+   ]
+  },
+  {
+   "id": "group_n4",
+   "type": "container",
+   "label": "(a)",
+   "boundary_type": "implicit_header",
+   "member_node_ids": [
+    "n2",
+    "input_a",
+    "n1",
+    "n3"
+   ]
+  },
+  {
+   "id": "group_n42",
+   "type": "container",
+   "label": "(d)",
+   "boundary_type": "implicit_header",
+   "member_node_ids": [
+    "n41",
+    "input_d",
+    "n40",
+    "n39"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,202 @@
+{
+ "architecture_name": "2501.03538v1_Efficient and Accurate Tuberculosis Diagnosis Attention Residual U-Net and Vision Transformer Based -Figure3-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "in_1",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "n1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Convolution",
+   "properties": {}
+  },
+  {
+   "id": "n2_a",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Batch Normalization + ReLU",
+   "properties": {
+    "algorithm": "BatchNormalization",
+    "sequence": [
+     {
+      "class": "MODIFIER",
+      "sub_type": "normalization",
+      "properties": {
+       "algorithm": "BatchNormalization"
+      }
+     },
+     {
+      "class": "MODIFIER",
+      "sub_type": "activation",
+      "properties": {
+       "algorithm": "Relu"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "n2_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Batch Normalization + ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n3",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Convolution",
+   "properties": {}
+  },
+  {
+   "id": "n4",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Batch Normalization",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  },
+  {
+   "id": "n5",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Convolution",
+   "properties": {}
+  },
+  {
+   "id": "n6",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Batch Normalization",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  },
+  {
+   "id": "n7",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "n8",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "LqfzEKjc3G",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "Outputs",
+   "properties": {
+    "name": "Outputs"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "n2_a",
+   "target": "n2_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "in_1",
+   "target": "n1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "in_1",
+   "target": "n5",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n1",
+   "target": "n2_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n2_b",
+   "target": "n3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n3",
+   "target": "n4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n4",
+   "target": "n7",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n5",
+   "target": "n6",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n6",
+   "target": "n7",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n7",
+   "target": "n8",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n8",
+   "target": "LqfzEKjc3G",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": []
+}

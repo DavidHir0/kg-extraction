@@ -1,0 +1,1155 @@
+{
+ "architecture_name": "2204.12084v1_U-Net with ResNet Backbone for Garment Landmarking Purpose-Figure3-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_in",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$3 \\times 512 \\times 512$",
+   "properties": {
+    "dimensions": [
+     3,
+     512,
+     512
+    ]
+   }
+  },
+  {
+   "id": "l_conv_e1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Convolution $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "d_red_e1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$64 \\times 256 \\times 256$",
+   "properties": {
+    "dimensions": [
+     64,
+     256,
+     256
+    ]
+   }
+  },
+  {
+   "id": "l_bn_e1_a",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Batchnorm + ReLU",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  },
+  {
+   "id": "l_bn_e1_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Batchnorm + ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "d_blue_e1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$64 \\times 256 \\times 256$",
+   "properties": {
+    "dimensions": [
+     64,
+     256,
+     256
+    ]
+   }
+  },
+  {
+   "id": "o_pool_e1",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "MaxPool $2 \\times 2$",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ],
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "d_yellow_e1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$64 \\times 128 \\times 128$",
+   "properties": {
+    "dimensions": [
+     64,
+     128,
+     128
+    ]
+   }
+  },
+  {
+   "id": "l_res1",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "ResNet Layer1",
+   "properties": {
+    "name": "ResNet Layer1"
+   }
+  },
+  {
+   "id": "d_res1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$64 \\times 128 \\times 128$",
+   "properties": {
+    "dimensions": [
+     64,
+     128,
+     128
+    ]
+   }
+  },
+  {
+   "id": "l_res2",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "ResNet Layer2",
+   "properties": {
+    "name": "ResNet Layer2"
+   }
+  },
+  {
+   "id": "d_res2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$128 \\times 64 \\times 64$",
+   "properties": {
+    "dimensions": [
+     128,
+     64,
+     64
+    ]
+   }
+  },
+  {
+   "id": "l_res3",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "ResNet Layer3",
+   "properties": {
+    "name": "ResNet Layer3"
+   }
+  },
+  {
+   "id": "d_res3",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$256 \\times 32 \\times 32$",
+   "properties": {
+    "dimensions": [
+     256,
+     32,
+     32
+    ]
+   }
+  },
+  {
+   "id": "l_res4",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "ResNet Layer4",
+   "properties": {
+    "name": "ResNet Layer4"
+   }
+  },
+  {
+   "id": "d_res4",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$512 \\times 16 \\times 16$",
+   "properties": {
+    "dimensions": [
+     512,
+     16,
+     16
+    ]
+   }
+  },
+  {
+   "id": "d_yellow_b",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$512 \\times 8 \\times 8$",
+   "properties": {
+    "dimensions": [
+     512,
+     8,
+     8
+    ]
+   }
+  },
+  {
+   "id": "d_red_b",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "$1024 \\times 8 \\times 8$",
+   "properties": {}
+  },
+  {
+   "id": "d_blue_b",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$1024 \\times 8 \\times 8$",
+   "properties": {
+    "dimensions": [
+     1024,
+     8,
+     8
+    ]
+   }
+  },
+  {
+   "id": "d_purple4",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$512 \\times 16 \\times 16$",
+   "properties": {
+    "dimensions": [
+     512,
+     16,
+     16
+    ]
+   }
+  },
+  {
+   "id": "o_concat4",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "concat",
+   "properties": {}
+  },
+  {
+   "id": "d_red_d4",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$512 \\times 16 \\times 16$",
+   "properties": {
+    "dimensions": [
+     512,
+     16,
+     16
+    ]
+   }
+  },
+  {
+   "id": "d_blue_d4",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$512 \\times 16 \\times 16$",
+   "properties": {
+    "dimensions": [
+     512,
+     16,
+     16
+    ]
+   }
+  },
+  {
+   "id": "d_purple3",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$256 \\times 32 \\times 32$",
+   "properties": {
+    "dimensions": [
+     256,
+     32,
+     32
+    ]
+   }
+  },
+  {
+   "id": "d_white_skip3",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$256 \\times 32 \\times 32$",
+   "properties": {
+    "dimensions": [
+     256,
+     32,
+     32
+    ]
+   }
+  },
+  {
+   "id": "d_red_d3",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$256 \\times 32 \\times 32$",
+   "properties": {
+    "dimensions": [
+     256,
+     32,
+     32
+    ]
+   }
+  },
+  {
+   "id": "d_blue_d3",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$256 \\times 32 \\times 32$",
+   "properties": {
+    "dimensions": [
+     256,
+     32,
+     32
+    ]
+   }
+  },
+  {
+   "id": "d_purple2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$128 \\times 64 \\times 64$",
+   "properties": {
+    "dimensions": [
+     128,
+     64,
+     64
+    ]
+   }
+  },
+  {
+   "id": "d_white_skip2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$128 \\times 64 \\times 64$",
+   "properties": {
+    "dimensions": [
+     128,
+     64,
+     64
+    ]
+   }
+  },
+  {
+   "id": "d_red_d2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$128 \\times 64 \\times 64$",
+   "properties": {
+    "dimensions": [
+     128,
+     64,
+     64
+    ]
+   }
+  },
+  {
+   "id": "d_blue_d2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$128 \\times 64 \\times 64$",
+   "properties": {
+    "dimensions": [
+     128,
+     64,
+     64
+    ]
+   }
+  },
+  {
+   "id": "d_purple1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$64 \\times 128 \\times 128$",
+   "properties": {
+    "dimensions": [
+     64,
+     128,
+     128
+    ]
+   }
+  },
+  {
+   "id": "d_white_skip1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$64 \\times 128 \\times 128$",
+   "properties": {
+    "dimensions": [
+     64,
+     128,
+     128
+    ]
+   }
+  },
+  {
+   "id": "d_red_d1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$64 \\times 128 \\times 128$",
+   "properties": {
+    "dimensions": [
+     64,
+     128,
+     128
+    ]
+   }
+  },
+  {
+   "id": "d_blue_d1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$64 \\times 128 \\times 128$",
+   "properties": {
+    "dimensions": [
+     64,
+     128,
+     128
+    ]
+   }
+  },
+  {
+   "id": "l_out",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Convolution $1 \\times 1$ + Sigmoid",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "d_green",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "$n \\times 128 \\times 128$",
+   "properties": {
+    "dimensions": [
+     "n",
+     128,
+     128
+    ]
+   }
+  },
+  {
+   "id": "slVHGQwSWc",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$1024 \\times 16 \\times 16$",
+   "properties": {
+    "dimensions": [
+     1024,
+     16,
+     16
+    ]
+   }
+  },
+  {
+   "id": "M3HBDAz6OH",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "MaxPool $2 \\times 2$",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ],
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "KeDUwIDK4C",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "concat",
+   "properties": {}
+  },
+  {
+   "id": "js5IEgDhA5",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "concat",
+   "properties": {}
+  },
+  {
+   "id": "6YHJvrre5t",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "concat",
+   "properties": {}
+  },
+  {
+   "id": "TuBHfgcI8y",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Convolution $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "VlTw9mDuOC",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Convolution $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "Mp_TZmpOK0",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Convolution $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "Mz7JWN8-DG",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Convolution $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "g2y_WHTvFc",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Convolution $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "hHJKoR3ZZx",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Batchnorm + ReLU",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  },
+  {
+   "id": "gqKm1kuMng",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Batchnorm + ReLU",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  },
+  {
+   "id": "ebIdrqH3Xu",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Batchnorm + ReLU",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  },
+  {
+   "id": "JORHMjQZVi",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Batchnorm + ReLU",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  },
+  {
+   "id": "4EBe5B6xph",
+   "class": "LAYER",
+   "sub_type": "transposed_convolution",
+   "raw_text": "Deconvolution",
+   "properties": {}
+  },
+  {
+   "id": "wFuO3YjkS3",
+   "class": "LAYER",
+   "sub_type": "transposed_convolution",
+   "raw_text": "Deconvolution",
+   "properties": {}
+  },
+  {
+   "id": "Q56a6B8knX",
+   "class": "LAYER",
+   "sub_type": "transposed_convolution",
+   "raw_text": "Deconvolution",
+   "properties": {}
+  },
+  {
+   "id": "4f_HXJhi-x",
+   "class": "LAYER",
+   "sub_type": "transposed_convolution",
+   "raw_text": "Deconvolution",
+   "properties": {}
+  },
+  {
+   "id": "zZRhnf3rEp",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Batchnorm + ReLU",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "l_bn_e1_a",
+   "target": "l_bn_e1_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_in",
+   "target": "l_conv_e1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv_e1",
+   "target": "d_red_e1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_red_e1",
+   "target": "l_bn_e1_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_bn_e1_b",
+   "target": "d_blue_e1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_blue_e1",
+   "target": "o_pool_e1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_pool_e1",
+   "target": "d_yellow_e1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_yellow_e1",
+   "target": "l_res1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_res1",
+   "target": "d_res1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_res1",
+   "target": "l_res2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_res2",
+   "target": "d_res2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_res2",
+   "target": "l_res3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_res3",
+   "target": "d_res3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_res3",
+   "target": "l_res4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_res4",
+   "target": "d_res4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_res4",
+   "target": "o_concat4",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_purple4",
+   "target": "o_concat4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_res3",
+   "target": "d_white_skip3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_res2",
+   "target": "d_white_skip2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_res1",
+   "target": "d_white_skip1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_res4",
+   "target": "M3HBDAz6OH",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "M3HBDAz6OH",
+   "target": "d_yellow_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_yellow_b",
+   "target": "TuBHfgcI8y",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "TuBHfgcI8y",
+   "target": "d_red_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_red_b",
+   "target": "zZRhnf3rEp",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "zZRhnf3rEp",
+   "target": "d_blue_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_blue_b",
+   "target": "4EBe5B6xph",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "4EBe5B6xph",
+   "target": "d_purple4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_concat4",
+   "target": "slVHGQwSWc",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "slVHGQwSWc",
+   "target": "VlTw9mDuOC",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "VlTw9mDuOC",
+   "target": "d_red_d4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_red_d4",
+   "target": "hHJKoR3ZZx",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "hHJKoR3ZZx",
+   "target": "d_blue_d4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_blue_d4",
+   "target": "wFuO3YjkS3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "wFuO3YjkS3",
+   "target": "d_purple3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_white_skip3",
+   "target": "KeDUwIDK4C",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_purple3",
+   "target": "KeDUwIDK4C",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "KeDUwIDK4C",
+   "target": "Mp_TZmpOK0",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "Mp_TZmpOK0",
+   "target": "d_red_d3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_red_d3",
+   "target": "gqKm1kuMng",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "gqKm1kuMng",
+   "target": "d_blue_d3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_blue_d3",
+   "target": "Q56a6B8knX",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "Q56a6B8knX",
+   "target": "d_purple2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_white_skip2",
+   "target": "js5IEgDhA5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_purple2",
+   "target": "js5IEgDhA5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "js5IEgDhA5",
+   "target": "Mz7JWN8-DG",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "Mz7JWN8-DG",
+   "target": "d_red_d2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_red_d2",
+   "target": "ebIdrqH3Xu",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "ebIdrqH3Xu",
+   "target": "d_blue_d2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_blue_d2",
+   "target": "4f_HXJhi-x",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "4f_HXJhi-x",
+   "target": "d_purple1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_white_skip1",
+   "target": "6YHJvrre5t",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_purple1",
+   "target": "6YHJvrre5t",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "6YHJvrre5t",
+   "target": "g2y_WHTvFc",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "g2y_WHTvFc",
+   "target": "d_red_d1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_red_d1",
+   "target": "JORHMjQZVi",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "JORHMjQZVi",
+   "target": "d_blue_d1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_blue_d1",
+   "target": "l_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_out",
+   "target": "d_green",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "c_base",
+   "type": "container",
+   "label": "$\\times 2$",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "d_blue_b",
+    "d_red_b"
+   ]
+  },
+  {
+   "id": "c_d4",
+   "type": "container",
+   "label": "$\\times 2$",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "d_red_d4",
+    "d_blue_d4"
+   ]
+  },
+  {
+   "id": "c_d3",
+   "type": "container",
+   "label": "$\\times 2$",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "d_blue_d3",
+    "d_red_d3"
+   ]
+  },
+  {
+   "id": "c_d2",
+   "type": "container",
+   "label": "$\\times 2$",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "d_blue_d1",
+    "d_red_d1"
+   ]
+  },
+  {
+   "id": "c_d1",
+   "type": "container",
+   "label": "$\\times 2$",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "d_blue_d2",
+    "d_red_d2"
+   ]
+  }
+ ]
+}

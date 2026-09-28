@@ -1,0 +1,477 @@
+{
+ "architecture_name": "2111.04734v2_Mixed Transformer U-Net For Medical Image Segmentation-Figure1-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "n1",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "n4",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$ Block",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "n5",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$ Block",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "n6",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$ Block",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "n13",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "MTM $\\times 2$",
+   "properties": {}
+  },
+  {
+   "id": "n14",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv",
+   "properties": {}
+  },
+  {
+   "id": "n15",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "MTM $\\times 2$",
+   "properties": {}
+  },
+  {
+   "id": "n16",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv",
+   "properties": {}
+  },
+  {
+   "id": "n17",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "MTM $\\times 2$",
+   "properties": {}
+  },
+  {
+   "id": "n21",
+   "class": "LAYER",
+   "sub_type": "transposed_convolution",
+   "raw_text": "DeConv",
+   "properties": {}
+  },
+  {
+   "id": "op_concat1",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "n20",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "MTM $\\times 2$",
+   "properties": {}
+  },
+  {
+   "id": "n19",
+   "class": "LAYER",
+   "sub_type": "transposed_convolution",
+   "raw_text": "DeConv",
+   "properties": {}
+  },
+  {
+   "id": "op_concat2",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "n18",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "MTM $\\times 2$",
+   "properties": {}
+  },
+  {
+   "id": "n10",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$ Block",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "op_concat4",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "n9",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$ Block",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "op_concat5",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "Concat",
+   "properties": {}
+  },
+  {
+   "id": "n8",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$ Block",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "n11",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "cuRV8U5jV5",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Encoder Stem",
+   "properties": {
+    "name": "Encoder Stem"
+   }
+  },
+  {
+   "id": "mhXKnunfum",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Decoder Stem",
+   "properties": {
+    "name": "Decoder Stem"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "n13",
+   "target": "n14",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n14",
+   "target": "n15",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n15",
+   "target": "n16",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n16",
+   "target": "n17",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n17",
+   "target": "n21",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n21",
+   "target": "op_concat1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n15",
+   "target": "op_concat1",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_concat1",
+   "target": "n20",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n20",
+   "target": "n19",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n19",
+   "target": "op_concat2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n13",
+   "target": "op_concat2",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_concat2",
+   "target": "n18",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n5",
+   "target": "op_concat4",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_concat4",
+   "target": "n9",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n4",
+   "target": "op_concat5",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_concat5",
+   "target": "n8",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n1",
+   "target": "cuRV8U5jV5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "mhXKnunfum",
+   "target": "n11",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "cuRV8U5jV5",
+   "target": "n13",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n18",
+   "target": "mhXKnunfum",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n4",
+   "target": "n5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n5",
+   "target": "n6",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n6",
+   "target": "n10",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n10",
+   "target": "op_concat4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n9",
+   "target": "op_concat5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "c_enc",
+   "type": "container",
+   "label": "Encoder Stem",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "n5",
+    "n6",
+    "n4"
+   ]
+  },
+  {
+   "id": "c_m1",
+   "type": "container",
+   "label": "",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "n13",
+    "n14"
+   ]
+  },
+  {
+   "id": "c_m2",
+   "type": "container",
+   "label": "",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "n16",
+    "n15"
+   ]
+  },
+  {
+   "id": "c_m4",
+   "type": "container",
+   "label": "",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "n20",
+    "op_concat1",
+    "n21"
+   ]
+  },
+  {
+   "id": "c_m3",
+   "type": "container",
+   "label": "",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "n18",
+    "op_concat2",
+    "n19"
+   ]
+  },
+  {
+   "id": "c_dec",
+   "type": "container",
+   "label": "Decoder Stem",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "n10",
+    "n8",
+    "n9",
+    "op_concat4",
+    "op_concat5"
+   ]
+  }
+ ]
+}

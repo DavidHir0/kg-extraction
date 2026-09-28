@@ -1,0 +1,267 @@
+{
+ "architecture_name": "1512.03385v1_Deep Residual Learning for Image Recognition-Figure5-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "n1",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$64$-d",
+   "properties": {
+    "dimensions": [
+     64
+    ]
+   }
+  },
+  {
+   "id": "n2",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3, 64$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 64
+   }
+  },
+  {
+   "id": "n3",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "relu",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n4",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3, 64$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 64
+   }
+  },
+  {
+   "id": "n5",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "n6",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "relu",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n7",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$256$-d",
+   "properties": {
+    "dimensions": [
+     256
+    ]
+   }
+  },
+  {
+   "id": "n8",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$1 \\times 1, 64$",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "channels": 64
+   }
+  },
+  {
+   "id": "n9",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "relu",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n10",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3, 64$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 64
+   }
+  },
+  {
+   "id": "n11",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "relu",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n12",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$1 \\times 1, 256$",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "n13",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "n14",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "relu",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "n1",
+   "target": "n2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n1",
+   "target": "n5",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n2",
+   "target": "n3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n3",
+   "target": "n4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n4",
+   "target": "n5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n5",
+   "target": "n6",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n7",
+   "target": "n8",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n7",
+   "target": "n13",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n8",
+   "target": "n9",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n9",
+   "target": "n10",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n10",
+   "target": "n11",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n11",
+   "target": "n12",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n12",
+   "target": "n13",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n13",
+   "target": "n14",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": []
+}

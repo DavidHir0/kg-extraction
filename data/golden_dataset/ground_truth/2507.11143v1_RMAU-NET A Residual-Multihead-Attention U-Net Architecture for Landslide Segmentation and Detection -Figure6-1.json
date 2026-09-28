@@ -1,0 +1,627 @@
+{
+ "architecture_name": "2507.11143v1_RMAU-NET A Residual-Multihead-Attention U-Net Architecture for Landslide Segmentation and Detection -Figure6-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "n_in",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$\\mathbf{X}$",
+   "properties": {
+    "dimensions": [
+     "w",
+     "h",
+     "c"
+    ]
+   }
+  },
+  {
+   "id": "n_op_g_t_a",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Average & Max Pooling",
+   "properties": {
+    "kernel": [],
+    "algorithm": "AveragePool"
+   }
+  },
+  {
+   "id": "n_op_g_t_b",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Average & Max Pooling",
+   "properties": {
+    "kernel": [],
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "n_op_g_m_a",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Average & Max Pooling",
+   "properties": {
+    "kernel": [],
+    "algorithm": "AveragePool"
+   }
+  },
+  {
+   "id": "n_op_g_m_b",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Average & Max Pooling",
+   "properties": {
+    "kernel": [],
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "n_op_g_b_a",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Average & Max Pooling",
+   "properties": {
+    "kernel": [],
+    "algorithm": "AveragePool"
+   }
+  },
+  {
+   "id": "n_op_g_b_b",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Average & Max Pooling",
+   "properties": {
+    "kernel": [],
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "n_d_o_t",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$[W \\times H]$",
+   "properties": {
+    "dimensions": [
+     "w",
+     "h"
+    ]
+   }
+  },
+  {
+   "id": "n_d_o_m",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$[W \\times C]$",
+   "properties": {
+    "dimensions": [
+     "w",
+     "c"
+    ]
+   }
+  },
+  {
+   "id": "n_d_o_b",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$[H \\times C]$",
+   "properties": {
+    "dimensions": [
+     "h",
+     "c"
+    ]
+   }
+  },
+  {
+   "id": "n_l_b_t",
+   "class": "LAYER",
+   "sub_type": "attention",
+   "raw_text": "Multihead Attention",
+   "properties": {}
+  },
+  {
+   "id": "n_l_b_m",
+   "class": "LAYER",
+   "sub_type": "attention",
+   "raw_text": "Multihead Attention",
+   "properties": {}
+  },
+  {
+   "id": "n_l_b_b",
+   "class": "LAYER",
+   "sub_type": "attention",
+   "raw_text": "Multihead Attention",
+   "properties": {}
+  },
+  {
+   "id": "n_d_b1_t",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$[W \\times H]$",
+   "properties": {
+    "dimensions": [
+     "w",
+     "h"
+    ]
+   }
+  },
+  {
+   "id": "n_d_b1_m",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$[W \\times C]$",
+   "properties": {
+    "dimensions": [
+     "w",
+     "c"
+    ]
+   }
+  },
+  {
+   "id": "n_d_b1_b",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$[H \\times C]$",
+   "properties": {
+    "dimensions": [
+     "h",
+     "c"
+    ]
+   }
+  },
+  {
+   "id": "n_op_p_t_a",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "Expand Dimension",
+   "properties": {
+    "algorithm": "Unsqueeze"
+   }
+  },
+  {
+   "id": "n_op_p_t_b",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "Expand Dimension",
+   "properties": {
+    "algorithm": "Unsqueeze"
+   }
+  },
+  {
+   "id": "n_op_p_m_a",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "Expand Dimension",
+   "properties": {
+    "algorithm": "Unsqueeze"
+   }
+  },
+  {
+   "id": "n_op_p_m_b",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "Expand Dimension",
+   "properties": {
+    "algorithm": "Unsqueeze"
+   }
+  },
+  {
+   "id": "n_op_p_b_a",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "Expand Dimension",
+   "properties": {
+    "algorithm": "Unsqueeze"
+   }
+  },
+  {
+   "id": "n_op_p_b_b",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "Expand Dimension",
+   "properties": {
+    "algorithm": "Unsqueeze"
+   }
+  },
+  {
+   "id": "n_d_b2_t",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$[W \\times H \\times 1]$",
+   "properties": {
+    "dimensions": [
+     "w",
+     "h",
+     1
+    ]
+   }
+  },
+  {
+   "id": "n_d_b2_m",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$[W \\times 1 \\times C]$",
+   "properties": {
+    "dimensions": [
+     "w",
+     1,
+     "c"
+    ]
+   }
+  },
+  {
+   "id": "n_d_b2_b",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$[1 \\times H \\times C]$",
+   "properties": {
+    "dimensions": [
+     1,
+     "h",
+     "c"
+    ]
+   }
+  },
+  {
+   "id": "n_x_t",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$\\mathbf{X}$",
+   "properties": {
+    "dimensions": [
+     "w",
+     "h",
+     "c"
+    ]
+   }
+  },
+  {
+   "id": "n_x_m",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$\\mathbf{X}$",
+   "properties": {
+    "dimensions": [
+     "w",
+     "h",
+     "c"
+    ]
+   }
+  },
+  {
+   "id": "n_x_b",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$\\mathbf{X}$",
+   "properties": {
+    "dimensions": [
+     "w",
+     "h",
+     "c"
+    ]
+   }
+  },
+  {
+   "id": "n_mult_t",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "$\\otimes$",
+   "properties": {
+    "mechanism": "Mul"
+   }
+  },
+  {
+   "id": "n_mult_m",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "$\\otimes$",
+   "properties": {
+    "mechanism": "Mul"
+   }
+  },
+  {
+   "id": "n_mult_b",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "$\\otimes$",
+   "properties": {
+    "mechanism": "Mul"
+   }
+  },
+  {
+   "id": "n_avg",
+   "class": "JUNCTION",
+   "sub_type": "average",
+   "raw_text": "Avg",
+   "properties": {}
+  },
+  {
+   "id": "n_out",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "$\\mathbf{Y}$",
+   "properties": {
+    "symbol": "Y",
+    "dimensions": [
+     "w",
+     "h",
+     "c"
+    ]
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "n_op_p_b_a",
+   "target": "n_op_p_b_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_op_g_t_a",
+   "target": "n_op_g_t_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_op_p_m_a",
+   "target": "n_op_p_m_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_op_p_t_a",
+   "target": "n_op_p_t_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_op_g_b_a",
+   "target": "n_op_g_b_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_op_g_m_a",
+   "target": "n_op_g_m_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_in",
+   "target": "n_op_g_t_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_in",
+   "target": "n_op_g_m_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_in",
+   "target": "n_op_g_b_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_op_g_t_b",
+   "target": "n_d_o_t",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_op_g_m_b",
+   "target": "n_d_o_m",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_op_g_b_b",
+   "target": "n_d_o_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_d_o_t",
+   "target": "n_l_b_t",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_d_o_m",
+   "target": "n_l_b_m",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_d_o_b",
+   "target": "n_l_b_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_l_b_t",
+   "target": "n_d_b1_t",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_l_b_m",
+   "target": "n_d_b1_m",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_l_b_b",
+   "target": "n_d_b1_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_d_b1_t",
+   "target": "n_op_p_t_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_d_b1_m",
+   "target": "n_op_p_m_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_d_b1_b",
+   "target": "n_op_p_b_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_op_p_t_b",
+   "target": "n_d_b2_t",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_op_p_m_b",
+   "target": "n_d_b2_m",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_op_p_b_b",
+   "target": "n_d_b2_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_d_b2_t",
+   "target": "n_mult_t",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_x_t",
+   "target": "n_mult_t",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_d_b2_m",
+   "target": "n_mult_m",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_x_m",
+   "target": "n_mult_m",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_d_b2_b",
+   "target": "n_mult_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_x_b",
+   "target": "n_mult_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_mult_t",
+   "target": "n_avg",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_mult_m",
+   "target": "n_avg",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_mult_b",
+   "target": "n_avg",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_avg",
+   "target": "n_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": []
+}

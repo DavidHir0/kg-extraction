@@ -1,0 +1,482 @@
+{
+ "architecture_name": "2111.10591v1_AGA-GAN Attribute Guided Attention Generative Adversarial Network with U-Net for Face Hallucination-Figure5-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_in",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "SR prediction by AGA-GAN",
+   "properties": {
+    "name": "SR prediction by AGA-GAN"
+   }
+  },
+  {
+   "id": "e1_conv_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv$3 \\times 3$ + ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "e1_conv_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Conv$3 \\times 3$ + ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "e1_se",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Squeeze and Excitation Block",
+   "properties": {
+    "name": "Squeeze and Excitation Block"
+   }
+  },
+  {
+   "id": "e2_conv_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv$3 \\times 3$ + ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "e2_conv_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Conv$3 \\times 3$ + ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "e2_se",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Squeeze and Excitation Block",
+   "properties": {
+    "name": "Squeeze and Excitation Block"
+   }
+  },
+  {
+   "id": "e3_conv_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv$3 \\times 3$ + ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "e3_conv_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Conv$3 \\times 3$ + ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "e3_se",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Squeeze and Excitation Block",
+   "properties": {
+    "name": "Squeeze and Excitation Block"
+   }
+  },
+  {
+   "id": "b_conv_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv$3 \\times 3$ + ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "b_conv_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Conv$3 \\times 3$ + ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "b_se",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Squeeze and Excitation Block",
+   "properties": {
+    "name": "Squeeze and Excitation Block"
+   }
+  },
+  {
+   "id": "d3_concat",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "concat",
+   "properties": {}
+  },
+  {
+   "id": "d3_da",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Dual Attention Block",
+   "properties": {
+    "name": "Dual Attention Block"
+   }
+  },
+  {
+   "id": "d3_conv_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv$3 \\times 3$ + ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "d3_conv_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Conv$3 \\times 3$ + ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "d2_concat",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "concat",
+   "properties": {}
+  },
+  {
+   "id": "d2_da",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Dual Attention Block",
+   "properties": {
+    "name": "Dual Attention Block"
+   }
+  },
+  {
+   "id": "d2_conv_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv$3 \\times 3$ + ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "d2_conv_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Conv$3 \\times 3$ + ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "d1_concat",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "concat",
+   "properties": {}
+  },
+  {
+   "id": "d1_da",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Dual Attention Block",
+   "properties": {
+    "name": "Dual Attention Block"
+   }
+  },
+  {
+   "id": "d1_conv_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv$3 \\times 3$ + ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "d1_conv_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Conv$3 \\times 3$ + ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "d_out",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "SR prediction by UNet",
+   "properties": {
+    "name": "SR prediction by UNet"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "e2_conv_a",
+   "target": "e2_conv_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "e1_conv_a",
+   "target": "e1_conv_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d2_conv_a",
+   "target": "d2_conv_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d3_conv_a",
+   "target": "d3_conv_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "e3_conv_a",
+   "target": "e3_conv_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "b_conv_a",
+   "target": "b_conv_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d1_conv_a",
+   "target": "d1_conv_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_in",
+   "target": "e1_conv_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "e1_conv_b",
+   "target": "e1_se",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "e1_se",
+   "target": "e2_conv_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "e1_se",
+   "target": "d1_concat",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "e2_conv_b",
+   "target": "e2_se",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "e2_se",
+   "target": "e3_conv_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "e2_se",
+   "target": "d2_concat",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "e3_conv_b",
+   "target": "e3_se",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "e3_se",
+   "target": "b_conv_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "e3_se",
+   "target": "d3_concat",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "b_conv_b",
+   "target": "b_se",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "b_se",
+   "target": "d3_concat",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d3_concat",
+   "target": "d3_da",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d3_da",
+   "target": "d3_conv_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d3_conv_b",
+   "target": "d2_concat",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d2_concat",
+   "target": "d2_da",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d2_da",
+   "target": "d2_conv_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d2_conv_b",
+   "target": "d1_concat",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d1_concat",
+   "target": "d1_da",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d1_da",
+   "target": "d1_conv_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d1_conv_b",
+   "target": "d_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": []
+}

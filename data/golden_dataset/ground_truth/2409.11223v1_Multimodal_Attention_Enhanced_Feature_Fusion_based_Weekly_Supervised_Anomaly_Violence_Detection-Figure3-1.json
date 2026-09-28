@@ -1,0 +1,528 @@
+{
+ "architecture_name": "2409.11223v1_Multimodal_Attention_Enhanced_Feature_Fusion_based_Weekly_Supervised_Anomaly_Violence_Detection-Figure3-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_X",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$\\mathbf{X}$",
+   "properties": {
+    "dimensions": [
+     "",
+     ""
+    ]
+   }
+  },
+  {
+   "id": "l_fv_top",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "$f_v$",
+   "properties": {}
+  },
+  {
+   "id": "l_fq",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "$f_q$",
+   "properties": {}
+  },
+  {
+   "id": "l_fk",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "$f_k$",
+   "properties": {}
+  },
+  {
+   "id": "l_fv_bot",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "$f_v$",
+   "properties": {}
+  },
+  {
+   "id": "op_mul_qk",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "$\\otimes$",
+   "properties": {
+    "mechanism": "MatMul"
+   }
+  },
+  {
+   "id": "l_dpe",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "DPE",
+   "properties": {
+    "name": "DPE"
+   }
+  },
+  {
+   "id": "d_M",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "Similarity Matrix $\\mathbf{M}$",
+   "properties": {}
+  },
+  {
+   "id": "op_softmax_g",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "softmax",
+   "properties": {
+    "algorithm": "Softmax"
+   }
+  },
+  {
+   "id": "d_Ag",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "Global map $\\mathbf{A}^g$",
+   "properties": {}
+  },
+  {
+   "id": "op_mul_g",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "$\\otimes$",
+   "properties": {
+    "mechanism": "MatMul"
+   }
+  },
+  {
+   "id": "d_Xg",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\mathbf{X}^g$",
+   "properties": {
+    "dimensions": [
+     "",
+     "g"
+    ]
+   }
+  },
+  {
+   "id": "op_scale_g",
+   "class": "MODIFIER",
+   "sub_type": "element_wise",
+   "raw_text": "$\\times \\alpha$",
+   "properties": {
+    "algorithm": "Scale"
+   }
+  },
+  {
+   "id": "op_mask",
+   "class": "MODIFIER",
+   "sub_type": "custom",
+   "raw_text": "mask",
+   "properties": {
+    "algorithm": "mask"
+   }
+  },
+  {
+   "id": "op_softmax_l",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "softmax",
+   "properties": {
+    "algorithm": "Softmax"
+   }
+  },
+  {
+   "id": "d_Al",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "Local map $\\mathbf{A}^l$",
+   "properties": {}
+  },
+  {
+   "id": "op_mul_l",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "$\\otimes$",
+   "properties": {
+    "mechanism": "MatMul"
+   }
+  },
+  {
+   "id": "d_Xl",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\mathbf{X}^l$",
+   "properties": {
+    "dimensions": [
+     "",
+     "l"
+    ]
+   }
+  },
+  {
+   "id": "op_scale_l",
+   "class": "MODIFIER",
+   "sub_type": "element_wise",
+   "raw_text": "$\\times (1-\\alpha)$",
+   "properties": {
+    "algorithm": "Scale"
+   }
+  },
+  {
+   "id": "op_add_gl",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "d_Xo",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\mathbf{X}^o$",
+   "properties": {
+    "dimensions": [
+     "",
+     "o"
+    ]
+   }
+  },
+  {
+   "id": "l_norm",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Norm",
+   "properties": {}
+  },
+  {
+   "id": "l_fh",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "$f_h$",
+   "properties": {}
+  },
+  {
+   "id": "op_add_res",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "l_ln",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "LN",
+   "properties": {
+    "algorithm": "LayerNormalization"
+   }
+  },
+  {
+   "id": "d_Xc",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "$\\mathbf{X}^c$",
+   "properties": {
+    "dimensions": [
+     "",
+     "c"
+    ]
+   }
+  },
+  {
+   "id": "imp_add_dpe",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "d_X",
+   "target": "l_fv_top",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_X",
+   "target": "l_fq",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_X",
+   "target": "l_fk",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_X",
+   "target": "l_fv_bot",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_X",
+   "target": "op_add_res",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_fq",
+   "target": "op_mul_qk",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_fk",
+   "target": "op_mul_qk",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_mul_qk",
+   "target": "imp_add_dpe",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dpe",
+   "target": "imp_add_dpe",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_M",
+   "target": "op_softmax_g",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_softmax_g",
+   "target": "d_Ag",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_fv_top",
+   "target": "op_mul_g",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_Ag",
+   "target": "op_mul_g",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_mul_g",
+   "target": "d_Xg",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_Xg",
+   "target": "op_scale_g",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_scale_g",
+   "target": "op_add_gl",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_M",
+   "target": "op_mask",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_mask",
+   "target": "op_softmax_l",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_softmax_l",
+   "target": "d_Al",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_fv_bot",
+   "target": "op_mul_l",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_Al",
+   "target": "op_mul_l",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_mul_l",
+   "target": "d_Xl",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_Xl",
+   "target": "op_scale_l",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_scale_l",
+   "target": "op_add_gl",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_add_gl",
+   "target": "d_Xo",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_Xo",
+   "target": "l_norm",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_norm",
+   "target": "l_fh",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_fh",
+   "target": "op_add_res",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_add_res",
+   "target": "l_ln",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_ln",
+   "target": "d_Xc",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "imp_add_dpe",
+   "target": "d_M",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "c_main",
+   "type": "container",
+   "label": "Temporal Context Aggregation Module",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "l_fv_bot",
+    "op_mask",
+    "op_add_res",
+    "l_fk",
+    "op_scale_l",
+    "d_Xo",
+    "d_Xg",
+    "op_softmax_g",
+    "l_dpe",
+    "l_ln",
+    "d_M",
+    "op_add_gl",
+    "l_fq",
+    "l_norm",
+    "op_mul_g",
+    "d_Xc",
+    "l_fv_top",
+    "op_mul_l",
+    "op_scale_g",
+    "op_mul_qk",
+    "d_Xl",
+    "d_Ag",
+    "d_Al",
+    "op_softmax_l",
+    "l_fh",
+    "imp_add_dpe"
+   ]
+  }
+ ]
+}

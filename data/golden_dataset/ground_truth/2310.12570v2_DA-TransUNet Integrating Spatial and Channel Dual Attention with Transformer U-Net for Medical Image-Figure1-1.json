@@ -1,0 +1,791 @@
+{
+ "architecture_name": "2310.12570v2_DA-TransUNet Integrating Spatial and Channel Dual Attention with Transformer U-Net for Medical Image-Figure1-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "n_t_xp",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$x_p^1, x_p^2, ..., x_p^N$",
+   "properties": {}
+  },
+  {
+   "id": "n_t_ln1",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Layer Norm",
+   "properties": {
+    "algorithm": "LayerNormalization"
+   }
+  },
+  {
+   "id": "n_t_msa",
+   "class": "LAYER",
+   "sub_type": "attention",
+   "raw_text": "MSA",
+   "properties": {}
+  },
+  {
+   "id": "n_t_plus1",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "n_t_ln2",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Layer Norm",
+   "properties": {
+    "algorithm": "LayerNormalization"
+   }
+  },
+  {
+   "id": "n_t_mlp",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "MLP",
+   "properties": {}
+  },
+  {
+   "id": "n_t_plus2",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "n_t_out",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "Encoded Image Representation",
+   "properties": {
+    "name": "Encoded Image Representation",
+    "modality": "image"
+   }
+  },
+  {
+   "id": "n_cnn1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "CNN",
+   "properties": {}
+  },
+  {
+   "id": "n_cnn2",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "CNN",
+   "properties": {}
+  },
+  {
+   "id": "n_cnn3",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "CNN",
+   "properties": {}
+  },
+  {
+   "id": "n_skip_da1",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "DA-Block",
+   "properties": {
+    "name": "DA-Block"
+   }
+  },
+  {
+   "id": "n_skip_da2",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "DA-Block",
+   "properties": {
+    "name": "DA-Block"
+   }
+  },
+  {
+   "id": "n_skip_da3",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "DA-Block",
+   "properties": {
+    "name": "DA-Block"
+   }
+  },
+  {
+   "id": "n_bn_da",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "DA-Block",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  },
+  {
+   "id": "n_lin_proj",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "Linear Projection",
+   "properties": {}
+  },
+  {
+   "id": "n_hf1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "Hidden Feature",
+   "properties": {
+    "name": "Hidden Feature"
+   }
+  },
+  {
+   "id": "n_trans_layer",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Transformer Layer",
+   "properties": {
+    "name": "Transformer Layer"
+   }
+  },
+  {
+   "id": "n_hf2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "Hidden Feature",
+   "properties": {
+    "name": "Hidden Feature"
+   }
+  },
+  {
+   "id": "n_reshape",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "reshape",
+   "properties": {
+    "algorithm": "Reshape"
+   }
+  },
+  {
+   "id": "n_bot_conv",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv$3 \\times 3$,ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "n_up1",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "UpSample",
+   "properties": {}
+  },
+  {
+   "id": "n_concat1",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "Feature Concatenation",
+   "properties": {}
+  },
+  {
+   "id": "n_conv_dec1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv$3 \\times 3$,ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "n_up2",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "UpSample",
+   "properties": {}
+  },
+  {
+   "id": "n_concat2",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "Feature Concatenation",
+   "properties": {}
+  },
+  {
+   "id": "n_conv_dec2",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv$3 \\times 3$,ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "n_up3",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "UpSample",
+   "properties": {}
+  },
+  {
+   "id": "n_concat3",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "Feature Concatenation",
+   "properties": {}
+  },
+  {
+   "id": "n_conv_dec3",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv$3 \\times 3$,ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "n_up4",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "UpSample",
+   "properties": {}
+  },
+  {
+   "id": "n_seghead",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "Segmention Head",
+   "properties": {}
+  },
+  {
+   "id": "n_in_da_in",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "Input",
+   "properties": {}
+  },
+  {
+   "id": "n_in_conv_t1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv",
+   "properties": {}
+  },
+  {
+   "id": "n_in_pam",
+   "class": "LAYER",
+   "sub_type": "attention",
+   "raw_text": "PAM",
+   "properties": {}
+  },
+  {
+   "id": "n_in_conv_t2",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv",
+   "properties": {}
+  },
+  {
+   "id": "n_in_conv_b1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv",
+   "properties": {}
+  },
+  {
+   "id": "n_in_cam",
+   "class": "LAYER",
+   "sub_type": "attention",
+   "raw_text": "CAM",
+   "properties": {}
+  },
+  {
+   "id": "n_in_conv_b2",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv",
+   "properties": {}
+  },
+  {
+   "id": "n_in_concat",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "concat",
+   "properties": {}
+  },
+  {
+   "id": "n_in_conv_f",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv",
+   "properties": {}
+  },
+  {
+   "id": "n_in_out",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "Output",
+   "properties": {}
+  },
+  {
+   "id": "8Wh7xqhV0F",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "4jYpf1If6Z",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "nCgEvl3mpT",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv$3 \\times 3$,ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "n_t_xp",
+   "target": "n_t_ln1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_t_xp",
+   "target": "n_t_plus1",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_t_plus2",
+   "target": "n_t_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_lin_proj",
+   "target": "n_hf1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_hf1",
+   "target": "n_trans_layer",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_trans_layer",
+   "target": "n_hf2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_hf2",
+   "target": "n_reshape",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_in_da_in",
+   "target": "n_in_conv_t1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_in_da_in",
+   "target": "n_in_conv_b1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_in_conv_f",
+   "target": "n_in_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_t_ln1",
+   "target": "n_t_msa",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_t_msa",
+   "target": "n_t_plus1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_t_plus1",
+   "target": "n_t_ln2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_t_plus1",
+   "target": "n_t_plus2",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_t_ln2",
+   "target": "n_t_mlp",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_t_mlp",
+   "target": "n_t_plus2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "8Wh7xqhV0F",
+   "target": "n_cnn1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_cnn1",
+   "target": "n_cnn2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_cnn2",
+   "target": "n_cnn3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_cnn3",
+   "target": "n_bn_da",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_bn_da",
+   "target": "n_lin_proj",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_reshape",
+   "target": "n_bot_conv",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_bot_conv",
+   "target": "n_up1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_up1",
+   "target": "n_concat1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_concat1",
+   "target": "n_conv_dec1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_conv_dec1",
+   "target": "n_up2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_up2",
+   "target": "n_concat2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_concat2",
+   "target": "n_conv_dec2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_conv_dec2",
+   "target": "n_up3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_up3",
+   "target": "n_concat3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_concat3",
+   "target": "n_conv_dec3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_conv_dec3",
+   "target": "n_up4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_up4",
+   "target": "nCgEvl3mpT",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "nCgEvl3mpT",
+   "target": "n_seghead",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_seghead",
+   "target": "4jYpf1If6Z",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_skip_da1",
+   "target": "n_concat3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_skip_da2",
+   "target": "n_concat2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_skip_da3",
+   "target": "n_concat1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_cnn1",
+   "target": "n_skip_da1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_cnn2",
+   "target": "n_skip_da2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_cnn3",
+   "target": "n_skip_da3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_in_conv_b1",
+   "target": "n_in_cam",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_in_cam",
+   "target": "n_in_conv_b2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_in_conv_b2",
+   "target": "n_in_concat",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_in_concat",
+   "target": "n_in_conv_f",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_in_conv_t1",
+   "target": "n_in_pam",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_in_pam",
+   "target": "n_in_conv_t2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_in_conv_t2",
+   "target": "n_in_concat",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "n_trans_cont",
+   "type": "container",
+   "label": "Transformer Layer",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "n_t_plus2",
+    "n_t_ln1",
+    "n_t_out",
+    "n_t_ln2",
+    "n_t_mlp",
+    "n_t_plus1",
+    "n_t_msa",
+    "n_t_xp"
+   ]
+  },
+  {
+   "id": "n_inset_cont",
+   "type": "container",
+   "label": "DA-Block",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "n_in_conv_b2",
+    "n_in_cam",
+    "n_in_da_in",
+    "n_in_pam",
+    "n_in_conv_b1",
+    "n_in_out",
+    "n_in_conv_t2",
+    "n_in_conv_t1",
+    "n_in_conv_f",
+    "n_in_concat"
+   ]
+  }
+ ]
+}

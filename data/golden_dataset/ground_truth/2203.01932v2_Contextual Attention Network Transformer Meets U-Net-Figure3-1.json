@@ -1,0 +1,358 @@
+{
+ "architecture_name": "2203.01932v2_Contextual Attention Network Transformer Meets U-Net-Figure3-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "n2",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "Feature Map \\n $f^{H \\times W \\times C}$",
+   "properties": {
+    "name": "Feature Map",
+    "dimensions": [
+     "H",
+     "W",
+     "C"
+    ]
+   }
+  },
+  {
+   "id": "n4",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "GAP(f)",
+   "properties": {
+    "algorithm": "GlobalAveragePool"
+   }
+  },
+  {
+   "id": "n7",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$f^{1 \\times 1 \\times C}$",
+   "properties": {
+    "dimensions": [
+     1,
+     1,
+     "C"
+    ]
+   }
+  },
+  {
+   "id": "n9",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "W1",
+   "properties": {
+    "symbol": "W1"
+   }
+  },
+  {
+   "id": "n10",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$f^{1 \\times 1 \\times C}$",
+   "properties": {
+    "dimensions": [
+     1,
+     1,
+     "C"
+    ]
+   }
+  },
+  {
+   "id": "n12",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "W2",
+   "properties": {
+    "symbol": "W2"
+   }
+  },
+  {
+   "id": "n13",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "$\\sigma$",
+   "properties": {
+    "algorithm": "Sigmoid"
+   }
+  },
+  {
+   "id": "n14",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$w_f^i$",
+   "properties": {
+    "symbol": "w_f^i"
+   }
+  },
+  {
+   "id": "n15",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "$\\otimes$",
+   "properties": {
+    "mechanism": "Mul"
+   }
+  },
+  {
+   "id": "n16",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$f'^{H \\times W \\times C}$",
+   "properties": {
+    "dimensions": [
+     "H",
+     "W",
+     "C"
+    ]
+   }
+  },
+  {
+   "id": "n20",
+   "class": "DATA",
+   "sub_type": "constant",
+   "raw_text": "$B$",
+   "properties": {
+    "symbol": "B"
+   }
+  },
+  {
+   "id": "n21",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "n22",
+   "class": "DATA",
+   "sub_type": "constant",
+   "raw_text": "$\\gamma$",
+   "properties": {
+    "symbol": "gamma"
+   }
+  },
+  {
+   "id": "n23",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "$\\otimes$",
+   "properties": {
+    "mechanism": "Mul"
+   }
+  },
+  {
+   "id": "n24",
+   "class": "DATA",
+   "sub_type": "constant",
+   "raw_text": "$\\alpha$",
+   "properties": {
+    "symbol": "alpha"
+   }
+  },
+  {
+   "id": "n25",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv2D ReLU",
+   "properties": {
+    "sequence": [
+     {
+      "class": "LAYER",
+      "sub_type": "convolution",
+      "properties": {}
+     },
+     {
+      "class": "MODIFIER",
+      "sub_type": "activation",
+      "properties": {
+       "algorithm": "Relu"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "n26",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "Output \\n $f_{sn}^{\\sim H \\times W \\times C}$",
+   "properties": {
+    "dimensions": [
+     "H",
+     "W",
+     "C"
+    ]
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "n2",
+   "target": "n4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n2",
+   "target": "n15",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n4",
+   "target": "n7",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n7",
+   "target": "n9",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n9",
+   "target": "n10",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n10",
+   "target": "n12",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n12",
+   "target": "n13",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n13",
+   "target": "n14",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n14",
+   "target": "n15",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n15",
+   "target": "n16",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n16",
+   "target": "n21",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n20",
+   "target": "n21",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n21",
+   "target": "n23",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n22",
+   "target": "n23",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n25",
+   "target": "n26",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n23",
+   "target": "n25",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n24",
+   "target": "n25",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "n6",
+   "type": "container",
+   "label": "Channel Attention",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "n13",
+    "n10",
+    "n7",
+    "n9",
+    "n12"
+   ]
+  },
+  {
+   "id": "n19",
+   "type": "container",
+   "label": "Contextual Attention",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "n22",
+    "n25",
+    "n23",
+    "n20",
+    "n21",
+    "n24"
+   ]
+  }
+ ]
+}

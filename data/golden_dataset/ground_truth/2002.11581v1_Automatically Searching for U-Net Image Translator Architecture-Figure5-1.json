@@ -1,0 +1,984 @@
+{
+ "architecture_name": "2002.11581v1_Automatically Searching for U-Net Image Translator Architecture-Figure5-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "in_orig",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "n2",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv1 ($3,64$)",
+   "properties": {
+    "kernel": [
+     3,
+     64
+    ],
+    "channels": 64
+   }
+  },
+  {
+   "id": "n3",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv2 ($64,128$)",
+   "properties": {
+    "kernel": [
+     64,
+     128
+    ],
+    "channels": 128
+   }
+  },
+  {
+   "id": "n4",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv3 ($128,256$)",
+   "properties": {
+    "kernel": [
+     128,
+     256
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "n5",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv4 ($256,512$)",
+   "properties": {
+    "kernel": [
+     256,
+     512
+    ],
+    "channels": 512
+   }
+  },
+  {
+   "id": "n6",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv5 ($512,512$)",
+   "properties": {
+    "kernel": [
+     512,
+     512
+    ],
+    "channels": 512
+   }
+  },
+  {
+   "id": "n7",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv6 ($512,512$)",
+   "properties": {
+    "kernel": [
+     512,
+     512
+    ],
+    "channels": 512
+   }
+  },
+  {
+   "id": "n8",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv7 ($512,512$)",
+   "properties": {
+    "kernel": [
+     512,
+     512
+    ],
+    "channels": 512
+   }
+  },
+  {
+   "id": "n9",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv8 ($512,512$)",
+   "properties": {
+    "kernel": [
+     512,
+     512
+    ],
+    "channels": 512
+   }
+  },
+  {
+   "id": "n10",
+   "class": "LAYER",
+   "sub_type": "transposed_convolution",
+   "raw_text": "Dconv1 ($128,3$)",
+   "properties": {
+    "kernel": [
+     128,
+     3
+    ],
+    "channels": 3
+   }
+  },
+  {
+   "id": "n11",
+   "class": "LAYER",
+   "sub_type": "transposed_convolution",
+   "raw_text": "Dconv2 ($256,64$)",
+   "properties": {
+    "kernel": [
+     256,
+     64
+    ],
+    "channels": 64
+   }
+  },
+  {
+   "id": "n12",
+   "class": "LAYER",
+   "sub_type": "transposed_convolution",
+   "raw_text": "Dconv3 ($512,128$)",
+   "properties": {
+    "kernel": [
+     512,
+     128
+    ],
+    "channels": 128
+   }
+  },
+  {
+   "id": "n13",
+   "class": "LAYER",
+   "sub_type": "transposed_convolution",
+   "raw_text": "Dconv4 ($1024,256$)",
+   "properties": {
+    "kernel": [
+     1024,
+     256
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "n14",
+   "class": "LAYER",
+   "sub_type": "transposed_convolution",
+   "raw_text": "Dconv5 ($1024,512$)",
+   "properties": {
+    "kernel": [
+     1024,
+     512
+    ],
+    "channels": 512
+   }
+  },
+  {
+   "id": "n15",
+   "class": "LAYER",
+   "sub_type": "transposed_convolution",
+   "raw_text": "Dconv6 ($1024,512$)",
+   "properties": {
+    "kernel": [
+     1024,
+     512
+    ],
+    "channels": 512
+   }
+  },
+  {
+   "id": "n16",
+   "class": "LAYER",
+   "sub_type": "transposed_convolution",
+   "raw_text": "Dconv7 ($1024,512$)",
+   "properties": {
+    "kernel": [
+     1024,
+     512
+    ],
+    "channels": 512
+   }
+  },
+  {
+   "id": "n17",
+   "class": "LAYER",
+   "sub_type": "transposed_convolution",
+   "raw_text": "Dconv8 ($512,512$)",
+   "properties": {
+    "kernel": [
+     512,
+     512
+    ],
+    "channels": 512
+   }
+  },
+  {
+   "id": "in_search",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "n19",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv1 ($3,256$)",
+   "properties": {
+    "kernel": [
+     3,
+     256
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "n20",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv2 ($256,128$)",
+   "properties": {
+    "kernel": [
+     256,
+     128
+    ],
+    "channels": 128
+   }
+  },
+  {
+   "id": "n21",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv3 ($128,128$)",
+   "properties": {
+    "kernel": [
+     128,
+     128
+    ],
+    "channels": 128
+   }
+  },
+  {
+   "id": "n22",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv4 ($128,64$)",
+   "properties": {
+    "kernel": [
+     128,
+     64
+    ],
+    "channels": 64
+   }
+  },
+  {
+   "id": "n23",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv5 ($64,512$)",
+   "properties": {
+    "kernel": [
+     64,
+     512
+    ],
+    "channels": 512
+   }
+  },
+  {
+   "id": "n24",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv6 ($512,64$)",
+   "properties": {
+    "kernel": [
+     512,
+     64
+    ],
+    "channels": 64
+   }
+  },
+  {
+   "id": "n25",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv7 ($64,128$)",
+   "properties": {
+    "kernel": [
+     64,
+     128
+    ],
+    "channels": 128
+   }
+  },
+  {
+   "id": "n26",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv8 ($128,256$)",
+   "properties": {
+    "kernel": [
+     128,
+     256
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "n27",
+   "class": "LAYER",
+   "sub_type": "transposed_convolution",
+   "raw_text": "Dconv1 ($512,3$)",
+   "properties": {
+    "kernel": [
+     512,
+     3
+    ],
+    "channels": 3
+   }
+  },
+  {
+   "id": "n28",
+   "class": "LAYER",
+   "sub_type": "transposed_convolution",
+   "raw_text": "Dconv2 ($128,256$)",
+   "properties": {
+    "kernel": [
+     128,
+     256
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "n29",
+   "class": "LAYER",
+   "sub_type": "transposed_convolution",
+   "raw_text": "Dconv3 ($256,128$)",
+   "properties": {
+    "kernel": [
+     256,
+     128
+    ],
+    "channels": 128
+   }
+  },
+  {
+   "id": "n30",
+   "class": "LAYER",
+   "sub_type": "transposed_convolution",
+   "raw_text": "Dconv4 ($64,128$)",
+   "properties": {
+    "kernel": [
+     64,
+     128
+    ],
+    "channels": 128
+   }
+  },
+  {
+   "id": "n31",
+   "class": "LAYER",
+   "sub_type": "transposed_convolution",
+   "raw_text": "Dconv5 ($512,64$)",
+   "properties": {
+    "kernel": [
+     512,
+     64
+    ],
+    "channels": 64
+   }
+  },
+  {
+   "id": "n32",
+   "class": "LAYER",
+   "sub_type": "transposed_convolution",
+   "raw_text": "Dconv6 ($64,512$)",
+   "properties": {
+    "kernel": [
+     64,
+     512
+    ],
+    "channels": 512
+   }
+  },
+  {
+   "id": "n33",
+   "class": "LAYER",
+   "sub_type": "transposed_convolution",
+   "raw_text": "Dconv7 ($128,64$)",
+   "properties": {
+    "kernel": [
+     128,
+     64
+    ],
+    "channels": 64
+   }
+  },
+  {
+   "id": "n34",
+   "class": "LAYER",
+   "sub_type": "transposed_convolution",
+   "raw_text": "Dconv8 ($256,128$)",
+   "properties": {
+    "kernel": [
+     256,
+     128
+    ],
+    "channels": 128
+   }
+  },
+  {
+   "id": "imp_cat_n10",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "imp_cat_n11",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "imp_cat_n12",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "imp_cat_n13",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "imp_cat_n14",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "imp_cat_n15",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "imp_cat_n16",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "imp_cat_n27",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "imp_cat_n29",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "in_orig",
+   "target": "n2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n2",
+   "target": "n3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n3",
+   "target": "n4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n4",
+   "target": "n5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n5",
+   "target": "n6",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n6",
+   "target": "n7",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n7",
+   "target": "n8",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n8",
+   "target": "n9",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n2",
+   "target": "imp_cat_n10",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n3",
+   "target": "imp_cat_n11",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n4",
+   "target": "imp_cat_n12",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n5",
+   "target": "imp_cat_n13",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n6",
+   "target": "imp_cat_n14",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n7",
+   "target": "imp_cat_n15",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n8",
+   "target": "imp_cat_n16",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n9",
+   "target": "n17",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n17",
+   "target": "imp_cat_n16",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n16",
+   "target": "imp_cat_n15",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n15",
+   "target": "imp_cat_n14",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n14",
+   "target": "imp_cat_n13",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n13",
+   "target": "imp_cat_n12",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n12",
+   "target": "imp_cat_n11",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n11",
+   "target": "imp_cat_n10",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "in_search",
+   "target": "n19",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n19",
+   "target": "n20",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n20",
+   "target": "n21",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n21",
+   "target": "n22",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n22",
+   "target": "n23",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n23",
+   "target": "n24",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n24",
+   "target": "n25",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n25",
+   "target": "n26",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n19",
+   "target": "imp_cat_n27",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n21",
+   "target": "imp_cat_n29",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n26",
+   "target": "n34",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n34",
+   "target": "n33",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n33",
+   "target": "n32",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n32",
+   "target": "n31",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n31",
+   "target": "n30",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n30",
+   "target": "imp_cat_n29",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n29",
+   "target": "n28",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n28",
+   "target": "imp_cat_n27",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "imp_cat_n10",
+   "target": "n10",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "imp_cat_n11",
+   "target": "n11",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "imp_cat_n12",
+   "target": "n12",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "imp_cat_n13",
+   "target": "n13",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "imp_cat_n14",
+   "target": "n14",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "imp_cat_n15",
+   "target": "n15",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "imp_cat_n16",
+   "target": "n16",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "imp_cat_n27",
+   "target": "n27",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "imp_cat_n29",
+   "target": "n29",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "group_n1",
+   "type": "container",
+   "label": "Original U-Net",
+   "boundary_type": "implicit_header",
+   "member_node_ids": [
+    "n17",
+    "n4",
+    "n13",
+    "n10",
+    "n5",
+    "n14",
+    "n6",
+    "in_orig",
+    "n7",
+    "n8",
+    "n16",
+    "n11",
+    "n9",
+    "n2",
+    "n12",
+    "n15",
+    "n3",
+    "imp_cat_n10",
+    "imp_cat_n11",
+    "imp_cat_n12",
+    "imp_cat_n13",
+    "imp_cat_n14",
+    "imp_cat_n15",
+    "imp_cat_n16"
+   ]
+  },
+  {
+   "id": "group_n18",
+   "type": "container",
+   "label": "Searched U-Net",
+   "boundary_type": "implicit_header",
+   "member_node_ids": [
+    "n33",
+    "n30",
+    "n29",
+    "n26",
+    "n32",
+    "n34",
+    "n27",
+    "n22",
+    "n28",
+    "n19",
+    "n25",
+    "n23",
+    "n31",
+    "n20",
+    "n21",
+    "n24",
+    "in_search",
+    "imp_cat_n27",
+    "imp_cat_n29"
+   ]
+  }
+ ]
+}

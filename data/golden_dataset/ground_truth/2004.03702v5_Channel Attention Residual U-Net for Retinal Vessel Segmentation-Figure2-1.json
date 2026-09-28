@@ -1,0 +1,257 @@
+{
+ "architecture_name": "2004.03702v5_Channel Attention Residual U-Net for Retinal Vessel Segmentation-Figure2-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_in",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "Input Feature $\\mathbf{F}$",
+   "properties": {
+    "dimensions": [
+     "h",
+     "w",
+     "c"
+    ]
+   }
+  },
+  {
+   "id": "op_avg_a",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Average Pooling",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "algorithm": "AveragePool"
+   }
+  },
+  {
+   "id": "op_max_a",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Max Pooling",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "d_avg_out",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$1 \\times 1 \\times C$",
+   "properties": {
+    "dimensions": [
+     1,
+     1,
+     "c"
+    ]
+   }
+  },
+  {
+   "id": "d_max_out",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$1 \\times 1 \\times C$",
+   "properties": {
+    "dimensions": [
+     1,
+     1,
+     "c"
+    ]
+   }
+  },
+  {
+   "id": "l_conv",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Shared Conv1D ($k=3$)",
+   "properties": {
+    "kernel": [
+     3
+    ]
+   }
+  },
+  {
+   "id": "d_conv_out1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$1 \\times 1 \\times C$",
+   "properties": {
+    "dimensions": [
+     1,
+     1,
+     "c"
+    ]
+   }
+  },
+  {
+   "id": "d_conv_out2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$1 \\times 1 \\times C$",
+   "properties": {
+    "dimensions": [
+     1,
+     1,
+     "c"
+    ]
+   }
+  },
+  {
+   "id": "op_sum_a",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "Channel-wise sum",
+   "properties": {}
+  },
+  {
+   "id": "d_sum_out",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$1 \\times 1 \\times C$",
+   "properties": {
+    "dimensions": [
+     1,
+     1,
+     "c"
+    ]
+   }
+  },
+  {
+   "id": "op_sig_a",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Sigmoid activation",
+   "properties": {
+    "algorithm": "Sigmoid"
+   }
+  },
+  {
+   "id": "d_out",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "Channel Attention $\\mathbf{M}$",
+   "properties": {
+    "dimensions": [
+     1,
+     1,
+     "c"
+    ]
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "d_in",
+   "target": "op_avg_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_in",
+   "target": "op_max_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_avg_a",
+   "target": "d_avg_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_max_a",
+   "target": "d_max_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_avg_out",
+   "target": "l_conv",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_max_out",
+   "target": "l_conv",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv",
+   "target": "d_conv_out1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv",
+   "target": "d_conv_out2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_conv_out1",
+   "target": "op_sum_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_conv_out2",
+   "target": "op_sum_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_sum_a",
+   "target": "d_sum_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_sum_out",
+   "target": "op_sig_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_sig_a",
+   "target": "d_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": []
+}

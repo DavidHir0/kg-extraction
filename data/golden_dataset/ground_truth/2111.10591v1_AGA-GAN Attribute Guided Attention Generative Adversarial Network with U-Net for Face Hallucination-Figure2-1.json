@@ -1,0 +1,329 @@
+{
+ "architecture_name": "2111.10591v1_AGA-GAN Attribute Guided Attention Generative Adversarial Network with U-Net for Face Hallucination-Figure2-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_in_main",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "input",
+   "properties": {}
+  },
+  {
+   "id": "l_m_conv1_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$ + ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_m_conv1_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Conv $3 \\times 3$ + ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "l_m_conv2_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$ + ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_m_conv2_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Conv $3 \\times 3$ + ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "o_m_mult",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "Multiply",
+   "properties": {
+    "mechanism": "Mul"
+   }
+  },
+  {
+   "id": "o_m_add",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "Addition",
+   "properties": {}
+  },
+  {
+   "id": "d_in_attr",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "input",
+   "properties": {}
+  },
+  {
+   "id": "l_a_conv1_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$ + ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_a_conv1_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Conv $3 \\times 3$ + ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "l_a_conv2_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$ + ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_a_conv2_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Conv $3 \\times 3$ + ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "o_a_sig",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Sigmoid",
+   "properties": {
+    "algorithm": "Sigmoid"
+   }
+  },
+  {
+   "id": "o_a_cat",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "Concatenate",
+   "properties": {}
+  },
+  {
+   "id": "l_a_conv3_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$ + ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_a_conv3_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Conv $3 \\times 3$ + ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "l_a_conv1_a",
+   "target": "l_a_conv1_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_a_conv2_a",
+   "target": "l_a_conv2_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_a_conv3_a",
+   "target": "l_a_conv3_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_m_conv2_a",
+   "target": "l_m_conv2_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_m_conv1_a",
+   "target": "l_m_conv1_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_in_main",
+   "target": "l_m_conv1_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_m_conv1_b",
+   "target": "l_m_conv2_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_m_conv2_b",
+   "target": "o_m_mult",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_m_mult",
+   "target": "o_m_add",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_m_conv1_b",
+   "target": "o_m_add",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_in_attr",
+   "target": "l_a_conv1_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_a_conv1_b",
+   "target": "l_a_conv2_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_a_conv2_b",
+   "target": "o_a_sig",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_a_sig",
+   "target": "o_a_cat",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_a_cat",
+   "target": "l_a_conv3_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_a_sig",
+   "target": "o_m_mult",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_m_add",
+   "target": "o_a_cat",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "group_lbl_main",
+   "type": "container",
+   "label": "Main Stream",
+   "boundary_type": "implicit_header",
+   "member_node_ids": [
+    "l_m_conv2_b",
+    "d_in_main",
+    "l_m_conv1_a",
+    "o_m_add",
+    "o_m_mult",
+    "l_m_conv1_b",
+    "l_m_conv2_a"
+   ]
+  },
+  {
+   "id": "group_lbl_attr",
+   "type": "container",
+   "label": "Attribute Stream",
+   "boundary_type": "implicit_header",
+   "member_node_ids": [
+    "o_a_cat",
+    "l_a_conv3_a",
+    "o_a_sig",
+    "l_a_conv1_a",
+    "l_a_conv2_a",
+    "l_a_conv2_b",
+    "l_a_conv3_b",
+    "l_a_conv1_b",
+    "d_in_attr"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,263 @@
+{
+ "architecture_name": "1804.03999v3_Attention U-Net Learning Where to Look for the Pancreas-Figure2-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "n_g",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$g$",
+   "properties": {
+    "symbol": "g",
+    "dimensions": [
+     "F_g",
+     "H_g",
+     "W_g",
+     "D_g"
+    ]
+   }
+  },
+  {
+   "id": "l_Wg",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "$W_g: 1\\times1\\times1$",
+   "properties": {}
+  },
+  {
+   "id": "n_x",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$x^l$",
+   "properties": {
+    "symbol": "x^l",
+    "dimensions": [
+     "F_l",
+     "H_x",
+     "W_x",
+     "D_x"
+    ]
+   }
+  },
+  {
+   "id": "l_Wx",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "$W_x: 1\\times1\\times1$",
+   "properties": {}
+  },
+  {
+   "id": "op_add",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "n_add_out",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$F_{int} \\times H_g W_g D_g$",
+   "properties": {
+    "dimensions": [
+     "F_int",
+     "H_g",
+     "W_g",
+     "D_g"
+    ]
+   }
+  },
+  {
+   "id": "op_relu",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "ReLU ($\\sigma_1$)",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "l_psi",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "$\\psi: 1\\times1\\times1$",
+   "properties": {}
+  },
+  {
+   "id": "n_psi_out",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$H_g W_g D_g$",
+   "properties": {
+    "dimensions": [
+     "H_g",
+     "W_g",
+     "D_g"
+    ]
+   }
+  },
+  {
+   "id": "op_sigmoid",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Sigmoid ($\\sigma_2$)",
+   "properties": {
+    "algorithm": "Sigmoid"
+   }
+  },
+  {
+   "id": "op_resample",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Resampler",
+   "properties": {}
+  },
+  {
+   "id": "n_resample_out",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\alpha$",
+   "properties": {
+    "symbol": "alpha",
+    "dimensions": [
+     "H_x",
+     "W_x",
+     "D_x"
+    ]
+   }
+  },
+  {
+   "id": "op_mul",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "multiply",
+   "properties": {
+    "mechanism": "Mul"
+   }
+  },
+  {
+   "id": "n_out",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "$\\widehat{x}^l$",
+   "properties": {
+    "symbol": "x^l"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "n_g",
+   "target": "l_Wg",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_x",
+   "target": "l_Wx",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_add_out",
+   "target": "op_relu",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_psi",
+   "target": "n_psi_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_psi_out",
+   "target": "op_sigmoid",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_resample",
+   "target": "n_resample_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_resample_out",
+   "target": "op_mul",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_x",
+   "target": "op_mul",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_mul",
+   "target": "n_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_relu",
+   "target": "l_psi",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_Wx",
+   "target": "op_add",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_Wg",
+   "target": "op_add",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_sigmoid",
+   "target": "op_resample",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_add",
+   "target": "n_add_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": []
+}

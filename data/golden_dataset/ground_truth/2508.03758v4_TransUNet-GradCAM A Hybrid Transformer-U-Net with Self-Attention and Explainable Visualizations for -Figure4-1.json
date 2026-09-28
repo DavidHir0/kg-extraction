@@ -1,0 +1,322 @@
+{
+ "architecture_name": "2508.03758v4_TransUNet-GradCAM A Hybrid Transformer-U-Net with Self-Attention and Explainable Visualizations for -Figure4-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_in",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "Input Image",
+   "properties": {
+    "name": "Input Image",
+    "modality": "image"
+   }
+  },
+  {
+   "id": "l_enc1",
+   "class": "MACRO",
+   "sub_type": "block",
+   "raw_text": "Encoder Block 1 \\n $256 \\times 256 \\times 32$",
+   "properties": {
+    "name": "Encoder Block 1"
+   }
+  },
+  {
+   "id": "l_enc3",
+   "class": "MACRO",
+   "sub_type": "block",
+   "raw_text": "Encoder Block 3 \\n $64 \\times 64 \\times 128$",
+   "properties": {
+    "name": "Encoder Block 3"
+   }
+  },
+  {
+   "id": "l_enc4",
+   "class": "MACRO",
+   "sub_type": "block",
+   "raw_text": "Encoder Block 4 \\n $32 \\times 32 \\times 256$",
+   "properties": {
+    "name": "Encoder Block 4"
+   }
+  },
+  {
+   "id": "l_trans",
+   "class": "MACRO",
+   "sub_type": "block",
+   "raw_text": "Transformer Encoder Layer \\n $1025$ Tokens ($1024 + 1$ Class)",
+   "properties": {
+    "name": "Transformer Encoder Layer"
+   }
+  },
+  {
+   "id": "l_dec_bot",
+   "class": "MACRO",
+   "sub_type": "block",
+   "raw_text": "Decoder Block 3 \\n $64 \\times 64 \\times 128$",
+   "properties": {
+    "name": "Decoder Block 3"
+   }
+  },
+  {
+   "id": "l_dec_mid",
+   "class": "MACRO",
+   "sub_type": "block",
+   "raw_text": "Decoder Block 2 \\n $128 \\times 128 \\times 64$",
+   "properties": {
+    "name": "Decoder Block 2"
+   }
+  },
+  {
+   "id": "l_dec_top",
+   "class": "MACRO",
+   "sub_type": "block",
+   "raw_text": "Decoder Block 3 \\n $64 \\times 64 \\times 128$",
+   "properties": {
+    "name": "Decoder Block 3"
+   }
+  },
+  {
+   "id": "l_dec_1",
+   "class": "MACRO",
+   "sub_type": "block",
+   "raw_text": "Decoder Block 1 \\n $256 \\times 256 \\times 32$",
+   "properties": {
+    "name": "Decoder Block 1"
+   }
+  },
+  {
+   "id": "l_conv",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$1 \\times 1$ Conv + Sigmoid",
+   "properties": {
+    "sequence": [
+     {
+      "class": "LAYER",
+      "sub_type": "convolution",
+      "properties": {
+       "kernel": [
+        1,
+        1
+       ]
+      }
+     },
+     {
+      "class": "MODIFIER",
+      "sub_type": "activation",
+      "properties": {
+       "algorithm": "Sigmoid"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "d_out_map",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "Output Map Segmentation",
+   "properties": {
+    "name": "Output Map"
+   }
+  },
+  {
+   "id": "o_gradcam",
+   "class": "MACRO",
+   "sub_type": "block",
+   "raw_text": "Grad-CAM Calculation",
+   "properties": {
+    "name": "Grad-CAM Calculation"
+   }
+  },
+  {
+   "id": "d_grad_signal",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "Gradient signal backpropagating x by feature maps",
+   "properties": {}
+  },
+  {
+   "id": "d_heatmap",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "Grad-CAM Heatmap",
+   "properties": {
+    "name": "Grad-CAM Heatmap",
+    "modality": "image"
+   }
+  },
+  {
+   "id": "l_enc2",
+   "class": "MACRO",
+   "sub_type": "block",
+   "raw_text": "Encoder Block 2 \\n $128 \\times 128 \\times 64$",
+   "properties": {
+    "name": "Encoder Block 2"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "d_in",
+   "target": "l_enc1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_in",
+   "target": "l_enc2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_in",
+   "target": "l_enc3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_in",
+   "target": "l_enc4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv",
+   "target": "d_out_map",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_out_map",
+   "target": "o_gradcam",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_gradcam",
+   "target": "d_grad_signal",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_grad_signal",
+   "target": "l_dec_1",
+   "role": "backward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_gradcam",
+   "target": "d_heatmap",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc1",
+   "target": "l_trans",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc2",
+   "target": "l_trans",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc3",
+   "target": "l_trans",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc4",
+   "target": "l_trans",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_trans",
+   "target": "l_dec_bot",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_trans",
+   "target": "l_dec_mid",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_trans",
+   "target": "l_dec_top",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec_bot",
+   "target": "l_dec_mid",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec_mid",
+   "target": "l_dec_top",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec_top",
+   "target": "l_dec_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec_1",
+   "target": "l_conv",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": []
+}

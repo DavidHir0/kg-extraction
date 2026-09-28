@@ -1,0 +1,239 @@
+{
+ "architecture_name": "2110.01014v1_EAR-U-Net EfficientNet and attention-based residual U-Net for automatic liver segmentation in CT-Figure3-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_feature_map",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "feature map",
+   "properties": {
+    "name": "feature map"
+   }
+  },
+  {
+   "id": "l_conv1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$, $s1$",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "op_bn_swish1_a",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "BN Swish",
+   "properties": {
+    "algorithm": "BatchNormalization",
+    "sequence": [
+     {
+      "class": "MODIFIER",
+      "sub_type": "normalization",
+      "properties": {
+       "algorithm": "BatchNormalization"
+      }
+     },
+     {
+      "class": "MODIFIER",
+      "sub_type": "activation",
+      "properties": {
+       "algorithm": "Swish"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "l_dw_conv",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Depthwise Conv $k \\times k$, $s1/s2$",
+   "properties": {
+    "kernel": [
+     "k",
+     "k"
+    ],
+    "stride": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "id": "op_bn_swish2_a",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "BN Swish",
+   "properties": {
+    "algorithm": "BatchNormalization",
+    "sequence": [
+     {
+      "class": "MODIFIER",
+      "sub_type": "normalization",
+      "properties": {
+       "algorithm": "BatchNormalization"
+      }
+     },
+     {
+      "class": "MODIFIER",
+      "sub_type": "activation",
+      "properties": {
+       "algorithm": "Swish"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "l_se",
+   "class": "MACRO",
+   "sub_type": "block",
+   "raw_text": "SE",
+   "properties": {
+    "name": "SqueezeAndExcitation"
+   }
+  },
+  {
+   "id": "l_conv2",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$, $s1$",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "stride": 1
+   }
+  },
+  {
+   "id": "op_bn",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "BN",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  },
+  {
+   "id": "op_dropout",
+   "class": "MODIFIER",
+   "sub_type": "dropout",
+   "raw_text": "Dropout",
+   "properties": {}
+  },
+  {
+   "id": "op_add",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "d_new_feature_map",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "new feature map",
+   "properties": {
+    "name": "new feature map"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "d_feature_map",
+   "target": "l_conv1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_feature_map",
+   "target": "op_add",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv1",
+   "target": "op_bn_swish1_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dw_conv",
+   "target": "op_bn_swish2_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_se",
+   "target": "l_conv2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_dropout",
+   "target": "op_add",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_add",
+   "target": "d_new_feature_map",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_bn_swish1_a",
+   "target": "l_dw_conv",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_bn_swish2_a",
+   "target": "l_se",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv2",
+   "target": "op_bn",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_bn",
+   "target": "op_dropout",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": []
+}

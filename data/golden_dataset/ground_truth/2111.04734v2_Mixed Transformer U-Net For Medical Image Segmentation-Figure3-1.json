@@ -1,0 +1,483 @@
+{
+ "architecture_name": "2111.04734v2_Mixed Transformer U-Net For Medical Image Segmentation-Figure3-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_in",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "local window \\n token",
+   "properties": {}
+  },
+  {
+   "id": "d_v1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "Value",
+   "properties": {
+    "name": "Value"
+   }
+  },
+  {
+   "id": "d_k1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "Key",
+   "properties": {
+    "name": "Key"
+   }
+  },
+  {
+   "id": "d_q1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "Query",
+   "properties": {
+    "name": "Query"
+   }
+  },
+  {
+   "id": "o_mm1_1",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "Matrix Multiplication",
+   "properties": {
+    "mechanism": "MatMul"
+   }
+  },
+  {
+   "id": "o_softmax1",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "softmax",
+   "properties": {
+    "algorithm": "Softmax"
+   }
+  },
+  {
+   "id": "o_mm1_2",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "Matrix Multiplication",
+   "properties": {
+    "mechanism": "MatMul"
+   }
+  },
+  {
+   "id": "d_attn_out1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "o_agg",
+   "class": "MODIFIER",
+   "sub_type": "custom",
+   "raw_text": "Aggregate",
+   "properties": {
+    "algorithm": "aggregate"
+   }
+  },
+  {
+   "id": "d_agg_out",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "l_proj_q",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "linear projection",
+   "properties": {}
+  },
+  {
+   "id": "d_q2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "Query",
+   "properties": {
+    "name": "Query"
+   }
+  },
+  {
+   "id": "l_proj_k",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "linear projection",
+   "properties": {}
+  },
+  {
+   "id": "d_k2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "Key",
+   "properties": {
+    "name": "Key"
+   }
+  },
+  {
+   "id": "l_proj_v",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "linear projection",
+   "properties": {}
+  },
+  {
+   "id": "d_v2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "Value",
+   "properties": {
+    "name": "Value"
+   }
+  },
+  {
+   "id": "o_mm2_1",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "Matrix Multiplication",
+   "properties": {
+    "mechanism": "MatMul"
+   }
+  },
+  {
+   "id": "d_gauss",
+   "class": "DATA",
+   "sub_type": "constant",
+   "raw_text": "gaussian mask",
+   "properties": {
+    "name": "gaussian mask"
+   }
+  },
+  {
+   "id": "o_add",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "Element-wise Addition",
+   "properties": {}
+  },
+  {
+   "id": "o_softmax2",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "softmax",
+   "properties": {
+    "algorithm": "Softmax"
+   }
+  },
+  {
+   "id": "o_mm2_2",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "Matrix Multiplication",
+   "properties": {
+    "mechanism": "MatMul"
+   }
+  },
+  {
+   "id": "o_up",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "upsample",
+   "properties": {}
+  },
+  {
+   "id": "o_concat",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "Concat",
+   "properties": {}
+  },
+  {
+   "id": "d_concat_out",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "vfMjnS25tF",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  }
+ ],
+ "edges": [
+  {
+   "source": "d_k1",
+   "target": "o_mm1_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_q1",
+   "target": "o_mm1_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_v1",
+   "target": "o_mm1_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_mm1_2",
+   "target": "d_attn_out1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_attn_out1",
+   "target": "o_agg",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_agg",
+   "target": "d_agg_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_agg_out",
+   "target": "l_proj_q",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_proj_q",
+   "target": "d_q2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_proj_k",
+   "target": "d_k2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_proj_v",
+   "target": "d_v2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_q2",
+   "target": "o_mm2_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_k2",
+   "target": "o_mm2_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_gauss",
+   "target": "o_add",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_v2",
+   "target": "o_mm2_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_concat",
+   "target": "d_concat_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_in",
+   "target": "d_q1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_in",
+   "target": "d_k1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_in",
+   "target": "d_v1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_mm1_1",
+   "target": "o_softmax1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_softmax1",
+   "target": "o_mm1_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_attn_out1",
+   "target": "o_concat",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_agg_out",
+   "target": "vfMjnS25tF",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "vfMjnS25tF",
+   "target": "l_proj_k",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "vfMjnS25tF",
+   "target": "l_proj_v",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_mm2_1",
+   "target": "o_add",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_add",
+   "target": "o_softmax2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_softmax2",
+   "target": "o_mm2_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_mm2_2",
+   "target": "o_up",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_up",
+   "target": "o_concat",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "c_stage1",
+   "type": "container",
+   "label": "Stage 1: Local Self-Attention",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "d_attn_out1",
+    "o_agg",
+    "o_mm1_1",
+    "d_v1",
+    "o_mm1_2",
+    "d_k1",
+    "d_q1",
+    "d_agg_out",
+    "d_in",
+    "o_softmax1"
+   ]
+  },
+  {
+   "id": "c_stage2",
+   "type": "container",
+   "label": "Stage 2: Global Self-Attention",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "d_gauss",
+    "o_mm2_1",
+    "o_add",
+    "l_proj_k",
+    "l_proj_q",
+    "d_k2",
+    "o_mm2_2",
+    "o_softmax2",
+    "d_v2",
+    "vfMjnS25tF",
+    "d_q2",
+    "l_proj_v"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,307 @@
+{
+ "architecture_name": "1706.03762v1_Attention Is All You Need-Figure2-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "n3",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "MatMul",
+   "properties": {
+    "mechanism": "MatMul"
+   }
+  },
+  {
+   "id": "n4",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "SoftMax",
+   "properties": {
+    "algorithm": "Softmax"
+   }
+  },
+  {
+   "id": "n5",
+   "class": "MODIFIER",
+   "sub_type": "mask",
+   "raw_text": "Mask (opt.)",
+   "properties": {
+    "note": "opt."
+   }
+  },
+  {
+   "id": "n6",
+   "class": "MODIFIER",
+   "sub_type": "element_wise",
+   "raw_text": "Scale",
+   "properties": {
+    "algorithm": "Scale"
+   }
+  },
+  {
+   "id": "n7",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "MatMul",
+   "properties": {
+    "mechanism": "MatMul"
+   }
+  },
+  {
+   "id": "n8",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$Q$",
+   "properties": {
+    "symbol": "Q"
+   }
+  },
+  {
+   "id": "n9",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$K$",
+   "properties": {
+    "symbol": "K"
+   }
+  },
+  {
+   "id": "n10",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$V$",
+   "properties": {
+    "symbol": "V"
+   }
+  },
+  {
+   "id": "n11",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "Linear",
+   "properties": {}
+  },
+  {
+   "id": "n12",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "Concat",
+   "properties": {}
+  },
+  {
+   "id": "n13",
+   "class": "MACRO",
+   "sub_type": "block",
+   "raw_text": "Scaled Dot-Product Attention",
+   "properties": {
+    "name": "Scaled Dot-Product Attention",
+    "repetition": "h"
+   }
+  },
+  {
+   "id": "n15",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "Linear",
+   "properties": {}
+  },
+  {
+   "id": "n16",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "Linear",
+   "properties": {}
+  },
+  {
+   "id": "n17",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "Linear",
+   "properties": {}
+  },
+  {
+   "id": "n18",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$V$",
+   "properties": {
+    "symbol": "V"
+   }
+  },
+  {
+   "id": "n19",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$K$",
+   "properties": {
+    "symbol": "K"
+   }
+  },
+  {
+   "id": "n20",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$Q$",
+   "properties": {
+    "symbol": "Q"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "n8",
+   "target": "n7",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n9",
+   "target": "n7",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n7",
+   "target": "n6",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n6",
+   "target": "n5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n5",
+   "target": "n4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n4",
+   "target": "n3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n10",
+   "target": "n3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n18",
+   "target": "n15",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n19",
+   "target": "n16",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n20",
+   "target": "n17",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n15",
+   "target": "n13",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n16",
+   "target": "n13",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n17",
+   "target": "n13",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n13",
+   "target": "n12",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n12",
+   "target": "n11",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "group_n1",
+   "type": "container",
+   "label": "Scaled Dot-Product Attention",
+   "boundary_type": "implicit_header",
+   "member_node_ids": [
+    "n4",
+    "n10",
+    "n5",
+    "n6",
+    "n7",
+    "n8",
+    "n9",
+    "n3"
+   ]
+  },
+  {
+   "id": "group_n2",
+   "type": "container",
+   "label": "Multi-Head Attention",
+   "boundary_type": "implicit_header",
+   "member_node_ids": [
+    "n17",
+    "n13",
+    "n16",
+    "n20",
+    "n11",
+    "n19",
+    "n12",
+    "n18",
+    "n15"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,145 @@
+{
+ "architecture_name": "2110.01014v1_EAR-U-Net EfficientNet and attention-based residual U-Net for automatic liver segmentation in CT-Figure4-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_feature_map",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "feature map",
+   "properties": {
+    "name": "feature map"
+   }
+  },
+  {
+   "id": "op_avgpool",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "AvgPooling",
+   "properties": {
+    "algorithm": "AveragePool"
+   }
+  },
+  {
+   "id": "l_fc1",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "fully connected layer 1",
+   "properties": {
+    "name": "fully connected layer 1"
+   }
+  },
+  {
+   "id": "op_swish",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Swish",
+   "properties": {
+    "algorithm": "Swish"
+   }
+  },
+  {
+   "id": "l_fc2",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "fully connected layer 2",
+   "properties": {
+    "name": "fully connected layer 2"
+   }
+  },
+  {
+   "id": "op_sigmoid",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Sigmoid",
+   "properties": {
+    "algorithm": "Sigmoid"
+   }
+  },
+  {
+   "id": "op_mul",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "$\\otimes$",
+   "properties": {
+    "mechanism": "Mul"
+   }
+  },
+  {
+   "id": "d_new_feature_map",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "new feature map",
+   "properties": {
+    "name": "new feature map"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "d_feature_map",
+   "target": "op_avgpool",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_feature_map",
+   "target": "op_mul",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_avgpool",
+   "target": "l_fc1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_fc1",
+   "target": "op_swish",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_swish",
+   "target": "l_fc2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_fc2",
+   "target": "op_sigmoid",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_sigmoid",
+   "target": "op_mul",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_mul",
+   "target": "d_new_feature_map",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": []
+}

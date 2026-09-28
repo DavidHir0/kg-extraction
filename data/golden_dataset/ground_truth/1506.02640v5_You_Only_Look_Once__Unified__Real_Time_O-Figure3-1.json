@@ -1,0 +1,699 @@
+{
+ "architecture_name": "1506.02640v5_You_Only_Look_Once__Unified__Real_Time_O-Figure3-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_vol1",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$448 \\times 448 \\times 3$",
+   "properties": {
+    "dimensions": [
+     448,
+     448,
+     3
+    ]
+   }
+  },
+  {
+   "id": "d_vol2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$112 \\times 112 \\times 192$",
+   "properties": {
+    "dimensions": [
+     112,
+     112,
+     192
+    ]
+   }
+  },
+  {
+   "id": "d_vol3",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$56 \\times 56 \\times 256$",
+   "properties": {
+    "dimensions": [
+     56,
+     56,
+     256
+    ]
+   }
+  },
+  {
+   "id": "d_vol4",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$28 \\times 28 \\times 512$",
+   "properties": {
+    "dimensions": [
+     28,
+     28,
+     512
+    ]
+   }
+  },
+  {
+   "id": "d_vol5",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$14 \\times 14 \\times 1024$",
+   "properties": {
+    "dimensions": [
+     14,
+     14,
+     1024
+    ]
+   }
+  },
+  {
+   "id": "d_vol6",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$7 \\times 7 \\times 1024$",
+   "properties": {
+    "dimensions": [
+     7,
+     7,
+     1024
+    ]
+   }
+  },
+  {
+   "id": "d_vol7",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$7 \\times 7 \\times 1024$",
+   "properties": {
+    "dimensions": [
+     7,
+     7,
+     1024
+    ]
+   }
+  },
+  {
+   "id": "d_vol8",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$4096$",
+   "properties": {
+    "dimensions": [
+     4096
+    ]
+   }
+  },
+  {
+   "id": "d_vol9",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "$7 \\times 7 \\times 30$",
+   "properties": {
+    "dimensions": [
+     7,
+     7,
+     30
+    ]
+   }
+  },
+  {
+   "id": "l_b1_conv",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv. Layer $7 \\times 7 \\times 64$-s-$2$",
+   "properties": {
+    "kernel": [
+     7,
+     7
+    ],
+    "channels": 64,
+    "stride": 2
+   }
+  },
+  {
+   "id": "o_b1_pool",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Maxpool Layer $2 \\times 2$-s-$2$",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ],
+    "stride": 2,
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_b2_conv",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv. Layer $3 \\times 3 \\times 192$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 192
+   }
+  },
+  {
+   "id": "o_b2_pool",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Maxpool Layer $2 \\times 2$-s-$2$",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ],
+    "stride": 2,
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_b3_c1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv. Layer $1 \\times 1 \\times 128$",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "channels": 128
+   }
+  },
+  {
+   "id": "l_b3_c2",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv. Layer $3 \\times 3 \\times 256$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "l_b3_c3",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv. Layer $1 \\times 1 \\times 256$",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "l_b3_c4",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv. Layer $3 \\times 3 \\times 512$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 512
+   }
+  },
+  {
+   "id": "o_b3_pool",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Maxpool Layer $2 \\times 2$-s-$2$",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ],
+    "stride": 2,
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_b4_c1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv. Layer $1 \\times 1 \\times 256$",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "l_b4_c2",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv. Layer $3 \\times 3 \\times 512$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 512
+   }
+  },
+  {
+   "id": "l_b4_c3",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv. Layer $1 \\times 1 \\times 512$",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "channels": 512
+   }
+  },
+  {
+   "id": "l_b4_c4",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv. Layer $3 \\times 3 \\times 1024$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 1024
+   }
+  },
+  {
+   "id": "o_b4_pool",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Maxpool Layer $2 \\times 2$-s-$2$",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ],
+    "stride": 2,
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_b5_c1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv. Layer $1 \\times 1 \\times 512$",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "channels": 512
+   }
+  },
+  {
+   "id": "l_b5_c2",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv. Layer $3 \\times 3 \\times 1024$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 1024
+   }
+  },
+  {
+   "id": "l_b5_c3",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv. Layer $3 \\times 3 \\times 1024$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 1024
+   }
+  },
+  {
+   "id": "l_b5_c4",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv. Layer $3 \\times 3 \\times 1024$-s-$2$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 1024,
+    "stride": 2
+   }
+  },
+  {
+   "id": "l_b6_c1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv. Layer $3 \\times 3 \\times 1024$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 1024
+   }
+  },
+  {
+   "id": "l_b6_c2",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv. Layer $3 \\times 3 \\times 1024$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 1024
+   }
+  },
+  {
+   "id": "o_flatten",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "flatten",
+   "properties": {
+    "algorithm": "Flatten"
+   }
+  },
+  {
+   "id": "l_conn1",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "Conn. Layer",
+   "properties": {}
+  },
+  {
+   "id": "l_conn2",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "Conn. Layer",
+   "properties": {}
+  },
+  {
+   "id": "o_reshape",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "reshape",
+   "properties": {
+    "algorithm": "Reshape"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "d_vol1",
+   "target": "l_b1_conv",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_b1_conv",
+   "target": "o_b1_pool",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_b1_pool",
+   "target": "d_vol2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_vol2",
+   "target": "l_b2_conv",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_b2_conv",
+   "target": "o_b2_pool",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_b2_pool",
+   "target": "d_vol3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_vol3",
+   "target": "l_b3_c1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_b3_c1",
+   "target": "l_b3_c2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_b3_c2",
+   "target": "l_b3_c3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_b3_c3",
+   "target": "l_b3_c4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_b3_c4",
+   "target": "o_b3_pool",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_b3_pool",
+   "target": "d_vol4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_vol4",
+   "target": "l_b4_c1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_b4_c1",
+   "target": "l_b4_c2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_b4_c2",
+   "target": "l_b4_c3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_b4_c3",
+   "target": "l_b4_c4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_b4_c4",
+   "target": "o_b4_pool",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_b4_pool",
+   "target": "d_vol5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_vol5",
+   "target": "l_b5_c1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_b5_c1",
+   "target": "l_b5_c2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_b5_c2",
+   "target": "l_b5_c3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_b5_c3",
+   "target": "l_b5_c4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_b5_c4",
+   "target": "d_vol6",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_vol6",
+   "target": "l_b6_c1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_b6_c1",
+   "target": "l_b6_c2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_b6_c2",
+   "target": "d_vol7",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_vol7",
+   "target": "o_flatten",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_flatten",
+   "target": "l_conn1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conn1",
+   "target": "d_vol8",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_vol8",
+   "target": "l_conn2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conn2",
+   "target": "o_reshape",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_reshape",
+   "target": "d_vol9",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "c_rep_4",
+   "type": "container",
+   "label": "$\\times 4$",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "l_b4_c2",
+    "l_b4_c1"
+   ]
+  },
+  {
+   "id": "c_rep_5",
+   "type": "container",
+   "label": "$\\times 2$",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "l_b5_c2",
+    "l_b5_c1"
+   ]
+  }
+ ]
+}

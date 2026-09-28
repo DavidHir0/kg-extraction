@@ -1,0 +1,2660 @@
+{
+ "architecture_name": "1512.03385v1_Deep Residual Learning for Image Recognition-Figure3-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "n4",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "image",
+   "properties": {
+    "modality": "image"
+   }
+  },
+  {
+   "id": "n5",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "image",
+   "properties": {
+    "modality": "image"
+   }
+  },
+  {
+   "id": "n6",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "image",
+   "properties": {
+    "modality": "image"
+   }
+  },
+  {
+   "id": "n8",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "output size: $224$",
+   "properties": {
+    "dimensions": [
+     224
+    ]
+   }
+  },
+  {
+   "id": "n9",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $64$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 64
+   }
+  },
+  {
+   "id": "n10",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $64$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 64
+   }
+  },
+  {
+   "id": "n11",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "pool, $/2$",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ],
+    "stride": 2,
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "n13",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "output size: $112$",
+   "properties": {
+    "dimensions": [
+     112
+    ]
+   }
+  },
+  {
+   "id": "n14",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $128$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 128
+   }
+  },
+  {
+   "id": "n15",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $128$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 128
+   }
+  },
+  {
+   "id": "n16",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$7 \\times 7$ conv, $64$, $/2$",
+   "properties": {
+    "kernel": [
+     7,
+     7
+    ],
+    "channels": 64,
+    "stride": 2
+   }
+  },
+  {
+   "id": "n17",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$7 \\times 7$ conv, $64$, $/2$",
+   "properties": {
+    "kernel": [
+     7,
+     7
+    ],
+    "channels": 64,
+    "stride": 2
+   }
+  },
+  {
+   "id": "n18",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "pool, $/2$",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ],
+    "stride": 2,
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "n19",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "pool, $/2$",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ],
+    "stride": 2,
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "n20",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "pool, $/2$",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ],
+    "stride": 2,
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "n22",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "output size: $56$",
+   "properties": {
+    "dimensions": [
+     56
+    ]
+   }
+  },
+  {
+   "id": "n23",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $256$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "n24",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $64$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 64
+   }
+  },
+  {
+   "id": "n25",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $64$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 64
+   }
+  },
+  {
+   "id": "n26",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $256$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "n27",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $64$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 64
+   }
+  },
+  {
+   "id": "n28",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $64$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 64
+   }
+  },
+  {
+   "id": "n29",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $256$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "n30",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $64$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 64
+   }
+  },
+  {
+   "id": "n31",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $64$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 64
+   }
+  },
+  {
+   "id": "n32",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $256$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "n33",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $64$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 64
+   }
+  },
+  {
+   "id": "n34",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $64$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 64
+   }
+  },
+  {
+   "id": "n35",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $64$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 64
+   }
+  },
+  {
+   "id": "n36",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $64$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 64
+   }
+  },
+  {
+   "id": "n37",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $64$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 64
+   }
+  },
+  {
+   "id": "n38",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $64$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 64
+   }
+  },
+  {
+   "id": "n39",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "pool, $/2$",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ],
+    "stride": 2,
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "n40",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $128$, $/2$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 128,
+    "stride": 2
+   }
+  },
+  {
+   "id": "n41",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $128$, $/2$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 128,
+    "stride": 2
+   }
+  },
+  {
+   "id": "n43",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "output size: $28$",
+   "properties": {
+    "dimensions": [
+     28
+    ]
+   }
+  },
+  {
+   "id": "n44",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $512$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 512
+   }
+  },
+  {
+   "id": "n45",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $128$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 128
+   }
+  },
+  {
+   "id": "n46",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $128$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 128
+   }
+  },
+  {
+   "id": "n47",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $512$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 512
+   }
+  },
+  {
+   "id": "n48",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $128$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 128
+   }
+  },
+  {
+   "id": "n49",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $128$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 128
+   }
+  },
+  {
+   "id": "n50",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $512$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 512
+   }
+  },
+  {
+   "id": "n51",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $128$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 128
+   }
+  },
+  {
+   "id": "n52",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $128$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 128
+   }
+  },
+  {
+   "id": "n53",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $512$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 512
+   }
+  },
+  {
+   "id": "n54",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $128$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 128
+   }
+  },
+  {
+   "id": "n55",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $128$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 128
+   }
+  },
+  {
+   "id": "n56",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $128$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 128
+   }
+  },
+  {
+   "id": "n57",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $128$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 128
+   }
+  },
+  {
+   "id": "n58",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $128$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 128
+   }
+  },
+  {
+   "id": "n59",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $128$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 128
+   }
+  },
+  {
+   "id": "n60",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $128$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 128
+   }
+  },
+  {
+   "id": "n61",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $128$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 128
+   }
+  },
+  {
+   "id": "n62",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "pool, $/2$",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ],
+    "stride": 2,
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "n63",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $256$, $/2$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 256,
+    "stride": 2
+   }
+  },
+  {
+   "id": "n64",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $256$, $/2$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 256,
+    "stride": 2
+   }
+  },
+  {
+   "id": "n66",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "output size: $14$",
+   "properties": {
+    "dimensions": [
+     14
+    ]
+   }
+  },
+  {
+   "id": "n67",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $512$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 512
+   }
+  },
+  {
+   "id": "n68",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $256$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "n69",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $256$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "n70",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $512$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 512
+   }
+  },
+  {
+   "id": "n71",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $256$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "n72",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $256$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "n73",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $512$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 512
+   }
+  },
+  {
+   "id": "n74",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $256$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "n75",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $256$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "n76",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $512$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 512
+   }
+  },
+  {
+   "id": "n77",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $256$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "n78",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $256$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "n79",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $256$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "n80",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $256$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "n81",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $256$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "n82",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $256$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "n83",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $256$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "n84",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $256$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "n85",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $256$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "n86",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $256$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "n87",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $256$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "n88",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $256$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "n89",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $256$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "n89b",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $256$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "n90",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $256$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "n90b",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $256$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 256
+   }
+  },
+  {
+   "id": "n91",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "pool, $/2$",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ],
+    "stride": 2,
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "n92",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $512$, $/2$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 512,
+    "stride": 2
+   }
+  },
+  {
+   "id": "n93",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $512$, $/2$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 512,
+    "stride": 2
+   }
+  },
+  {
+   "id": "n95",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "output size: $7$",
+   "properties": {
+    "dimensions": [
+     7
+    ]
+   }
+  },
+  {
+   "id": "n96",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $512$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 512
+   }
+  },
+  {
+   "id": "n97",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $512$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 512
+   }
+  },
+  {
+   "id": "n98",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $512$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 512
+   }
+  },
+  {
+   "id": "n99",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $512$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 512
+   }
+  },
+  {
+   "id": "n100",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $512$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 512
+   }
+  },
+  {
+   "id": "n101",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $512$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 512
+   }
+  },
+  {
+   "id": "n102",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $512$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 512
+   }
+  },
+  {
+   "id": "n103",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $512$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 512
+   }
+  },
+  {
+   "id": "n104",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $512$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 512
+   }
+  },
+  {
+   "id": "n105",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ conv, $512$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "channels": 512
+   }
+  },
+  {
+   "id": "n107",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "output size: $1$",
+   "properties": {
+    "dimensions": [
+     1
+    ]
+   }
+  },
+  {
+   "id": "n108",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "fc $4096$",
+   "properties": {
+    "units": 4096
+   }
+  },
+  {
+   "id": "n111",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "fc $4096$",
+   "properties": {
+    "units": 4096
+   }
+  },
+  {
+   "id": "n109",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "avg pool",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "algorithm": "AveragePool"
+   }
+  },
+  {
+   "id": "n110",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "avg pool",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ],
+    "algorithm": "AveragePool"
+   }
+  },
+  {
+   "id": "n114",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "fc $1000$",
+   "properties": {
+    "units": 1000
+   }
+  },
+  {
+   "id": "n112",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "fc $1000$",
+   "properties": {
+    "units": 1000
+   }
+  },
+  {
+   "id": "n113",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "fc $1000$",
+   "properties": {
+    "units": 1000
+   }
+  },
+  {
+   "id": "imp_add_n31",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "imp_add_n36",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "imp_add_n41",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "imp_add_n49",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "imp_add_n55",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "imp_add_n59",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "imp_add_n64",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "imp_add_n72",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "imp_add_n78",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "imp_add_n82",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "imp_add_n86",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "imp_add_n90",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "imp_add_n93",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "imp_add_n99",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "imp_add_n103",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "imp_add_n110",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "n4",
+   "target": "n9",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n9",
+   "target": "n10",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n10",
+   "target": "n11",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n11",
+   "target": "n14",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n14",
+   "target": "n15",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n15",
+   "target": "n18",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n18",
+   "target": "n23",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n23",
+   "target": "n26",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n26",
+   "target": "n29",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n29",
+   "target": "n32",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n32",
+   "target": "n39",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n39",
+   "target": "n44",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n44",
+   "target": "n47",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n47",
+   "target": "n50",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n50",
+   "target": "n53",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n53",
+   "target": "n62",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n62",
+   "target": "n67",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n67",
+   "target": "n70",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n70",
+   "target": "n73",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n73",
+   "target": "n76",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n76",
+   "target": "n91",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n91",
+   "target": "n108",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n108",
+   "target": "n111",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n111",
+   "target": "n114",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n5",
+   "target": "n16",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n16",
+   "target": "n19",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n19",
+   "target": "n24",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n24",
+   "target": "n27",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n27",
+   "target": "n30",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n30",
+   "target": "n33",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n33",
+   "target": "n35",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n35",
+   "target": "n37",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n37",
+   "target": "n40",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n40",
+   "target": "n45",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n45",
+   "target": "n48",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n48",
+   "target": "n51",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n51",
+   "target": "n54",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n54",
+   "target": "n56",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n56",
+   "target": "n58",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n58",
+   "target": "n60",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n60",
+   "target": "n63",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n63",
+   "target": "n68",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n68",
+   "target": "n71",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n71",
+   "target": "n74",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n74",
+   "target": "n77",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n77",
+   "target": "n79",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n79",
+   "target": "n81",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n81",
+   "target": "n83",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n83",
+   "target": "n85",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n85",
+   "target": "n87",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n87",
+   "target": "n89",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n89",
+   "target": "n89b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n89b",
+   "target": "n92",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n92",
+   "target": "n96",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n96",
+   "target": "n98",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n98",
+   "target": "n100",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n100",
+   "target": "n102",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n102",
+   "target": "n104",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n104",
+   "target": "n109",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n109",
+   "target": "n112",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n6",
+   "target": "n17",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n17",
+   "target": "n20",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n20",
+   "target": "n25",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n25",
+   "target": "n28",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n28",
+   "target": "imp_add_n31",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n31",
+   "target": "n34",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n34",
+   "target": "imp_add_n36",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n36",
+   "target": "n38",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n38",
+   "target": "imp_add_n41",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n41",
+   "target": "n46",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n46",
+   "target": "imp_add_n49",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n49",
+   "target": "n52",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n52",
+   "target": "imp_add_n55",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n55",
+   "target": "n57",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n57",
+   "target": "imp_add_n59",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n59",
+   "target": "n61",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n61",
+   "target": "imp_add_n64",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n64",
+   "target": "n69",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n69",
+   "target": "imp_add_n72",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n72",
+   "target": "n75",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n75",
+   "target": "imp_add_n78",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n78",
+   "target": "n80",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n80",
+   "target": "imp_add_n82",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n82",
+   "target": "n84",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n84",
+   "target": "imp_add_n86",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n86",
+   "target": "n88",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n88",
+   "target": "imp_add_n90",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n90",
+   "target": "n90b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n90b",
+   "target": "imp_add_n93",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n93",
+   "target": "n97",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n97",
+   "target": "imp_add_n99",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n99",
+   "target": "n101",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n101",
+   "target": "imp_add_n103",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n103",
+   "target": "n105",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n105",
+   "target": "imp_add_n110",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n110",
+   "target": "n113",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n20",
+   "target": "imp_add_n31",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n28",
+   "target": "imp_add_n36",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n34",
+   "target": "imp_add_n41",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n38",
+   "target": "imp_add_n49",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n46",
+   "target": "imp_add_n55",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n52",
+   "target": "imp_add_n59",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n57",
+   "target": "imp_add_n64",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n61",
+   "target": "imp_add_n72",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n69",
+   "target": "imp_add_n78",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n75",
+   "target": "imp_add_n82",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n80",
+   "target": "imp_add_n86",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n84",
+   "target": "imp_add_n90",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n88",
+   "target": "imp_add_n93",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n90b",
+   "target": "imp_add_n99",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n97",
+   "target": "imp_add_n103",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n101",
+   "target": "imp_add_n110",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "imp_add_n31",
+   "target": "n31",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "imp_add_n36",
+   "target": "n36",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "imp_add_n41",
+   "target": "n41",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "imp_add_n49",
+   "target": "n49",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "imp_add_n55",
+   "target": "n55",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "imp_add_n59",
+   "target": "n59",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "imp_add_n64",
+   "target": "n64",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "imp_add_n72",
+   "target": "n72",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "imp_add_n78",
+   "target": "n78",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "imp_add_n82",
+   "target": "n82",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "imp_add_n86",
+   "target": "n86",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "imp_add_n90",
+   "target": "n90",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "imp_add_n93",
+   "target": "n93",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "imp_add_n99",
+   "target": "n99",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "imp_add_n103",
+   "target": "n103",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "imp_add_n110",
+   "target": "n110",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "group_n1",
+   "type": "container",
+   "label": "VGG-19",
+   "boundary_type": "implicit_header",
+   "member_node_ids": [
+    "n53",
+    "n47",
+    "n29",
+    "n26",
+    "n10",
+    "n14",
+    "n114",
+    "n111",
+    "n76",
+    "n9",
+    "n32",
+    "n73",
+    "n23",
+    "n39",
+    "n91",
+    "n18",
+    "n44",
+    "n67",
+    "n62",
+    "n11",
+    "n70",
+    "n15",
+    "n50"
+   ]
+  },
+  {
+   "id": "group_n2",
+   "type": "container",
+   "label": "34-layer plain",
+   "boundary_type": "implicit_header",
+   "member_node_ids": [
+    "n104",
+    "n45",
+    "n109",
+    "n77",
+    "n33",
+    "n85",
+    "n27",
+    "n37",
+    "n48",
+    "n56",
+    "n81",
+    "n100",
+    "n58",
+    "n102",
+    "n83",
+    "n30",
+    "n92",
+    "n40",
+    "n16",
+    "n96",
+    "n60",
+    "n74",
+    "n112",
+    "n24",
+    "n68",
+    "n89",
+    "n79",
+    "n98",
+    "n87",
+    "n35",
+    "n89b",
+    "n19",
+    "n54",
+    "n51",
+    "n71",
+    "n63"
+   ]
+  },
+  {
+   "id": "group_n3",
+   "type": "container",
+   "label": "34-layer residual",
+   "boundary_type": "implicit_header",
+   "member_node_ids": [
+    "n34",
+    "n38",
+    "n75",
+    "n86",
+    "n25",
+    "n57",
+    "n84",
+    "n101",
+    "n103",
+    "n90b",
+    "n99",
+    "n41",
+    "n93",
+    "n90",
+    "n78",
+    "n28",
+    "n61",
+    "n110",
+    "n20",
+    "n82",
+    "n49",
+    "n64",
+    "n17",
+    "n72",
+    "n46",
+    "n52",
+    "n69",
+    "n88",
+    "n105",
+    "n97",
+    "n31",
+    "n113",
+    "n55",
+    "n36",
+    "n80",
+    "n59",
+    "imp_add_n31",
+    "imp_add_n36",
+    "imp_add_n41",
+    "imp_add_n49",
+    "imp_add_n55",
+    "imp_add_n59",
+    "imp_add_n64",
+    "imp_add_n72",
+    "imp_add_n78",
+    "imp_add_n82",
+    "imp_add_n86",
+    "imp_add_n90",
+    "imp_add_n93",
+    "imp_add_n99",
+    "imp_add_n103",
+    "imp_add_n110"
+   ]
+  }
+ ]
+}

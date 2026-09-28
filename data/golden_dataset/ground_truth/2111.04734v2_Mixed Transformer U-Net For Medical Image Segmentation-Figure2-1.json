@@ -1,0 +1,327 @@
+{
+ "architecture_name": "2111.04734v2_Mixed Transformer U-Net For Medical Image Segmentation-Figure2-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "in_root",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "input",
+   "properties": {}
+  },
+  {
+   "id": "n1",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Layer Norm",
+   "properties": {
+    "algorithm": "LayerNormalization"
+   }
+  },
+  {
+   "id": "n3",
+   "class": "LAYER",
+   "sub_type": "attention",
+   "raw_text": "LSA",
+   "properties": {}
+  },
+  {
+   "id": "n4",
+   "class": "MODIFIER",
+   "sub_type": "custom",
+   "raw_text": "Aggregate",
+   "properties": {
+    "algorithm": "Aggregate"
+   }
+  },
+  {
+   "id": "n5",
+   "class": "LAYER",
+   "sub_type": "attention",
+   "raw_text": "GSA",
+   "properties": {}
+  },
+  {
+   "id": "n6",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Upsample",
+   "properties": {}
+  },
+  {
+   "id": "n7",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "Concatenation",
+   "properties": {}
+  },
+  {
+   "id": "n8",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "Squeeze",
+   "properties": {
+    "algorithm": "Squeeze"
+   }
+  },
+  {
+   "id": "n9",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "Summation",
+   "properties": {}
+  },
+  {
+   "id": "n10",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Layer Norm",
+   "properties": {
+    "algorithm": "LayerNormalization"
+   }
+  },
+  {
+   "id": "n12",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$Q$",
+   "properties": {
+    "symbol": "Q"
+   }
+  },
+  {
+   "id": "n13",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "Matrix Multiplication",
+   "properties": {
+    "mechanism": "MatMul"
+   }
+  },
+  {
+   "id": "n14",
+   "class": "DATA",
+   "sub_type": "constant",
+   "raw_text": "$M_K$",
+   "properties": {
+    "symbol": "M_K"
+   }
+  },
+  {
+   "id": "n15",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Norm",
+   "properties": {}
+  },
+  {
+   "id": "n16",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "Matrix Multiplication",
+   "properties": {
+    "mechanism": "MatMul"
+   }
+  },
+  {
+   "id": "n17",
+   "class": "DATA",
+   "sub_type": "constant",
+   "raw_text": "$M_V$",
+   "properties": {
+    "symbol": "M_V"
+   }
+  },
+  {
+   "id": "n18",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "Summation",
+   "properties": {}
+  }
+ ],
+ "edges": [
+  {
+   "source": "in_root",
+   "target": "n1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "in_root",
+   "target": "n9",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n1",
+   "target": "n3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n3",
+   "target": "n4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n3",
+   "target": "n7",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n4",
+   "target": "n5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n5",
+   "target": "n6",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n6",
+   "target": "n7",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n7",
+   "target": "n8",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n8",
+   "target": "n9",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n9",
+   "target": "n10",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n9",
+   "target": "n18",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n10",
+   "target": "n12",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n12",
+   "target": "n13",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n14",
+   "target": "n13",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n13",
+   "target": "n15",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n15",
+   "target": "n16",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n17",
+   "target": "n16",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n16",
+   "target": "n18",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "c1",
+   "type": "container",
+   "label": "LGG-SA",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "n4",
+    "n5",
+    "n6",
+    "n7",
+    "n8",
+    "n3"
+   ]
+  },
+  {
+   "id": "c2",
+   "type": "container",
+   "label": "External Attention",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "n17",
+    "n13",
+    "n14",
+    "n16",
+    "n12",
+    "n15"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,193 @@
+{
+ "architecture_name": "1608.06993v5_Densely_Connected_Convolutional_Networks-Figure2-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_in",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "Input",
+   "properties": {}
+  },
+  {
+   "id": "l_conv1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Convolution",
+   "properties": {}
+  },
+  {
+   "id": "l_db1",
+   "class": "MACRO",
+   "sub_type": "block",
+   "raw_text": "Dense Block 1",
+   "properties": {
+    "name": "Dense Block 1"
+   }
+  },
+  {
+   "id": "l_conv2",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Convolution",
+   "properties": {}
+  },
+  {
+   "id": "l_pool1",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Pooling",
+   "properties": {
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_db2",
+   "class": "MACRO",
+   "sub_type": "block",
+   "raw_text": "Dense Block 2",
+   "properties": {
+    "name": "Dense Block 2"
+   }
+  },
+  {
+   "id": "l_conv3",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Convolution",
+   "properties": {}
+  },
+  {
+   "id": "l_pool2",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Pooling",
+   "properties": {
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_db3",
+   "class": "MACRO",
+   "sub_type": "block",
+   "raw_text": "Dense Block 3",
+   "properties": {
+    "name": "Dense Block 3"
+   }
+  },
+  {
+   "id": "l_pool3",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Pooling",
+   "properties": {
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_linear",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "Linear",
+   "properties": {}
+  },
+  {
+   "id": "d_out",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "\"horse\"",
+   "properties": {}
+  }
+ ],
+ "edges": [
+  {
+   "source": "d_in",
+   "target": "l_conv1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv1",
+   "target": "l_db1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_db1",
+   "target": "l_conv2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv2",
+   "target": "l_pool1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_pool1",
+   "target": "l_db2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_db2",
+   "target": "l_conv3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv3",
+   "target": "l_pool2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_pool2",
+   "target": "l_db3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_db3",
+   "target": "l_pool3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_pool3",
+   "target": "l_linear",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_linear",
+   "target": "d_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": []
+}

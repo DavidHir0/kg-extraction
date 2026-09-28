@@ -1,0 +1,545 @@
+{
+ "architecture_name": "2401.09417v3_Vision_Mamba__Efficient_Visual_Representation_Learning_with_Bidirectional_State_Space_Model-Figure2-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_img",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "Input Image",
+   "properties": {
+    "name": "Input Image",
+    "modality": "image"
+   }
+  },
+  {
+   "id": "l_flatten",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Flatten & Linear Projection",
+   "properties": {
+    "name": "Flatten & Linear Projection"
+   }
+  },
+  {
+   "id": "d_tokens",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "Patch Tokens",
+   "properties": {
+    "name": "Patch Tokens"
+   }
+  },
+  {
+   "id": "d_pos_embed",
+   "class": "DATA",
+   "sub_type": "constant",
+   "raw_text": "Position Embed.",
+   "properties": {
+    "name": "Position Embed."
+   }
+  },
+  {
+   "id": "d_cls_token",
+   "class": "DATA",
+   "sub_type": "constant",
+   "raw_text": "Class Token",
+   "properties": {
+    "name": "Class Token"
+   }
+  },
+  {
+   "id": "l_vim_enc_macro",
+   "class": "MACRO",
+   "sub_type": "block",
+   "raw_text": "Vision Mamba Encoder",
+   "properties": {
+    "name": "Vision Mamba Encoder"
+   }
+  },
+  {
+   "id": "l_mlp",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "MLP & Prediction",
+   "properties": {
+    "name": "MLP & Prediction"
+   }
+  },
+  {
+   "id": "d_embed",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "Embedded Patches",
+   "properties": {
+    "name": "Embedded Patches"
+   }
+  },
+  {
+   "id": "l_norm",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Norm",
+   "properties": {}
+  },
+  {
+   "id": "l_proj_top",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "Projection Layer",
+   "properties": {}
+  },
+  {
+   "id": "d_x",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$x$",
+   "properties": {
+    "dimensions": [
+     "",
+     ""
+    ]
+   }
+  },
+  {
+   "id": "l_proj_bot",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "Projection Layer",
+   "properties": {}
+  },
+  {
+   "id": "d_z",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$z$",
+   "properties": {
+    "symbol": "z"
+   }
+  },
+  {
+   "id": "l_conv_fwd",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Forward Conv1d",
+   "properties": {}
+  },
+  {
+   "id": "l_ssm_fwd",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Forward SSM",
+   "properties": {
+    "name": "Forward SSM"
+   }
+  },
+  {
+   "id": "d_hfwd",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$h_{forward}$",
+   "properties": {
+    "symbol": "h_forward"
+   }
+  },
+  {
+   "id": "l_conv_bwd",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Backward Conv1d",
+   "properties": {}
+  },
+  {
+   "id": "l_ssm_bwd",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Backward SSM",
+   "properties": {
+    "name": "Backward SSM"
+   }
+  },
+  {
+   "id": "d_hbwd",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$h_{backward}$",
+   "properties": {
+    "symbol": "h_backward"
+   }
+  },
+  {
+   "id": "l_act",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Activation",
+   "properties": {}
+  },
+  {
+   "id": "op_mul_fwd",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "$\\otimes$",
+   "properties": {
+    "mechanism": "Mul"
+   }
+  },
+  {
+   "id": "op_mul_bwd",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "$\\otimes$",
+   "properties": {
+    "mechanism": "Mul"
+   }
+  },
+  {
+   "id": "op_add_fb",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "d_y",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$y$",
+   "properties": {
+    "symbol": "y"
+   }
+  },
+  {
+   "id": "l_proj_out",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "Projection Layer",
+   "properties": {}
+  },
+  {
+   "id": "op_add_res",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "A6wKJ-CGaE",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "XejaBfs87Y",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "d_img",
+   "target": "l_flatten",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_flatten",
+   "target": "d_tokens",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_vim_enc_macro",
+   "target": "l_mlp",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_embed",
+   "target": "l_norm",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_embed",
+   "target": "op_add_res",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_norm",
+   "target": "l_proj_top",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_norm",
+   "target": "l_proj_bot",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_proj_top",
+   "target": "d_x",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_x",
+   "target": "l_conv_fwd",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_x",
+   "target": "l_conv_bwd",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_proj_bot",
+   "target": "d_z",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_z",
+   "target": "l_act",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv_fwd",
+   "target": "l_ssm_fwd",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_ssm_fwd",
+   "target": "d_hfwd",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_hfwd",
+   "target": "l_ssm_fwd",
+   "role": "backward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv_bwd",
+   "target": "l_ssm_bwd",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_ssm_bwd",
+   "target": "d_hbwd",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_hbwd",
+   "target": "l_ssm_bwd",
+   "role": "backward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_ssm_fwd",
+   "target": "op_mul_fwd",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_act",
+   "target": "op_mul_fwd",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_ssm_bwd",
+   "target": "op_mul_bwd",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_act",
+   "target": "op_mul_bwd",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_mul_fwd",
+   "target": "op_add_fb",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_mul_bwd",
+   "target": "op_add_fb",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_add_fb",
+   "target": "d_y",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_y",
+   "target": "l_proj_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_proj_out",
+   "target": "op_add_res",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_tokens",
+   "target": "A6wKJ-CGaE",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_pos_embed",
+   "target": "A6wKJ-CGaE",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "A6wKJ-CGaE",
+   "target": "XejaBfs87Y",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_cls_token",
+   "target": "XejaBfs87Y",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "XejaBfs87Y",
+   "target": "l_vim_enc_macro",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "c_vim_enc",
+   "type": "container",
+   "label": "$L \\times$",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "d_z",
+    "l_ssm_bwd",
+    "l_act",
+    "l_proj_top",
+    "op_mul_fwd",
+    "l_proj_out",
+    "op_add_res",
+    "l_proj_bot",
+    "d_hbwd",
+    "op_mul_bwd",
+    "l_conv_bwd",
+    "d_hfwd",
+    "l_conv_fwd",
+    "l_ssm_fwd",
+    "d_x",
+    "op_add_fb",
+    "d_y",
+    "l_norm"
+   ]
+  },
+  {
+   "id": "group_lbl_vim_macro",
+   "type": "container",
+   "label": "Vision Mamba (Vim)",
+   "boundary_type": "implicit_header",
+   "member_node_ids": [
+    "d_img",
+    "d_tokens",
+    "d_cls_token",
+    "l_flatten",
+    "l_vim_enc_macro",
+    "d_pos_embed",
+    "l_mlp"
+   ]
+  }
+ ]
+}

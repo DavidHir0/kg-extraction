@@ -1,0 +1,434 @@
+{
+ "architecture_name": "2306.16098v1_Chan-Vese Attention U-Net An attention mechanism for robust segmentation-Figure1-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "n1",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$y^j$",
+   "properties": {
+    "symbol": "y^j"
+   }
+  },
+  {
+   "id": "n2",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "$W_y : 1 \\times 1 \\times 1$",
+   "properties": {}
+  },
+  {
+   "id": "n3",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$x^i$",
+   "properties": {
+    "symbol": "x^i"
+   }
+  },
+  {
+   "id": "n4",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "$W_x : 1 \\times 1 \\times 1$",
+   "properties": {}
+  },
+  {
+   "id": "n5",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "n6",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$F_{int} \\times H_y \\times W_y \\times C_y$",
+   "properties": {
+    "dimensions": [
+     "F_int",
+     "H_y",
+     "W_y",
+     "C_y"
+    ]
+   }
+  },
+  {
+   "id": "n7",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n8",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "$W_z : 1 \\times 1 \\times 1$",
+   "properties": {}
+  },
+  {
+   "id": "n9",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$1 \\times H_y \\times W_y \\times C_y$",
+   "properties": {
+    "dimensions": [
+     1,
+     "H_y",
+     "W_y",
+     "C_y"
+    ]
+   }
+  },
+  {
+   "id": "n10",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Sigmoid",
+   "properties": {
+    "algorithm": "Sigmoid"
+   }
+  },
+  {
+   "id": "n11",
+   "class": "MODIFIER",
+   "sub_type": "custom",
+   "raw_text": "Distance Transform",
+   "properties": {
+    "algorithm": "DistanceTransform"
+   }
+  },
+  {
+   "id": "n12",
+   "class": "MODIFIER",
+   "sub_type": "custom",
+   "raw_text": "Chan-Vese",
+   "properties": {
+    "algorithm": "Chan-Vese"
+   }
+  },
+  {
+   "id": "n13",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "$\\otimes$",
+   "properties": {
+    "mechanism": "Mul"
+   }
+  },
+  {
+   "id": "n14",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "$\\hat{x}^i$",
+   "properties": {
+    "symbol": "x^i"
+   }
+  },
+  {
+   "id": "n15",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "$W_y : 1 \\times 1 \\times 1$",
+   "properties": {}
+  },
+  {
+   "id": "n16",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$1 \\times H_y \\times W_y \\times C_y$",
+   "properties": {
+    "dimensions": [
+     1,
+     "H_y",
+     "W_y",
+     "C_y"
+    ]
+   }
+  },
+  {
+   "id": "n17",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "n18",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "$W_z : 1 \\times 1 \\times 1$",
+   "properties": {}
+  },
+  {
+   "id": "n19",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$1 \\times H_y \\times W_y \\times C_y$",
+   "properties": {
+    "dimensions": [
+     1,
+     "H_y",
+     "W_y",
+     "C_y"
+    ]
+   }
+  },
+  {
+   "id": "n20",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Sigmoid",
+   "properties": {
+    "algorithm": "Sigmoid"
+   }
+  },
+  {
+   "id": "n21",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$I$",
+   "properties": {
+    "symbol": "I"
+   }
+  },
+  {
+   "id": "n22",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Resize",
+   "properties": {}
+  },
+  {
+   "id": "n23",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Sigmoid",
+   "properties": {
+    "algorithm": "Sigmoid"
+   }
+  },
+  {
+   "id": "n24",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$1 \\times H_y \\times W_y \\times C_y$",
+   "properties": {
+    "dimensions": [
+     1,
+     "H_y",
+     "W_y",
+     "C_y"
+    ]
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "n1",
+   "target": "n2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n3",
+   "target": "n4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n3",
+   "target": "n15",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n3",
+   "target": "n13",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n2",
+   "target": "n5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n4",
+   "target": "n5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n5",
+   "target": "n6",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n6",
+   "target": "n7",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n7",
+   "target": "n8",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n8",
+   "target": "n9",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n9",
+   "target": "n10",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n10",
+   "target": "n11",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n11",
+   "target": "n12",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n12",
+   "target": "n13",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n13",
+   "target": "n14",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n15",
+   "target": "n16",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n16",
+   "target": "n17",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n21",
+   "target": "n22",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n22",
+   "target": "n23",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n23",
+   "target": "n24",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n24",
+   "target": "n17",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n17",
+   "target": "n18",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n18",
+   "target": "n19",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n19",
+   "target": "n20",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n20",
+   "target": "n12",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": []
+}

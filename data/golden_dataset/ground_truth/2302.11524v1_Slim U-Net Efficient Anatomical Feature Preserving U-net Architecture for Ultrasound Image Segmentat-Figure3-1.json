@@ -1,0 +1,964 @@
+{
+ "architecture_name": "2302.11524v1_Slim U-Net Efficient Anatomical Feature Preserving U-net Architecture for Ultrasound Image Segmentat-Figure3-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_in",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "Input Image",
+   "properties": {
+    "name": "Input Image",
+    "modality": "image",
+    "dimensions": [
+     128,
+     128,
+     1
+    ]
+   }
+  },
+  {
+   "id": "e1_conv_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ convolution + ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "e1_conv_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "$3 \\times 3$ convolution + ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "d_e1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$128 \\times 128 \\times 32$",
+   "properties": {
+    "dimensions": [
+     128,
+     128,
+     32
+    ]
+   }
+  },
+  {
+   "id": "e1_pool",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Max. Pooling",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ],
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "e1_drop",
+   "class": "MODIFIER",
+   "sub_type": "dropout",
+   "raw_text": "Dropout",
+   "properties": {}
+  },
+  {
+   "id": "e2_conv_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ convolution + ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "e2_conv_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "$3 \\times 3$ convolution + ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "d_e2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$64 \\times 64 \\times 64$",
+   "properties": {
+    "dimensions": [
+     64,
+     64,
+     64
+    ]
+   }
+  },
+  {
+   "id": "e2_pool",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Max. Pooling",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ],
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "e2_drop",
+   "class": "MODIFIER",
+   "sub_type": "dropout",
+   "raw_text": "Dropout",
+   "properties": {}
+  },
+  {
+   "id": "e3_conv_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ convolution + ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "e3_conv_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "$3 \\times 3$ convolution + ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "d_e3",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$32 \\times 32 \\times 128$",
+   "properties": {
+    "dimensions": [
+     32,
+     32,
+     128
+    ]
+   }
+  },
+  {
+   "id": "e3_pool",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Max. Pooling",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ],
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "e3_drop",
+   "class": "MODIFIER",
+   "sub_type": "dropout",
+   "raw_text": "Dropout",
+   "properties": {}
+  },
+  {
+   "id": "e4_conv_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ convolution + ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "e4_conv_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "$3 \\times 3$ convolution + ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "d_e4",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$16 \\times 16 \\times 256$",
+   "properties": {
+    "dimensions": [
+     16,
+     16,
+     256
+    ]
+   }
+  },
+  {
+   "id": "e4_pool",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Max. Pooling",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ],
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "e4_drop",
+   "class": "MODIFIER",
+   "sub_type": "dropout",
+   "raw_text": "Dropout",
+   "properties": {}
+  },
+  {
+   "id": "bot_conv_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ convolution + ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "bot_conv_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "$3 \\times 3$ convolution + ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "d_bot",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$8 \\times 8 \\times 512$",
+   "properties": {
+    "dimensions": [
+     8,
+     8,
+     512
+    ]
+   }
+  },
+  {
+   "id": "d1_up",
+   "class": "LAYER",
+   "sub_type": "transposed_convolution",
+   "raw_text": "$2 \\times 2$ Up-convolution",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "id": "d1_concat",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "Concatenation",
+   "properties": {}
+  },
+  {
+   "id": "d1_drop",
+   "class": "MODIFIER",
+   "sub_type": "dropout",
+   "raw_text": "Dropout",
+   "properties": {}
+  },
+  {
+   "id": "d1_conv_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ convolution + ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "d1_conv_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "$3 \\times 3$ convolution + ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "d_d1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$16 \\times 16 \\times 256$",
+   "properties": {
+    "dimensions": [
+     16,
+     16,
+     256
+    ]
+   }
+  },
+  {
+   "id": "d2_up",
+   "class": "LAYER",
+   "sub_type": "transposed_convolution",
+   "raw_text": "$2 \\times 2$ Up-convolution",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "id": "d2_concat",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "concat",
+   "properties": {}
+  },
+  {
+   "id": "d2_drop",
+   "class": "MODIFIER",
+   "sub_type": "dropout",
+   "raw_text": "Dropout",
+   "properties": {}
+  },
+  {
+   "id": "d2_conv_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ convolution + ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "d2_conv_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "$3 \\times 3$ convolution + ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "d_d2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$32 \\times 32 \\times 128$",
+   "properties": {
+    "dimensions": [
+     32,
+     32,
+     128
+    ]
+   }
+  },
+  {
+   "id": "d3_up",
+   "class": "LAYER",
+   "sub_type": "transposed_convolution",
+   "raw_text": "$2 \\times 2$ Up-convolution",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "id": "d3_concat",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "concat",
+   "properties": {}
+  },
+  {
+   "id": "d3_drop",
+   "class": "MODIFIER",
+   "sub_type": "dropout",
+   "raw_text": "Dropout",
+   "properties": {}
+  },
+  {
+   "id": "d3_conv_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ convolution + ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "d3_conv_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "$3 \\times 3$ convolution + ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "d_d3",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$128 \\times 128 \\times 32$",
+   "properties": {
+    "dimensions": [
+     128,
+     128,
+     32
+    ]
+   }
+  },
+  {
+   "id": "d4_up",
+   "class": "LAYER",
+   "sub_type": "transposed_convolution",
+   "raw_text": "$2 \\times 2$ Up-convolution",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "id": "d4_concat",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "concat",
+   "properties": {}
+  },
+  {
+   "id": "d4_drop",
+   "class": "MODIFIER",
+   "sub_type": "dropout",
+   "raw_text": "Dropout",
+   "properties": {}
+  },
+  {
+   "id": "d4_conv_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$3 \\times 3$ convolution + ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "d4_conv_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "$3 \\times 3$ convolution + ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "d_d4",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$128 \\times 128 \\times 1$",
+   "properties": {
+    "dimensions": [
+     128,
+     128,
+     1
+    ]
+   }
+  },
+  {
+   "id": "out_conv",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "$1 \\times 1$ convolution",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "d_out",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "Output mask",
+   "properties": {
+    "name": "Output mask",
+    "dimensions": [
+     128,
+     128,
+     1
+    ]
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "bot_conv_a",
+   "target": "bot_conv_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "e2_conv_a",
+   "target": "e2_conv_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "e1_conv_a",
+   "target": "e1_conv_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "e4_conv_a",
+   "target": "e4_conv_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d2_conv_a",
+   "target": "d2_conv_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d3_conv_a",
+   "target": "d3_conv_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d4_conv_a",
+   "target": "d4_conv_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "e3_conv_a",
+   "target": "e3_conv_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d1_conv_a",
+   "target": "d1_conv_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_in",
+   "target": "e1_conv_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "e1_conv_b",
+   "target": "d_e1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_e1",
+   "target": "e1_pool",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_e1",
+   "target": "d4_concat",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "e1_pool",
+   "target": "e1_drop",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "e1_drop",
+   "target": "e2_conv_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "e2_conv_b",
+   "target": "d_e2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_e2",
+   "target": "e2_pool",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_e2",
+   "target": "d3_concat",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "e2_pool",
+   "target": "e2_drop",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "e2_drop",
+   "target": "e3_conv_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "e3_conv_b",
+   "target": "d_e3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_e3",
+   "target": "e3_pool",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_e3",
+   "target": "d2_concat",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "e3_pool",
+   "target": "e3_drop",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "e3_drop",
+   "target": "e4_conv_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "e4_conv_b",
+   "target": "d_e4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_e4",
+   "target": "e4_pool",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_e4",
+   "target": "d1_concat",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "e4_pool",
+   "target": "e4_drop",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "e4_drop",
+   "target": "bot_conv_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "bot_conv_b",
+   "target": "d_bot",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_bot",
+   "target": "d1_up",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d1_up",
+   "target": "d1_concat",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d1_concat",
+   "target": "d1_drop",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d1_drop",
+   "target": "d1_conv_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d1_conv_b",
+   "target": "d_d1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_d1",
+   "target": "d2_up",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d2_up",
+   "target": "d2_concat",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d2_concat",
+   "target": "d2_drop",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d2_drop",
+   "target": "d2_conv_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d2_conv_b",
+   "target": "d_d2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_d2",
+   "target": "d3_up",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d3_up",
+   "target": "d3_concat",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d3_concat",
+   "target": "d3_drop",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d3_drop",
+   "target": "d3_conv_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d3_conv_b",
+   "target": "d_d3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_d3",
+   "target": "d4_up",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d4_up",
+   "target": "d4_concat",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d4_concat",
+   "target": "d4_drop",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d4_drop",
+   "target": "d4_conv_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d4_conv_b",
+   "target": "d_d4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_d4",
+   "target": "out_conv",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "out_conv",
+   "target": "d_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": []
+}

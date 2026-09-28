@@ -1,0 +1,19 @@
+Line graph_chart
+NLP text_grammar_eg
+Screenshots
+algorithms
+architecture diagram
+bar charts
+boxplots
+confusion matrix
+graph
+maps
+natural images
+neural networks
+pareto
+pie chart
+scatter plot
+tables
+trees
+venn diagram
+word cloud

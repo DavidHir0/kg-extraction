@@ -1,0 +1,876 @@
+{
+ "architecture_name": "2507.11143v1_RMAU-NET A Residual-Multihead-Attention U-Net Architecture for Landslide Segmentation and Detection -Figure7-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_in",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$128 \\times 128 \\times 23$",
+   "properties": {
+    "dimensions": [
+     128,
+     128,
+     23
+    ]
+   }
+  },
+  {
+   "id": "o_aug",
+   "class": "MODIFIER",
+   "sub_type": "custom",
+   "raw_text": "augmented",
+   "properties": {
+    "algorithm": "augmented"
+   }
+  },
+  {
+   "id": "d_aug",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$128 \\times 128 \\times 23$",
+   "properties": {
+    "dimensions": [
+     128,
+     128,
+     23
+    ]
+   }
+  },
+  {
+   "id": "l_enc1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Residual-convolutional layer",
+   "properties": {}
+  },
+  {
+   "id": "d_enc1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$64 \\times 64 \\times 64$",
+   "properties": {
+    "dimensions": [
+     64,
+     64,
+     64
+    ]
+   }
+  },
+  {
+   "id": "o_pool1",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Max Pooling [2x2]",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ],
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_att1",
+   "class": "LAYER",
+   "sub_type": "attention",
+   "raw_text": "Attention layer",
+   "properties": {}
+  },
+  {
+   "id": "l_enc2",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Residual-convolutional layer",
+   "properties": {}
+  },
+  {
+   "id": "d_enc2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$32 \\times 32 \\times 128$",
+   "properties": {
+    "dimensions": [
+     32,
+     32,
+     128
+    ]
+   }
+  },
+  {
+   "id": "o_pool2",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Max Pooling [2x2]",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ],
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_att2",
+   "class": "LAYER",
+   "sub_type": "attention",
+   "raw_text": "Attention layer",
+   "properties": {}
+  },
+  {
+   "id": "l_enc3",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Residual-convolutional layer",
+   "properties": {}
+  },
+  {
+   "id": "d_enc3",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$16 \\times 16 \\times 256$",
+   "properties": {
+    "dimensions": [
+     16,
+     16,
+     256
+    ]
+   }
+  },
+  {
+   "id": "o_pool3",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Max Pooling [2x2]",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ],
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "l_att3",
+   "class": "LAYER",
+   "sub_type": "attention",
+   "raw_text": "Attention layer",
+   "properties": {}
+  },
+  {
+   "id": "l_enc4",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Residual-convolutional layer",
+   "properties": {}
+  },
+  {
+   "id": "d_enc4",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$8 \\times 8 \\times 512$",
+   "properties": {
+    "dimensions": [
+     8,
+     8,
+     512
+    ]
+   }
+  },
+  {
+   "id": "l_att4",
+   "class": "LAYER",
+   "sub_type": "attention",
+   "raw_text": "Attention layer",
+   "properties": {}
+  },
+  {
+   "id": "l_bot",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Residual-convolutional layer",
+   "properties": {}
+  },
+  {
+   "id": "d_bot",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$8 \\times 8 \\times 1024$",
+   "properties": {
+    "dimensions": [
+     8,
+     8,
+     1024
+    ]
+   }
+  },
+  {
+   "id": "o_up1",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "UpSampling2D",
+   "properties": {}
+  },
+  {
+   "id": "o_cat1",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "concat",
+   "properties": {}
+  },
+  {
+   "id": "l_dec1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Residual-convolutional layer",
+   "properties": {}
+  },
+  {
+   "id": "d_dec1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$16 \\times 16 \\times 512$",
+   "properties": {
+    "dimensions": [
+     16,
+     16,
+     512
+    ]
+   }
+  },
+  {
+   "id": "o_up2",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "UpSampling2D",
+   "properties": {}
+  },
+  {
+   "id": "o_cat2",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "concat",
+   "properties": {}
+  },
+  {
+   "id": "l_dec2",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Residual-convolutional layer",
+   "properties": {}
+  },
+  {
+   "id": "d_dec2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$32 \\times 32 \\times 256$",
+   "properties": {
+    "dimensions": [
+     32,
+     32,
+     256
+    ]
+   }
+  },
+  {
+   "id": "o_up3",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "UpSampling2D",
+   "properties": {}
+  },
+  {
+   "id": "o_cat3",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "concat",
+   "properties": {}
+  },
+  {
+   "id": "l_dec3",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Residual-convolutional layer",
+   "properties": {}
+  },
+  {
+   "id": "d_dec3",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$64 \\times 64 \\times 128$",
+   "properties": {
+    "dimensions": [
+     64,
+     64,
+     128
+    ]
+   }
+  },
+  {
+   "id": "o_up4",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "UpSampling2D",
+   "properties": {}
+  },
+  {
+   "id": "l_dec4",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Residual-convolutional layer",
+   "properties": {}
+  },
+  {
+   "id": "d_dec4",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$128 \\times 128 \\times 64$",
+   "properties": {
+    "dimensions": [
+     128,
+     128,
+     64
+    ]
+   }
+  },
+  {
+   "id": "l_head1",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "head",
+   "properties": {}
+  },
+  {
+   "id": "d_mask1",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "$64 \\times 64$",
+   "properties": {
+    "dimensions": [
+     64,
+     64
+    ]
+   }
+  },
+  {
+   "id": "l_head2",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "head",
+   "properties": {}
+  },
+  {
+   "id": "d_mask2",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "$128 \\times 128$",
+   "properties": {
+    "dimensions": [
+     128,
+     128
+    ]
+   }
+  },
+  {
+   "id": "l_head3",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "head",
+   "properties": {}
+  },
+  {
+   "id": "d_mask3",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "$256 \\times 256$",
+   "properties": {
+    "dimensions": [
+     256,
+     256
+    ]
+   }
+  },
+  {
+   "id": "o_gap",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Global Pooling",
+   "properties": {
+    "algorithm": "global"
+   }
+  },
+  {
+   "id": "d_gap_out",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "l_dense",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "Dense layer",
+   "properties": {}
+  },
+  {
+   "id": "d_class_tensor",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "binary classification",
+   "properties": {
+    "name": "binary classification"
+   }
+  },
+  {
+   "id": "CHA0bwQMWu",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "concat",
+   "properties": {}
+  }
+ ],
+ "edges": [
+  {
+   "source": "d_in",
+   "target": "o_aug",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_aug",
+   "target": "d_aug",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_aug",
+   "target": "l_enc1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc1",
+   "target": "d_enc1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc1",
+   "target": "o_pool1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc1",
+   "target": "l_att1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_pool1",
+   "target": "l_enc2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc2",
+   "target": "d_enc2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc2",
+   "target": "o_pool2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc2",
+   "target": "l_att2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_pool2",
+   "target": "l_enc3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc3",
+   "target": "d_enc3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc3",
+   "target": "o_pool3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc3",
+   "target": "l_att3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_pool3",
+   "target": "l_enc4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc4",
+   "target": "d_enc4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc4",
+   "target": "l_att4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_bot",
+   "target": "d_bot",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_bot",
+   "target": "o_up1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_up1",
+   "target": "o_cat1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_cat1",
+   "target": "l_dec1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec1",
+   "target": "d_dec1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_dec1",
+   "target": "o_up2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_up2",
+   "target": "o_cat2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_cat2",
+   "target": "l_dec2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec2",
+   "target": "d_dec2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_dec2",
+   "target": "o_up3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_up3",
+   "target": "o_cat3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_cat3",
+   "target": "l_dec3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec3",
+   "target": "d_dec3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_dec3",
+   "target": "o_up4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec4",
+   "target": "d_dec4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_dec4",
+   "target": "l_head1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_head1",
+   "target": "d_mask1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_dec4",
+   "target": "l_head2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_head2",
+   "target": "d_mask2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_dec4",
+   "target": "l_head3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_head3",
+   "target": "d_mask3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_dec4",
+   "target": "o_gap",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_gap",
+   "target": "d_gap_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_gap_out",
+   "target": "l_dense",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dense",
+   "target": "d_class_tensor",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_up4",
+   "target": "l_dec4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_att4",
+   "target": "CHA0bwQMWu",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_enc4",
+   "target": "CHA0bwQMWu",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "CHA0bwQMWu",
+   "target": "l_bot",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_att3",
+   "target": "o_cat1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_att2",
+   "target": "o_cat2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_att1",
+   "target": "o_cat3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "group_lbl_masks",
+   "type": "container",
+   "label": "multiple predicted masks",
+   "boundary_type": "implicit_header",
+   "member_node_ids": [
+    "d_mask2",
+    "d_mask1",
+    "d_mask3"
+   ]
+  },
+  {
+   "id": "group_lbl_down",
+   "type": "container",
+   "label": "DownSample",
+   "boundary_type": "implicit_header",
+   "member_node_ids": [
+    "o_pool2",
+    "CHA0bwQMWu",
+    "o_pool3",
+    "o_pool1",
+    "l_enc4",
+    "l_enc1",
+    "l_enc3",
+    "l_enc2",
+    "l_bot"
+   ]
+  },
+  {
+   "id": "group_lbl_up",
+   "type": "container",
+   "label": "UpSample",
+   "boundary_type": "implicit_header",
+   "member_node_ids": [
+    "o_cat2",
+    "o_cat1",
+    "l_dec4",
+    "o_up4",
+    "l_dec3",
+    "o_up2",
+    "o_cat3",
+    "o_up3",
+    "l_dec1",
+    "l_dec2",
+    "o_up1"
+   ]
+  }
+ ]
+}

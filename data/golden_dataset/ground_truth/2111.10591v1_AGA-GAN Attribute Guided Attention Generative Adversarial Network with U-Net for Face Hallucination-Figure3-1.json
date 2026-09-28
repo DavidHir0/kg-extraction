@@ -1,0 +1,384 @@
+{
+ "architecture_name": "2111.10591v1_AGA-GAN Attribute Guided Attention Generative Adversarial Network with U-Net for Face Hallucination-Figure3-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_in_img",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "HR or SR image",
+   "properties": {
+    "name": "HR or SR image",
+    "modality": "image"
+   }
+  },
+  {
+   "id": "l_img_conv1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_img_conv2",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$, stride=$2$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": 2
+   }
+  },
+  {
+   "id": "l_img_conv3",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_img_conv4",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$, stride=$2$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": 2
+   }
+  },
+  {
+   "id": "o_concat",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "Concatenate",
+   "properties": {}
+  },
+  {
+   "id": "l_img_conv5",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_img_conv6",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$, stride=$2$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": 2
+   }
+  },
+  {
+   "id": "l_img_conv7",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_img_conv8",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_img_dense1",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "Dense ($1024$)",
+   "properties": {
+    "units": 1024
+   }
+  },
+  {
+   "id": "l_img_dense2",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "Dense ($1024$)",
+   "properties": {
+    "units": 1024
+   }
+  },
+  {
+   "id": "d_out",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "Real or Fake?",
+   "properties": {}
+  },
+  {
+   "id": "d_in_attr",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "Attributes",
+   "properties": {
+    "name": "Attributes"
+   }
+  },
+  {
+   "id": "l_attr_dense",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "Dense",
+   "properties": {}
+  },
+  {
+   "id": "o_reshape",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "Reshape",
+   "properties": {
+    "algorithm": "Reshape"
+   }
+  },
+  {
+   "id": "l_attr_conv1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_attr_conv2",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_attr_up",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Upsample+ Conv",
+   "properties": {
+    "sequence": [
+     {
+      "class": "MODIFIER",
+      "sub_type": "upsample",
+      "properties": {}
+     },
+     {
+      "class": "LAYER",
+      "sub_type": "convolution",
+      "properties": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "MxR0ITI5bh",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $3 \\times 3$, stride=$2$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ],
+    "stride": 2
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "d_in_img",
+   "target": "l_img_conv1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_img_conv1",
+   "target": "l_img_conv2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_img_conv2",
+   "target": "l_img_conv3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_img_conv3",
+   "target": "l_img_conv4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_img_conv4",
+   "target": "o_concat",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_concat",
+   "target": "l_img_conv5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_img_conv5",
+   "target": "l_img_conv6",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_img_conv6",
+   "target": "l_img_conv7",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_img_conv8",
+   "target": "l_img_dense1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_img_dense1",
+   "target": "l_img_dense2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_img_dense2",
+   "target": "d_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_in_attr",
+   "target": "l_attr_dense",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_attr_dense",
+   "target": "o_reshape",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_reshape",
+   "target": "l_attr_conv1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_attr_conv1",
+   "target": "l_attr_conv2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_attr_conv2",
+   "target": "l_attr_up",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_attr_up",
+   "target": "o_concat",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_img_conv7",
+   "target": "MxR0ITI5bh",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "MxR0ITI5bh",
+   "target": "l_img_conv8",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": []
+}

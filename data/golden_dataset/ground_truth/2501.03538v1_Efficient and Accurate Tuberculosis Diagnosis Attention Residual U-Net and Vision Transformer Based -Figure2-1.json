@@ -1,0 +1,492 @@
+{
+ "architecture_name": "2501.03538v1_Efficient and Accurate Tuberculosis Diagnosis Attention Residual U-Net and Vision Transformer Based -Figure2-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "n1",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "Input Image",
+   "properties": {
+    "name": "Input Image",
+    "modality": "image"
+   }
+  },
+  {
+   "id": "n2",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Residual Convolution",
+   "properties": {}
+  },
+  {
+   "id": "n3",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Max Pooling",
+   "properties": {
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "n4",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Residual Convolution",
+   "properties": {}
+  },
+  {
+   "id": "n5",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Max Pooling",
+   "properties": {
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "n6",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Residual Convolution",
+   "properties": {}
+  },
+  {
+   "id": "n7",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Max Pooling",
+   "properties": {
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "n8",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Residual Convolution",
+   "properties": {}
+  },
+  {
+   "id": "n9",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Max Pooling",
+   "properties": {
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "n10",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Residual Convolution",
+   "properties": {}
+  },
+  {
+   "id": "n11",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Attention Gate",
+   "properties": {
+    "algorithm": "AttentionGate"
+   }
+  },
+  {
+   "id": "n12",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Attention Gate",
+   "properties": {
+    "algorithm": "AttentionGate"
+   }
+  },
+  {
+   "id": "n13",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Attention Gate",
+   "properties": {
+    "algorithm": "AttentionGate"
+   }
+  },
+  {
+   "id": "n14",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Attention Gate",
+   "properties": {
+    "algorithm": "AttentionGate"
+   }
+  },
+  {
+   "id": "n15",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Residual Convolution",
+   "properties": {}
+  },
+  {
+   "id": "n16",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "Concatenation",
+   "properties": {}
+  },
+  {
+   "id": "n17",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Residual Convolution",
+   "properties": {}
+  },
+  {
+   "id": "n18",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "Concatenation",
+   "properties": {}
+  },
+  {
+   "id": "n19",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Residual Convolution",
+   "properties": {}
+  },
+  {
+   "id": "n20",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "Concatenation",
+   "properties": {}
+  },
+  {
+   "id": "n21",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Residual Convolution",
+   "properties": {}
+  },
+  {
+   "id": "n22",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "Concatenation",
+   "properties": {}
+  },
+  {
+   "id": "n23",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "Segmented Image",
+   "properties": {
+    "name": "Segmented Image",
+    "modality": "image"
+   }
+  },
+  {
+   "id": "op_up4",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Upsampling",
+   "properties": {}
+  },
+  {
+   "id": "op_up3",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Upsampling",
+   "properties": {}
+  },
+  {
+   "id": "op_up2",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Upsampling",
+   "properties": {}
+  },
+  {
+   "id": "op_up1",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Upsampling",
+   "properties": {}
+  }
+ ],
+ "edges": [
+  {
+   "source": "n1",
+   "target": "n2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n2",
+   "target": "n3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n2",
+   "target": "n11",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n3",
+   "target": "n4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n4",
+   "target": "n5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n4",
+   "target": "n12",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n5",
+   "target": "n6",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n6",
+   "target": "n7",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n6",
+   "target": "n13",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n7",
+   "target": "n8",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n8",
+   "target": "n9",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n8",
+   "target": "n14",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n9",
+   "target": "n10",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n10",
+   "target": "n14",
+   "role": "condition",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n10",
+   "target": "op_up4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_up4",
+   "target": "n22",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n14",
+   "target": "n22",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n22",
+   "target": "n21",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n21",
+   "target": "n13",
+   "role": "condition",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n21",
+   "target": "op_up3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_up3",
+   "target": "n20",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n13",
+   "target": "n20",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n20",
+   "target": "n19",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n19",
+   "target": "n12",
+   "role": "condition",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n19",
+   "target": "op_up2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_up2",
+   "target": "n18",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n12",
+   "target": "n18",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n18",
+   "target": "n17",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n17",
+   "target": "n11",
+   "role": "condition",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n17",
+   "target": "op_up1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_up1",
+   "target": "n16",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n11",
+   "target": "n16",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n16",
+   "target": "n15",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n15",
+   "target": "n23",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": []
+}

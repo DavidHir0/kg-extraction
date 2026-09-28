@@ -1,0 +1,635 @@
+{
+ "architecture_name": "2409.11223v1_Multimodal_Attention_Enhanced_Feature_Fusion_based_Weekly_Supervised_Anomaly_Violence_Detection-Figure1-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_video",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "Input Video",
+   "properties": {
+    "name": "Input Video",
+    "modality": "video"
+   }
+  },
+  {
+   "id": "d_audio",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "Input Audio",
+   "properties": {
+    "name": "Input Audio",
+    "modality": "audio"
+   }
+  },
+  {
+   "id": "l_clip",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "CLIP",
+   "properties": {
+    "name": "CLIP"
+   }
+  },
+  {
+   "id": "d_x_clip",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\mathbf{X}$",
+   "properties": {
+    "dimensions": [
+     "",
+     ""
+    ]
+   }
+  },
+  {
+   "id": "l_topk",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Top-k Score Nominator",
+   "properties": {
+    "name": "Top-k Score Nominator"
+   }
+  },
+  {
+   "id": "d_xt",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\mathbf{X}_T$",
+   "properties": {
+    "symbol": "X_T"
+   }
+  },
+  {
+   "id": "l_i3d_rgb",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "I3D",
+   "properties": {
+    "name": "I3D"
+   }
+  },
+  {
+   "id": "d_x1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\mathbf{X}$",
+   "properties": {
+    "dimensions": [
+     "",
+     ""
+    ]
+   }
+  },
+  {
+   "id": "l_tca",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "TCA",
+   "properties": {
+    "name": "TCA"
+   }
+  },
+  {
+   "id": "d_xc",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\mathbf{X}_C$",
+   "properties": {
+    "symbol": "X_C"
+   }
+  },
+  {
+   "id": "l_cnn",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "CNN Module",
+   "properties": {
+    "name": "CNN Module"
+   }
+  },
+  {
+   "id": "d_xccn",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\mathbf{X}_{CCN}$",
+   "properties": {
+    "symbol": "X_CCN"
+   }
+  },
+  {
+   "id": "op_concat",
+   "class": "JUNCTION",
+   "sub_type": "gating",
+   "raw_text": "Gated Feature Fusion with Attention",
+   "properties": {
+    "mechanism": "GatedAttention"
+   }
+  },
+  {
+   "id": "d_fstage1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\mathbf{F}_{Stage-1}$",
+   "properties": {
+    "symbol": "F_Stage-1"
+   }
+  },
+  {
+   "id": "l_urdmu",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "UR-DMU",
+   "properties": {
+    "name": "UR-DMU"
+   }
+  },
+  {
+   "id": "op_add1",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "ADD",
+   "properties": {}
+  },
+  {
+   "id": "d_fstage2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\mathbf{F}_{Stage-2}$",
+   "properties": {
+    "symbol": "F_Stage-2"
+   }
+  },
+  {
+   "id": "l_mlp1",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "MLP Module",
+   "properties": {
+    "name": "MLP Module"
+   }
+  },
+  {
+   "id": "op_add2",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "ADD",
+   "properties": {}
+  },
+  {
+   "id": "l_mlp2",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "MLP Module",
+   "properties": {
+    "name": "MLP Module"
+   }
+  },
+  {
+   "id": "d_fstage3",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\mathbf{F}_{Stage-3}$",
+   "properties": {
+    "symbol": "F_Stage-3"
+   }
+  },
+  {
+   "id": "l_calcflow",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Calculate Flow",
+   "properties": {
+    "name": "Calculate Flow"
+   }
+  },
+  {
+   "id": "l_i3d_flow",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "I3D",
+   "properties": {
+    "name": "I3D"
+   }
+  },
+  {
+   "id": "l_mlp_flow",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "MLP Module",
+   "properties": {
+    "name": "MLP Module"
+   }
+  },
+  {
+   "id": "l_trans_flow",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Transformer",
+   "properties": {
+    "name": "Transformer"
+   }
+  },
+  {
+   "id": "l_vgg",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "VGG",
+   "properties": {
+    "name": "VGG"
+   }
+  },
+  {
+   "id": "l_trans_audio",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Transformer",
+   "properties": {
+    "name": "Transformer"
+   }
+  },
+  {
+   "id": "op_fusion_a",
+   "class": "JUNCTION",
+   "sub_type": "gating",
+   "raw_text": "Gated Feature Fusion with Attention",
+   "properties": {
+    "mechanism": "GatedAttention"
+   }
+  },
+  {
+   "id": "op_fusion_b",
+   "class": "JUNCTION",
+   "sub_type": "gating",
+   "raw_text": "Gated Feature Fusion with Attention",
+   "properties": {
+    "mechanism": "GatedAttention"
+   }
+  },
+  {
+   "id": "l_classifier",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Classifier",
+   "properties": {
+    "name": "Classifier"
+   }
+  },
+  {
+   "id": "d_predictions",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "",
+   "properties": {}
+  }
+ ],
+ "edges": [
+  {
+   "source": "d_video",
+   "target": "l_clip",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_video",
+   "target": "l_i3d_rgb",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_video",
+   "target": "l_calcflow",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_audio",
+   "target": "l_vgg",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_clip",
+   "target": "d_x_clip",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_x_clip",
+   "target": "l_topk",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_topk",
+   "target": "d_xt",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_i3d_rgb",
+   "target": "d_x1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_x1",
+   "target": "l_tca",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_tca",
+   "target": "d_xc",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_xc",
+   "target": "l_cnn",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_cnn",
+   "target": "d_xccn",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_xt",
+   "target": "op_concat",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_xccn",
+   "target": "op_concat",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_concat",
+   "target": "d_fstage1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_fstage1",
+   "target": "l_urdmu",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_urdmu",
+   "target": "op_add1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_xc",
+   "target": "op_add1",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_add1",
+   "target": "d_fstage2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_fstage2",
+   "target": "l_mlp1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_mlp1",
+   "target": "op_add2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_xccn",
+   "target": "op_add2",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_add2",
+   "target": "l_mlp2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_mlp2",
+   "target": "d_fstage3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_calcflow",
+   "target": "l_i3d_flow",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_i3d_flow",
+   "target": "l_mlp_flow",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_mlp_flow",
+   "target": "l_trans_flow",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_vgg",
+   "target": "l_trans_audio",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_fstage3",
+   "target": "op_fusion_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_trans_flow",
+   "target": "op_fusion_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_fusion_a",
+   "target": "op_fusion_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_trans_audio",
+   "target": "op_fusion_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_fusion_b",
+   "target": "l_classifier",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_classifier",
+   "target": "d_predictions",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "c_rgb",
+   "type": "container",
+   "label": "RGB",
+   "boundary_type": "explicit_box",
+   "member_node_ids": []
+  },
+  {
+   "id": "c_stage1",
+   "type": "container",
+   "label": "Stage-1",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "l_topk",
+    "d_xt",
+    "l_tca",
+    "op_concat",
+    "d_x_clip",
+    "l_i3d_rgb",
+    "l_clip",
+    "d_x1",
+    "d_xc",
+    "l_cnn",
+    "d_fstage1",
+    "d_xccn"
+   ]
+  },
+  {
+   "id": "c_stage2",
+   "type": "container",
+   "label": "Stage-2",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "d_fstage2",
+    "op_add1",
+    "l_urdmu"
+   ]
+  },
+  {
+   "id": "c_stage3",
+   "type": "container",
+   "label": "Stage-3",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "d_fstage3",
+    "l_mlp2",
+    "op_add2",
+    "l_mlp1"
+   ]
+  },
+  {
+   "id": "c_flow",
+   "type": "container",
+   "label": "Flow",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "l_i3d_flow",
+    "l_calcflow",
+    "l_trans_flow",
+    "l_mlp_flow"
+   ]
+  },
+  {
+   "id": "c_audio",
+   "type": "container",
+   "label": "Audio",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "l_vgg",
+    "l_trans_audio"
+   ]
+  }
+ ]
+}

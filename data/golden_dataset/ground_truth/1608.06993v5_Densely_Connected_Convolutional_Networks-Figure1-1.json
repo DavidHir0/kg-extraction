@@ -1,0 +1,455 @@
+{
+ "architecture_name": "1608.06993v5_Densely_Connected_Convolutional_Networks-Figure1-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_x0",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$x_0$",
+   "properties": {
+    "symbol": "x_0"
+   }
+  },
+  {
+   "id": "l_h1_a",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "BN-ReLU-Conv",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  },
+  {
+   "id": "l_h1_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "BN-ReLU-Conv",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "l_h1_c",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "BN-ReLU-Conv",
+   "properties": {
+    "name": "BN-ReLU-Conv"
+   }
+  },
+  {
+   "id": "d_x1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$x_1$",
+   "properties": {
+    "symbol": "x_1"
+   }
+  },
+  {
+   "id": "o_concat_2",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "l_h2_a",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "BN-ReLU-Conv",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  },
+  {
+   "id": "l_h2_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "BN-ReLU-Conv",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "l_h2_c",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "BN-ReLU-Conv",
+   "properties": {
+    "name": "BN-ReLU-Conv"
+   }
+  },
+  {
+   "id": "d_x2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$x_2$",
+   "properties": {
+    "symbol": "x_2"
+   }
+  },
+  {
+   "id": "o_concat_3",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "l_h3_a",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "BN-ReLU-Conv",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  },
+  {
+   "id": "l_h3_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "BN-ReLU-Conv",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "l_h3_c",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "BN-ReLU-Conv",
+   "properties": {
+    "name": "BN-ReLU-Conv"
+   }
+  },
+  {
+   "id": "d_x3",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$x_3$",
+   "properties": {
+    "symbol": "x_3"
+   }
+  },
+  {
+   "id": "o_concat_4",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "l_h4_a",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "BN-ReLU-Conv",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  },
+  {
+   "id": "l_h4_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "BN-ReLU-Conv",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "l_h4_c",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "BN-ReLU-Conv",
+   "properties": {
+    "name": "BN-ReLU-Conv"
+   }
+  },
+  {
+   "id": "d_x4",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$x_4$",
+   "properties": {
+    "symbol": "x_4"
+   }
+  },
+  {
+   "id": "o_concat_trans",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "l_trans",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Transition Layer",
+   "properties": {
+    "name": "Transition Layer"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "l_h1_a",
+   "target": "l_h1_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_h1_b",
+   "target": "l_h1_c",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_h3_a",
+   "target": "l_h3_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_h3_b",
+   "target": "l_h3_c",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_h2_a",
+   "target": "l_h2_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_h2_b",
+   "target": "l_h2_c",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_h4_a",
+   "target": "l_h4_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_h4_b",
+   "target": "l_h4_c",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_x0",
+   "target": "l_h1_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_h1_c",
+   "target": "d_x1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_x0",
+   "target": "o_concat_2",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_x1",
+   "target": "o_concat_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_concat_2",
+   "target": "l_h2_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_h2_c",
+   "target": "d_x2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_x0",
+   "target": "o_concat_3",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_x1",
+   "target": "o_concat_3",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_x2",
+   "target": "o_concat_3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_concat_3",
+   "target": "l_h3_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_h3_c",
+   "target": "d_x3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_x0",
+   "target": "o_concat_4",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_x1",
+   "target": "o_concat_4",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_x2",
+   "target": "o_concat_4",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_x3",
+   "target": "o_concat_4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_concat_4",
+   "target": "l_h4_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_h4_c",
+   "target": "d_x4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_x0",
+   "target": "o_concat_trans",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_x1",
+   "target": "o_concat_trans",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_x2",
+   "target": "o_concat_trans",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_x3",
+   "target": "o_concat_trans",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_x4",
+   "target": "o_concat_trans",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "o_concat_trans",
+   "target": "l_trans",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": []
+}

@@ -1,0 +1,250 @@
+{
+ "architecture_name": "2409.11223v1_Multimodal_Attention_Enhanced_Feature_Fusion_based_Weekly_Supervised_Anomaly_Violence_Detection-Figure2-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_omega",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$\\omega$",
+   "properties": {
+    "symbol": "omega",
+    "dimensions": [
+     "T"
+    ]
+   }
+  },
+  {
+   "id": "op_clone",
+   "class": "MODIFIER",
+   "sub_type": "custom",
+   "raw_text": "Clone",
+   "properties": {
+    "algorithm": "Clone"
+   }
+  },
+  {
+   "id": "d_omega_bar",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\bar{\\omega}$",
+   "properties": {
+    "symbol": "omega",
+    "dimensions": [
+     "T",
+     "M"
+    ]
+   }
+  },
+  {
+   "id": "op_add",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "d_G",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$\\mathcal{G}$",
+   "properties": {
+    "symbol": "G",
+    "dimensions": [
+     "T",
+     "M"
+    ]
+   }
+  },
+  {
+   "id": "d_omega_hat",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\hat{\\omega}$",
+   "properties": {
+    "symbol": "omega",
+    "dimensions": [
+     "T",
+     "M"
+    ]
+   }
+  },
+  {
+   "id": "op_topk",
+   "class": "MODIFIER",
+   "sub_type": "custom",
+   "raw_text": "Top-$\\kappa$",
+   "properties": {
+    "algorithm": "Top-kappa"
+   }
+  },
+  {
+   "id": "d_U",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\mathcal{U}$",
+   "properties": {
+    "symbol": "U",
+    "dimensions": [
+     "kappa",
+     "M"
+    ]
+   }
+  },
+  {
+   "id": "op_onehot",
+   "class": "MODIFIER",
+   "sub_type": "custom",
+   "raw_text": "One-hot Encode",
+   "properties": {
+    "algorithm": "One-hot Encode"
+   }
+  },
+  {
+   "id": "d_V",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\mathcal{V}$",
+   "properties": {
+    "symbol": "V",
+    "dimensions": [
+     "kappa",
+     "T",
+     "M"
+    ]
+   }
+  },
+  {
+   "id": "op_avg",
+   "class": "MODIFIER",
+   "sub_type": "custom",
+   "raw_text": "Average",
+   "properties": {
+    "algorithm": "Average"
+   }
+  },
+  {
+   "id": "d_V_hat",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "$\\hat{\\mathcal{V}}$",
+   "properties": {
+    "symbol": "V",
+    "dimensions": [
+     "kappa",
+     "T"
+    ]
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "d_omega",
+   "target": "op_clone",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_clone",
+   "target": "d_omega_bar",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_omega_bar",
+   "target": "op_add",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_G",
+   "target": "op_add",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_add",
+   "target": "d_omega_hat",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_omega_hat",
+   "target": "op_topk",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_topk",
+   "target": "d_U",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_U",
+   "target": "op_onehot",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_onehot",
+   "target": "d_V",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_V",
+   "target": "op_avg",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_avg",
+   "target": "d_V_hat",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "c_topk",
+   "type": "container",
+   "label": "Top-$\\kappa$ Score Nominator",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "op_topk",
+    "op_clone",
+    "d_U",
+    "d_omega_hat",
+    "op_onehot",
+    "d_omega_bar",
+    "d_V_hat",
+    "d_G",
+    "op_avg",
+    "op_add"
+   ]
+  }
+ ]
+}

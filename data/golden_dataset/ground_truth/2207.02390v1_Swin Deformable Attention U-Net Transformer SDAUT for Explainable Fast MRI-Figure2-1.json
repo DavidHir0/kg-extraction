@@ -1,0 +1,407 @@
+{
+ "architecture_name": "2207.02390v1_Swin Deformable Attention U-Net Transformer SDAUT for Explainable Fast MRI-Figure2-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_x",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$X$",
+   "properties": {
+    "symbol": "X"
+   }
+  },
+  {
+   "id": "d_x_set",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$(X^1, ..., X^w, ..., X^{N_w})$",
+   "properties": {}
+  },
+  {
+   "id": "d_x_w",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$X^w$",
+   "properties": {
+    "symbol": "X^w"
+   }
+  },
+  {
+   "id": "d_ref",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "Reference Points",
+   "properties": {
+    "name": "Reference Points"
+   }
+  },
+  {
+   "id": "d_x_w_p",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$X^w$ (patches)",
+   "properties": {}
+  },
+  {
+   "id": "l_pq",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "$P_Q^w$",
+   "properties": {
+    "symbol": "P_Q^w"
+   }
+  },
+  {
+   "id": "d_q",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$Q^w$",
+   "properties": {
+    "symbol": "Q^w"
+   }
+  },
+  {
+   "id": "l_foff",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "$f_{offset}$",
+   "properties": {
+    "symbol": "f_offset"
+   }
+  },
+  {
+   "id": "d_off",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "Offsets",
+   "properties": {
+    "name": "Offsets"
+   }
+  },
+  {
+   "id": "d_def",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "Deformed Points",
+   "properties": {
+    "name": "Deformed Points"
+   }
+  },
+  {
+   "id": "d_x_w_p_t",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\tilde{X}^w$ (patches)",
+   "properties": {}
+  },
+  {
+   "id": "d_b_w",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\tilde{B}^w$",
+   "properties": {
+    "symbol": "B^w"
+   }
+  },
+  {
+   "id": "l_pk",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "$P_K^w$",
+   "properties": {
+    "symbol": "P_K^w"
+   }
+  },
+  {
+   "id": "l_pv",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "$P_V^w$",
+   "properties": {
+    "symbol": "P_V^w"
+   }
+  },
+  {
+   "id": "d_k",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\tilde{K}^w$",
+   "properties": {
+    "symbol": "K^w"
+   }
+  },
+  {
+   "id": "d_v",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\tilde{V}^w$",
+   "properties": {
+    "symbol": "V^w"
+   }
+  },
+  {
+   "id": "l_mhsa",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Multi-Head Self-Attention",
+   "properties": {
+    "name": "Multi-Head Self-Attention"
+   }
+  },
+  {
+   "id": "l_po",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "$P_O^w$",
+   "properties": {
+    "symbol": "P_O^w"
+   }
+  },
+  {
+   "id": "d_z_w",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$Z^w$",
+   "properties": {
+    "symbol": "Z^w"
+   }
+  },
+  {
+   "id": "d_z_set",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$(Z^1, ..., Z^w, ..., Z^{N_w})$",
+   "properties": {}
+  },
+  {
+   "id": "d_z",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "$Z$",
+   "properties": {
+    "symbol": "Z"
+   }
+  },
+  {
+   "id": "imp_add_def",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "d_x_set",
+   "target": "d_x_w",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_x_w",
+   "target": "d_x_w_p",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_x_w_p",
+   "target": "d_x_w_p_t",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_x_w",
+   "target": "d_ref",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_x_w_p",
+   "target": "l_pq",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_pq",
+   "target": "d_q",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_q",
+   "target": "l_foff",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_foff",
+   "target": "d_off",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_off",
+   "target": "imp_add_def",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_ref",
+   "target": "imp_add_def",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_def",
+   "target": "d_x_w_p_t",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_def",
+   "target": "d_b_w",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_x_w_p_t",
+   "target": "l_pk",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_pk",
+   "target": "d_k",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_x_w_p_t",
+   "target": "l_pv",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_pv",
+   "target": "d_v",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_q",
+   "target": "l_mhsa",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_k",
+   "target": "l_mhsa",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_v",
+   "target": "l_mhsa",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_b_w",
+   "target": "l_mhsa",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_mhsa",
+   "target": "l_po",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_po",
+   "target": "d_z_w",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_z_w",
+   "target": "d_z_set",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_x",
+   "target": "d_x_set",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_z_set",
+   "target": "d_z",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "imp_add_def",
+   "target": "d_def",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": []
+}

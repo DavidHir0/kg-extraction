@@ -1,0 +1,192 @@
+{
+ "architecture_name": "2202.13304v1_DXM-TransFuse U-net Dual Cross-Modal Transformer Fusion U-net for Automated Nerve Identification-Figure3-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "n1",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$g$",
+   "properties": {
+    "symbol": "g"
+   }
+  },
+  {
+   "id": "n2",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "$W_g$",
+   "properties": {
+    "symbol": "W_g"
+   }
+  },
+  {
+   "id": "n3",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$x$",
+   "properties": {
+    "symbol": "x"
+   }
+  },
+  {
+   "id": "n4",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "$W_x$",
+   "properties": {
+    "symbol": "W_x"
+   }
+  },
+  {
+   "id": "n5",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "n_relu",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n8",
+   "class": "LAYER",
+   "sub_type": "linear",
+   "raw_text": "$\\psi$",
+   "properties": {
+    "symbol": "psi"
+   }
+  },
+  {
+   "id": "n_sigmoid",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Sigmoid",
+   "properties": {
+    "algorithm": "Sigmoid"
+   }
+  },
+  {
+   "id": "n11",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "",
+   "properties": {}
+  },
+  {
+   "id": "n12",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "$\\otimes$",
+   "properties": {
+    "mechanism": "Mul"
+   }
+  },
+  {
+   "id": "n13",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "$x_{out}$",
+   "properties": {
+    "symbol": "x_out"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "n1",
+   "target": "n2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n3",
+   "target": "n4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n2",
+   "target": "n5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n4",
+   "target": "n5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n5",
+   "target": "n_relu",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_relu",
+   "target": "n8",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n8",
+   "target": "n_sigmoid",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_sigmoid",
+   "target": "n11",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n11",
+   "target": "n12",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n3",
+   "target": "n12",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n12",
+   "target": "n13",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": []
+}

@@ -1,0 +1,651 @@
+{
+ "architecture_name": "2103.06104v2_U-Net Transformer Self and Cross Attention for Medical Image Segmentation-Figure4-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_s",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$\\mathbf{S}$",
+   "properties": {
+    "symbol": "S",
+    "dimensions": [
+     "2h",
+     "2w",
+     "d"
+    ]
+   }
+  },
+  {
+   "id": "d_y",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "$\\mathbf{Y}$",
+   "properties": {
+    "symbol": "Y",
+    "dimensions": [
+     "h",
+     "w",
+     "2d"
+    ]
+   }
+  },
+  {
+   "id": "pe1",
+   "class": "DATA",
+   "sub_type": "constant",
+   "raw_text": "Positional encoding",
+   "properties": {
+    "name": "Positional encoding"
+   }
+  },
+  {
+   "id": "op_add1",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "pe2",
+   "class": "DATA",
+   "sub_type": "constant",
+   "raw_text": "Positional encoding",
+   "properties": {
+    "name": "Positional encoding"
+   }
+  },
+  {
+   "id": "op_add2",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "l_cyan_bot_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$ + BN + ReLU",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "l_cyan_bot_b",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Conv $1 \\times 1$ + BN + ReLU",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  },
+  {
+   "id": "l_cyan_bot_c",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Conv $1 \\times 1$ + BN + ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "l_cyan_top_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$ + BN + ReLU",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "l_cyan_top_b",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Conv $1 \\times 1$ + BN + ReLU",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  },
+  {
+   "id": "l_cyan_top_c",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Conv $1 \\times 1$ + BN + ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "l_green_top_a",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Upsample $2 \\times 2$ + Conv $3 \\times 3$",
+   "properties": {
+    "algorithm": "ResizeNearest"
+   }
+  },
+  {
+   "id": "l_green_top_b",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Upsample $2 \\times 2$ + Conv $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "d_v",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$V$",
+   "properties": {
+    "symbol": "V"
+   }
+  },
+  {
+   "id": "d_q",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$Q$",
+   "properties": {
+    "symbol": "Q"
+   }
+  },
+  {
+   "id": "d_k",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$K$",
+   "properties": {
+    "symbol": "K"
+   }
+  },
+  {
+   "id": "l_mhsa",
+   "class": "LAYER",
+   "sub_type": "attention",
+   "raw_text": "MHSA",
+   "properties": {}
+  },
+  {
+   "id": "l_bright_green_a",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Upsample $2 \\times 2$ + Conv $3 \\times 3$",
+   "properties": {
+    "algorithm": "ResizeNearest"
+   }
+  },
+  {
+   "id": "l_bright_green_b",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Upsample $2 \\times 2$ + Conv $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "d_mid_blue",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$2h \\times 2w \\times 2d$",
+   "properties": {
+    "dimensions": [
+     "2h",
+     "2w",
+     "2d"
+    ]
+   }
+  },
+  {
+   "id": "d_mhsa_out",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$h \\times w \\times d$",
+   "properties": {
+    "dimensions": [
+     "h",
+     "w",
+     "d"
+    ]
+   }
+  },
+  {
+   "id": "l_purple_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$ + BN + Sigmoid + Upsample",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "l_purple_b",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Conv $1 \\times 1$ + BN + Sigmoid + Upsample",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  },
+  {
+   "id": "l_purple_c",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Conv $1 \\times 1$ + BN + Sigmoid + Upsample",
+   "properties": {
+    "algorithm": "Sigmoid"
+   }
+  },
+  {
+   "id": "l_purple_d",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Conv $1 \\times 1$ + BN + Sigmoid + Upsample",
+   "properties": {
+    "algorithm": "ResizeNearest"
+   }
+  },
+  {
+   "id": "d_z",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$\\mathbf{Z}$",
+   "properties": {
+    "symbol": "Z",
+    "dimensions": [
+     "2h",
+     "2w",
+     "d"
+    ]
+   }
+  },
+  {
+   "id": "op_mul",
+   "class": "JUNCTION",
+   "sub_type": "multiply",
+   "raw_text": "$\\odot$",
+   "properties": {
+    "mechanism": "Mul"
+   }
+  },
+  {
+   "id": "l_cyan_right_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Conv $1 \\times 1$ + BN + ReLU",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "l_cyan_right_b",
+   "class": "MODIFIER",
+   "sub_type": "normalization",
+   "raw_text": "Conv $1 \\times 1$ + BN + ReLU",
+   "properties": {
+    "algorithm": "BatchNormalization"
+   }
+  },
+  {
+   "id": "l_cyan_right_c",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "Conv $1 \\times 1$ + BN + ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "op_concat",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "d_out",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "$2h \\times 2w \\times 2d$",
+   "properties": {
+    "dimensions": [
+     "2h",
+     "2w",
+     "2d"
+    ]
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "l_purple_a",
+   "target": "l_purple_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_purple_b",
+   "target": "l_purple_c",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_purple_c",
+   "target": "l_purple_d",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_green_top_a",
+   "target": "l_green_top_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_bright_green_a",
+   "target": "l_bright_green_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_cyan_top_a",
+   "target": "l_cyan_top_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_cyan_top_b",
+   "target": "l_cyan_top_c",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_cyan_bot_a",
+   "target": "l_cyan_bot_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_cyan_bot_b",
+   "target": "l_cyan_bot_c",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_cyan_right_a",
+   "target": "l_cyan_right_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_cyan_right_b",
+   "target": "l_cyan_right_c",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_s",
+   "target": "op_add1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "pe1",
+   "target": "op_add1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_add1",
+   "target": "l_cyan_top_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_cyan_top_c",
+   "target": "l_green_top_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_green_top_b",
+   "target": "d_v",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_add1",
+   "target": "op_mul",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_y",
+   "target": "op_add2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "pe2",
+   "target": "op_add2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_add2",
+   "target": "l_cyan_bot_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_cyan_bot_c",
+   "target": "d_q",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_cyan_bot_c",
+   "target": "d_k",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_add2",
+   "target": "l_bright_green_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_bright_green_b",
+   "target": "d_mid_blue",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_v",
+   "target": "l_mhsa",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_q",
+   "target": "l_mhsa",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_k",
+   "target": "l_mhsa",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_mhsa",
+   "target": "d_mhsa_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_mhsa_out",
+   "target": "l_purple_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_purple_d",
+   "target": "d_z",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_z",
+   "target": "op_mul",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_mul",
+   "target": "op_concat",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_mid_blue",
+   "target": "l_cyan_right_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_cyan_right_c",
+   "target": "op_concat",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_concat",
+   "target": "d_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "c_cross",
+   "type": "container",
+   "label": "Cross Attention",
+   "boundary_type": "explicit_box",
+   "member_node_ids": [
+    "l_cyan_top_a",
+    "d_z",
+    "l_purple_a",
+    "l_cyan_top_b",
+    "op_mul",
+    "d_mhsa_out",
+    "l_green_top_b",
+    "l_cyan_top_c",
+    "op_add1",
+    "l_mhsa",
+    "d_q",
+    "d_k",
+    "l_green_top_a",
+    "d_v",
+    "l_purple_b",
+    "l_purple_d",
+    "l_purple_c"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1323 @@
+{
+ "architecture_name": "2110.01014v1_EAR-U-Net EfficientNet and attention-based residual U-Net for automatic liver segmentation in CT-Figure2-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "d_input",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "Input Image",
+   "properties": {
+    "name": "Input Image",
+    "modality": "image"
+   }
+  },
+  {
+   "id": "l_conv_3x3_init",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Convolution layer $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "d_feat_48",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$48$",
+   "properties": {
+    "dimensions": [
+     48
+    ]
+   }
+  },
+  {
+   "id": "l_mbconv1",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "MBConv1",
+   "properties": {
+    "name": "MBConv1"
+   }
+  },
+  {
+   "id": "d_feat_24",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$24$",
+   "properties": {
+    "dimensions": [
+     24
+    ]
+   }
+  },
+  {
+   "id": "op_down_1",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Down-sampling",
+   "properties": {}
+  },
+  {
+   "id": "l_mbconv6_1",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "MBConv6",
+   "properties": {
+    "name": "MBConv6"
+   }
+  },
+  {
+   "id": "d_feat_32",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$32$",
+   "properties": {
+    "dimensions": [
+     32
+    ]
+   }
+  },
+  {
+   "id": "op_down_2",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Down-sampling",
+   "properties": {}
+  },
+  {
+   "id": "l_mbconv6_2",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "MBConv6",
+   "properties": {
+    "name": "MBConv6"
+   }
+  },
+  {
+   "id": "d_feat_56",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$56$",
+   "properties": {
+    "dimensions": [
+     56
+    ]
+   }
+  },
+  {
+   "id": "op_down_3",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Down-sampling",
+   "properties": {}
+  },
+  {
+   "id": "l_mbconv6_3",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "MBConv6",
+   "properties": {
+    "name": "MBConv6"
+   }
+  },
+  {
+   "id": "d_feat_112",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$112$",
+   "properties": {
+    "dimensions": [
+     112
+    ]
+   }
+  },
+  {
+   "id": "l_mbconv6_4",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "MBConv6",
+   "properties": {
+    "name": "MBConv6"
+   }
+  },
+  {
+   "id": "d_feat_160",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$160$",
+   "properties": {
+    "dimensions": [
+     160
+    ]
+   }
+  },
+  {
+   "id": "op_down_4",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "Down-sampling",
+   "properties": {}
+  },
+  {
+   "id": "l_mbconv6_5",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "MBConv6",
+   "properties": {
+    "name": "MBConv6"
+   }
+  },
+  {
+   "id": "d_feat_272",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$272$",
+   "properties": {
+    "dimensions": [
+     272
+    ]
+   }
+  },
+  {
+   "id": "l_mbconv6_6",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "MBConv6",
+   "properties": {
+    "name": "MBConv6"
+   }
+  },
+  {
+   "id": "d_feat_448",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$448$",
+   "properties": {
+    "dimensions": [
+     448
+    ]
+   }
+  },
+  {
+   "id": "l_conv_1x1",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Convolution layer $1 \\times 1$",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "d_feat_1792",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$1792$",
+   "properties": {
+    "dimensions": [
+     1792
+    ]
+   }
+  },
+  {
+   "id": "op_up_1",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Up-sampling",
+   "properties": {}
+  },
+  {
+   "id": "op_ag_5",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Attention Gate",
+   "properties": {
+    "algorithm": "AttentionGate"
+   }
+  },
+  {
+   "id": "op_concat_5",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "Concatenation layer",
+   "properties": {}
+  },
+  {
+   "id": "d_feat_672",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$672$",
+   "properties": {
+    "dimensions": [
+     672
+    ]
+   }
+  },
+  {
+   "id": "l_res_5_block1",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Residual Unit",
+   "properties": {
+    "name": "Residual Unit"
+   }
+  },
+  {
+   "id": "l_res_5_block2",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Residual Unit",
+   "properties": {
+    "name": "Residual Unit"
+   }
+  },
+  {
+   "id": "d_feat_512",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$512$",
+   "properties": {
+    "dimensions": [
+     512
+    ]
+   }
+  },
+  {
+   "id": "op_res_5_add",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "op_up_ag_5",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Up-sampling",
+   "properties": {}
+  },
+  {
+   "id": "op_up_concat_5",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Up-sampling",
+   "properties": {}
+  },
+  {
+   "id": "op_ag_4",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Attention Gate",
+   "properties": {
+    "algorithm": "AttentionGate"
+   }
+  },
+  {
+   "id": "op_concat_4",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "Concatenation layer",
+   "properties": {}
+  },
+  {
+   "id": "d_feat_312",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$312$",
+   "properties": {
+    "dimensions": [
+     312
+    ]
+   }
+  },
+  {
+   "id": "l_res_4_block1",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Residual Unit",
+   "properties": {
+    "name": "Residual Unit"
+   }
+  },
+  {
+   "id": "l_res_4_block2",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Residual Unit",
+   "properties": {
+    "name": "Residual Unit"
+   }
+  },
+  {
+   "id": "d_feat_256",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$256$",
+   "properties": {
+    "dimensions": [
+     256
+    ]
+   }
+  },
+  {
+   "id": "op_res_4_add",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "op_up_ag_4",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Up-sampling",
+   "properties": {}
+  },
+  {
+   "id": "op_up_concat_4",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Up-sampling",
+   "properties": {}
+  },
+  {
+   "id": "op_ag_3",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Attention Gate",
+   "properties": {
+    "algorithm": "AttentionGate"
+   }
+  },
+  {
+   "id": "op_concat_3",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "Concatenation layer",
+   "properties": {}
+  },
+  {
+   "id": "d_feat_160_dec",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$160$",
+   "properties": {
+    "dimensions": [
+     160
+    ]
+   }
+  },
+  {
+   "id": "l_res_3_block1",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Residual Unit",
+   "properties": {
+    "name": "Residual Unit"
+   }
+  },
+  {
+   "id": "l_res_3_block2",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Residual Unit",
+   "properties": {
+    "name": "Residual Unit"
+   }
+  },
+  {
+   "id": "d_feat_128_dec",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$128$",
+   "properties": {
+    "dimensions": [
+     128
+    ]
+   }
+  },
+  {
+   "id": "op_res_3_add",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "op_up_ag_3",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Up-sampling",
+   "properties": {}
+  },
+  {
+   "id": "op_up_concat_3",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Up-sampling",
+   "properties": {}
+  },
+  {
+   "id": "op_ag_2",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Attention Gate",
+   "properties": {
+    "algorithm": "AttentionGate"
+   }
+  },
+  {
+   "id": "op_concat_2",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "Concatenation layer",
+   "properties": {}
+  },
+  {
+   "id": "d_feat_88",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$88$",
+   "properties": {
+    "dimensions": [
+     88
+    ]
+   }
+  },
+  {
+   "id": "l_res_2_block1",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Residual Unit",
+   "properties": {
+    "name": "Residual Unit"
+   }
+  },
+  {
+   "id": "l_res_2_block2",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Residual Unit",
+   "properties": {
+    "name": "Residual Unit"
+   }
+  },
+  {
+   "id": "d_feat_64",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$64$",
+   "properties": {
+    "dimensions": [
+     64
+    ]
+   }
+  },
+  {
+   "id": "op_res_2_add",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "op_up_ag_2",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Up-sampling",
+   "properties": {}
+  },
+  {
+   "id": "op_up_concat_2",
+   "class": "MODIFIER",
+   "sub_type": "upsample",
+   "raw_text": "Up-sampling",
+   "properties": {}
+  },
+  {
+   "id": "op_ag_1",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Attention Gate",
+   "properties": {
+    "algorithm": "AttentionGate"
+   }
+  },
+  {
+   "id": "op_concat_1",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "Concatenation layer",
+   "properties": {}
+  },
+  {
+   "id": "d_feat_33",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$33$",
+   "properties": {
+    "dimensions": [
+     33
+    ]
+   }
+  },
+  {
+   "id": "l_res_1_block1",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Residual Unit",
+   "properties": {
+    "name": "Residual Unit"
+   }
+  },
+  {
+   "id": "l_res_1_block2",
+   "class": "LAYER",
+   "sub_type": "custom",
+   "raw_text": "Residual Unit",
+   "properties": {
+    "name": "Residual Unit"
+   }
+  },
+  {
+   "id": "d_feat_32_dec",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$32$",
+   "properties": {
+    "dimensions": [
+     32
+    ]
+   }
+  },
+  {
+   "id": "op_res_1_add",
+   "class": "JUNCTION",
+   "sub_type": "add",
+   "raw_text": "$\\oplus$",
+   "properties": {}
+  },
+  {
+   "id": "l_final_conv",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "Convolution layer $3 \\times 3$",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "d_feat_2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$2$",
+   "properties": {
+    "dimensions": [
+     2
+    ]
+   }
+  },
+  {
+   "id": "d_mask",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "Segmentation Mask",
+   "properties": {
+    "name": "Segmentation Mask"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "d_input",
+   "target": "l_conv_3x3_init",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv_3x3_init",
+   "target": "d_feat_48",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_feat_48",
+   "target": "l_mbconv1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_mbconv1",
+   "target": "d_feat_24",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_feat_24",
+   "target": "op_down_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_down_1",
+   "target": "l_mbconv6_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_mbconv6_1",
+   "target": "d_feat_32",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_feat_32",
+   "target": "op_down_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_down_2",
+   "target": "l_mbconv6_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_mbconv6_2",
+   "target": "d_feat_56",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_feat_56",
+   "target": "op_down_3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_down_3",
+   "target": "l_mbconv6_3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_mbconv6_3",
+   "target": "d_feat_112",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_feat_112",
+   "target": "l_mbconv6_4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_mbconv6_4",
+   "target": "d_feat_160",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_feat_160",
+   "target": "op_down_4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_down_4",
+   "target": "l_mbconv6_5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_mbconv6_5",
+   "target": "d_feat_272",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_feat_272",
+   "target": "l_mbconv6_6",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_mbconv6_6",
+   "target": "d_feat_448",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_feat_448",
+   "target": "l_conv_1x1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_conv_1x1",
+   "target": "d_feat_1792",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_feat_1792",
+   "target": "op_up_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_feat_160",
+   "target": "op_ag_5",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_up_1",
+   "target": "op_ag_5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_up_1",
+   "target": "op_concat_5",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_ag_5",
+   "target": "op_concat_5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_res_5_block2",
+   "target": "d_feat_512",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_feat_512",
+   "target": "op_res_5_add",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_feat_512",
+   "target": "op_up_ag_5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_up_ag_5",
+   "target": "op_ag_4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_res_5_add",
+   "target": "op_up_concat_5",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_up_concat_5",
+   "target": "op_concat_4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_feat_56",
+   "target": "op_ag_4",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_ag_4",
+   "target": "op_concat_4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_res_4_block2",
+   "target": "d_feat_256",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_feat_256",
+   "target": "op_res_4_add",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_feat_256",
+   "target": "op_up_ag_4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_up_ag_4",
+   "target": "op_ag_3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_res_4_add",
+   "target": "op_up_concat_4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_up_concat_4",
+   "target": "op_concat_3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_feat_32",
+   "target": "op_ag_3",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_ag_3",
+   "target": "op_concat_3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_res_3_block2",
+   "target": "d_feat_128_dec",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_feat_128_dec",
+   "target": "op_res_3_add",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_feat_128_dec",
+   "target": "op_up_ag_3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_up_ag_3",
+   "target": "op_ag_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_res_3_add",
+   "target": "op_up_concat_3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_up_concat_3",
+   "target": "op_concat_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_feat_24",
+   "target": "op_ag_2",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_ag_2",
+   "target": "op_concat_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_res_2_block2",
+   "target": "d_feat_64",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_feat_64",
+   "target": "op_res_2_add",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_feat_64",
+   "target": "op_up_ag_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_up_ag_2",
+   "target": "op_ag_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_res_2_add",
+   "target": "op_up_concat_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_up_concat_2",
+   "target": "op_concat_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_input",
+   "target": "op_ag_1",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_ag_1",
+   "target": "op_concat_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_res_1_block2",
+   "target": "d_feat_32_dec",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_feat_32_dec",
+   "target": "op_res_1_add",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_res_1_add",
+   "target": "l_final_conv",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_final_conv",
+   "target": "d_feat_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_feat_2",
+   "target": "d_mask",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_concat_5",
+   "target": "l_res_5_block1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_res_5_block1",
+   "target": "d_feat_672",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_feat_672",
+   "target": "l_res_5_block2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_concat_5",
+   "target": "op_res_5_add",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_concat_4",
+   "target": "l_res_4_block1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_res_4_block1",
+   "target": "d_feat_312",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_feat_312",
+   "target": "l_res_4_block2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_concat_4",
+   "target": "op_res_4_add",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_concat_3",
+   "target": "l_res_3_block1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_res_3_block1",
+   "target": "d_feat_160_dec",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_feat_160_dec",
+   "target": "l_res_3_block2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_concat_3",
+   "target": "op_res_3_add",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_concat_2",
+   "target": "l_res_2_block1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_res_2_block1",
+   "target": "d_feat_88",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_feat_88",
+   "target": "l_res_2_block2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_concat_2",
+   "target": "op_res_2_add",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_concat_1",
+   "target": "l_res_1_block1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_res_1_block1",
+   "target": "d_feat_33",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "d_feat_33",
+   "target": "l_res_1_block2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_concat_1",
+   "target": "op_res_1_add",
+   "role": "skip",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "c_encoder",
+   "type": "container",
+   "label": "EfficientNetB4 encoder",
+   "boundary_type": "explicit_box",
+   "member_node_ids": []
+  }
+ ]
+}

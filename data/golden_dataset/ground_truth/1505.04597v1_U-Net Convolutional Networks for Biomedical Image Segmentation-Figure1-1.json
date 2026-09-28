@@ -1,0 +1,1610 @@
+{
+ "architecture_name": "1505.04597v1_U-Net Convolutional Networks for Biomedical Image Segmentation-Figure1-1",
+ "extraction_version": "5.8",
+ "nodes": [
+  {
+   "id": "n_in",
+   "class": "DATA",
+   "sub_type": "input",
+   "raw_text": "input image tile",
+   "properties": {
+    "name": "input image tile",
+    "modality": "image",
+    "dimensions": [
+     1,
+     572,
+     572
+    ]
+   }
+  },
+  {
+   "id": "l_enc1_1_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_enc1_1_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n_enc1_1",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$64 \\times 570 \\times 570$",
+   "properties": {
+    "dimensions": [
+     64,
+     570,
+     570
+    ]
+   }
+  },
+  {
+   "id": "l_enc1_2_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_enc1_2_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n_enc1_2",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$64 \\times 568 \\times 568$",
+   "properties": {
+    "dimensions": [
+     64,
+     568,
+     568
+    ]
+   }
+  },
+  {
+   "id": "op_pool1",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "max pool $2 \\times 2$",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ],
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "n_enc2_in",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$64 \\times 284 \\times 284$",
+   "properties": {
+    "dimensions": [
+     64,
+     284,
+     284
+    ]
+   }
+  },
+  {
+   "id": "l_enc2_1_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_enc2_1_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n_enc2_mid",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$128 \\times 282 \\times 282$",
+   "properties": {
+    "dimensions": [
+     128,
+     282,
+     282
+    ]
+   }
+  },
+  {
+   "id": "l_enc2_2_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_enc2_2_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n_enc2_out",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$128 \\times 280 \\times 280$",
+   "properties": {
+    "dimensions": [
+     128,
+     280,
+     280
+    ]
+   }
+  },
+  {
+   "id": "op_pool2",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "max pool $2 \\times 2$",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ],
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "n_enc3_in",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$128 \\times 140 \\times 140$",
+   "properties": {
+    "dimensions": [
+     128,
+     140,
+     140
+    ]
+   }
+  },
+  {
+   "id": "l_enc3_1_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_enc3_1_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n_enc3_mid",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$256 \\times 138 \\times 138$",
+   "properties": {
+    "dimensions": [
+     256,
+     138,
+     138
+    ]
+   }
+  },
+  {
+   "id": "l_enc3_2_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_enc3_2_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n_enc3_out",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$256 \\times 136 \\times 136$",
+   "properties": {
+    "dimensions": [
+     256,
+     136,
+     136
+    ]
+   }
+  },
+  {
+   "id": "op_pool3",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "max pool $2 \\times 2$",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ],
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "n_enc4_in",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$256 \\times 68 \\times 68$",
+   "properties": {
+    "dimensions": [
+     256,
+     68,
+     68
+    ]
+   }
+  },
+  {
+   "id": "l_enc4_1_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_enc4_1_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n_enc4_mid",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$512 \\times 66 \\times 66$",
+   "properties": {
+    "dimensions": [
+     512,
+     66,
+     66
+    ]
+   }
+  },
+  {
+   "id": "l_enc4_2_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_enc4_2_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n_enc4_out",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$512 \\times 64 \\times 64$",
+   "properties": {
+    "dimensions": [
+     512,
+     64,
+     64
+    ]
+   }
+  },
+  {
+   "id": "op_pool4",
+   "class": "MODIFIER",
+   "sub_type": "downsample",
+   "raw_text": "max pool $2 \\times 2$",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ],
+    "algorithm": "MaxPool"
+   }
+  },
+  {
+   "id": "n_enc5_in",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$512 \\times 32 \\times 32$",
+   "properties": {
+    "dimensions": [
+     512,
+     32,
+     32
+    ]
+   }
+  },
+  {
+   "id": "l_enc5_1_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_enc5_1_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n_enc5_mid",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$1024 \\times 30 \\times 30$",
+   "properties": {
+    "dimensions": [
+     1024,
+     30,
+     30
+    ]
+   }
+  },
+  {
+   "id": "l_enc5_2_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_enc5_2_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n_enc5_out",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$1024 \\times 28 \\times 28$",
+   "properties": {
+    "dimensions": [
+     1024,
+     28,
+     28
+    ]
+   }
+  },
+  {
+   "id": "l_up4",
+   "class": "LAYER",
+   "sub_type": "transposed_convolution",
+   "raw_text": "up-conv $2 \\times 2$",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "id": "n_up4_out",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$1024 \\times 56 \\times 56$",
+   "properties": {
+    "dimensions": [
+     1024,
+     56,
+     56
+    ]
+   }
+  },
+  {
+   "id": "op_crop4",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "copy and crop",
+   "properties": {
+    "algorithm": "Slice"
+   }
+  },
+  {
+   "id": "op_concat4",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "l_dec4_1_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_dec4_1_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n_dec4_mid",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$512 \\times 54 \\times 54$",
+   "properties": {
+    "dimensions": [
+     512,
+     54,
+     54
+    ]
+   }
+  },
+  {
+   "id": "l_dec4_2_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_dec4_2_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n_dec4_out",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$512 \\times 52 \\times 52$",
+   "properties": {
+    "dimensions": [
+     512,
+     52,
+     52
+    ]
+   }
+  },
+  {
+   "id": "l_up3",
+   "class": "LAYER",
+   "sub_type": "transposed_convolution",
+   "raw_text": "up-conv $2 \\times 2$",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "id": "n_up3_out",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$512 \\times 104 \\times 104$",
+   "properties": {
+    "dimensions": [
+     512,
+     104,
+     104
+    ]
+   }
+  },
+  {
+   "id": "op_crop3",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "copy and crop",
+   "properties": {
+    "algorithm": "Slice"
+   }
+  },
+  {
+   "id": "op_concat3",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "l_dec3_1_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_dec3_1_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n_dec3_mid",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$256 \\times 102 \\times 102$",
+   "properties": {
+    "dimensions": [
+     256,
+     102,
+     102
+    ]
+   }
+  },
+  {
+   "id": "l_dec3_2_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_dec3_2_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n_dec3_out",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$256 \\times 100 \\times 100$",
+   "properties": {
+    "dimensions": [
+     256,
+     100,
+     100
+    ]
+   }
+  },
+  {
+   "id": "l_up2",
+   "class": "LAYER",
+   "sub_type": "transposed_convolution",
+   "raw_text": "up-conv $2 \\times 2$",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "id": "n_up2_out",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$256 \\times 200 \\times200$",
+   "properties": {
+    "dimensions": [
+     256,
+     200,
+     200
+    ]
+   }
+  },
+  {
+   "id": "op_crop2",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "copy and crop",
+   "properties": {
+    "algorithm": "Slice"
+   }
+  },
+  {
+   "id": "op_concat2",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "l_dec2_1_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_dec2_1_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n_dec2_mid",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$128 \\times 198 \\times 198$",
+   "properties": {
+    "dimensions": [
+     128,
+     198,
+     198
+    ]
+   }
+  },
+  {
+   "id": "l_dec2_2_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_dec2_2_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n_dec2_out",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$128 \\times 196 \\times 196$",
+   "properties": {
+    "dimensions": [
+     128,
+     196,
+     196
+    ]
+   }
+  },
+  {
+   "id": "l_up1",
+   "class": "LAYER",
+   "sub_type": "transposed_convolution",
+   "raw_text": "up-conv $2 \\times 2$",
+   "properties": {
+    "kernel": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "id": "n_up1_out",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$128 \\times 392 \\times 392$",
+   "properties": {
+    "dimensions": [
+     128,
+     392,
+     392
+    ]
+   }
+  },
+  {
+   "id": "op_crop1",
+   "class": "MODIFIER",
+   "sub_type": "reshape",
+   "raw_text": "copy and crop",
+   "properties": {
+    "algorithm": "Slice"
+   }
+  },
+  {
+   "id": "op_concat1",
+   "class": "JUNCTION",
+   "sub_type": "concat",
+   "raw_text": "",
+   "properties": {
+    "note": "implicit"
+   }
+  },
+  {
+   "id": "l_dec1_1_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_dec1_1_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n_dec1_mid",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$64 \\times 390 \\times 390$",
+   "properties": {
+    "dimensions": [
+     64,
+     390,
+     390
+    ]
+   }
+  },
+  {
+   "id": "l_dec1_2_a",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "kernel": [
+     3,
+     3
+    ]
+   }
+  },
+  {
+   "id": "l_dec1_2_b",
+   "class": "MODIFIER",
+   "sub_type": "activation",
+   "raw_text": "conv $3 \\times 3$, ReLU",
+   "properties": {
+    "algorithm": "Relu"
+   }
+  },
+  {
+   "id": "n_dec1_out",
+   "class": "DATA",
+   "sub_type": "intermediate",
+   "raw_text": "$64 \\times 388 \\times 388$",
+   "properties": {
+    "dimensions": [
+     64,
+     388,
+     388
+    ]
+   }
+  },
+  {
+   "id": "l_out",
+   "class": "LAYER",
+   "sub_type": "convolution",
+   "raw_text": "conv $1 \\times 1$",
+   "properties": {
+    "kernel": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "n_out",
+   "class": "DATA",
+   "sub_type": "output",
+   "raw_text": "output segmentation map",
+   "properties": {
+    "name": "output segmentation map",
+    "dimensions": [
+     2,
+     388,
+     388
+    ]
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "l_dec2_1_a",
+   "target": "l_dec2_1_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec3_1_a",
+   "target": "l_dec3_1_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc1_1_a",
+   "target": "l_enc1_1_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec4_1_a",
+   "target": "l_dec4_1_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc5_2_a",
+   "target": "l_enc5_2_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec1_1_a",
+   "target": "l_dec1_1_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc3_1_a",
+   "target": "l_enc3_1_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec1_2_a",
+   "target": "l_dec1_2_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc5_1_a",
+   "target": "l_enc5_1_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc2_2_a",
+   "target": "l_enc2_2_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec4_2_a",
+   "target": "l_dec4_2_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc3_2_a",
+   "target": "l_enc3_2_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc2_1_a",
+   "target": "l_enc2_1_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc4_2_a",
+   "target": "l_enc4_2_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec3_2_a",
+   "target": "l_dec3_2_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc1_2_a",
+   "target": "l_enc1_2_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec2_2_a",
+   "target": "l_dec2_2_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc4_1_a",
+   "target": "l_enc4_1_b",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_in",
+   "target": "l_enc1_1_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc1_1_b",
+   "target": "n_enc1_1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_enc1_1",
+   "target": "l_enc1_2_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc1_2_b",
+   "target": "n_enc1_2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_enc1_2",
+   "target": "op_pool1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_enc1_2",
+   "target": "op_crop1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_pool1",
+   "target": "n_enc2_in",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_enc2_in",
+   "target": "l_enc2_1_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc2_1_b",
+   "target": "n_enc2_mid",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_enc2_mid",
+   "target": "l_enc2_2_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc2_2_b",
+   "target": "n_enc2_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_enc2_out",
+   "target": "op_pool2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_enc2_out",
+   "target": "op_crop2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_pool2",
+   "target": "n_enc3_in",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_enc3_in",
+   "target": "l_enc3_1_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc3_1_b",
+   "target": "n_enc3_mid",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_enc3_mid",
+   "target": "l_enc3_2_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc3_2_b",
+   "target": "n_enc3_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_enc3_out",
+   "target": "op_pool3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_enc3_out",
+   "target": "op_crop3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_pool3",
+   "target": "n_enc4_in",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_enc4_in",
+   "target": "l_enc4_1_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc4_1_b",
+   "target": "n_enc4_mid",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_enc4_mid",
+   "target": "l_enc4_2_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc4_2_b",
+   "target": "n_enc4_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_enc4_out",
+   "target": "op_pool4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_enc4_out",
+   "target": "op_crop4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_pool4",
+   "target": "n_enc5_in",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_enc5_in",
+   "target": "l_enc5_1_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc5_1_b",
+   "target": "n_enc5_mid",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_enc5_mid",
+   "target": "l_enc5_2_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_enc5_2_b",
+   "target": "n_enc5_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_enc5_out",
+   "target": "l_up4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec4_1_b",
+   "target": "n_dec4_mid",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_dec4_mid",
+   "target": "l_dec4_2_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec4_2_b",
+   "target": "n_dec4_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_dec4_out",
+   "target": "l_up3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec3_1_b",
+   "target": "n_dec3_mid",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_dec3_mid",
+   "target": "l_dec3_2_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec3_2_b",
+   "target": "n_dec3_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_dec3_out",
+   "target": "l_up2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec2_1_b",
+   "target": "n_dec2_mid",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_dec2_mid",
+   "target": "l_dec2_2_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec2_2_b",
+   "target": "n_dec2_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_dec2_out",
+   "target": "l_up1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec1_1_b",
+   "target": "n_dec1_mid",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_dec1_mid",
+   "target": "l_dec1_2_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_dec1_2_b",
+   "target": "n_dec1_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_dec1_out",
+   "target": "l_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_out",
+   "target": "n_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_crop4",
+   "target": "op_concat4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_up4",
+   "target": "op_concat4",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_concat4",
+   "target": "n_up4_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_up4_out",
+   "target": "l_dec4_1_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_up3",
+   "target": "op_concat3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_crop3",
+   "target": "op_concat3",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_concat3",
+   "target": "n_up3_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_up3_out",
+   "target": "l_dec3_1_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_up2",
+   "target": "op_concat2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_crop2",
+   "target": "op_concat2",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_concat2",
+   "target": "n_up2_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_up2_out",
+   "target": "l_dec2_1_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "l_up1",
+   "target": "op_concat1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_crop1",
+   "target": "op_concat1",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "op_concat1",
+   "target": "n_up1_out",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  },
+  {
+   "source": "n_up1_out",
+   "target": "l_dec1_1_a",
+   "role": "forward",
+   "properties": {
+    "labels": []
+   }
+  }
+ ],
+ "groups": []
+}
