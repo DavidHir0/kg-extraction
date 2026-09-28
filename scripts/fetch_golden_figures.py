@@ -70,10 +70,18 @@ def crop_page(pdf: str, page: int, box: tuple, dpi: int, dest: str) -> None:
         shutil.move(os.path.join(tmp, "crop.png"), dest)
 
 
-def download(aid: str, dest: str) -> None:
+def download(aid: str, dest: str, attempts: int = 4) -> None:
     req = urllib.request.Request(f"https://arxiv.org/pdf/{aid}", headers={"User-Agent": USER_AGENT})
-    with urllib.request.urlopen(req, timeout=120) as r, open(dest + ".part", "wb") as f:
-        shutil.copyfileobj(r, f)
+    for attempt in range(1, attempts + 1):
+        try:
+            with urllib.request.urlopen(req, timeout=120) as r, open(dest + ".part", "wb") as f:
+                shutil.copyfileobj(r, f)
+            break
+        except OSError as e:  # timeouts and dropped connections; arXiv is sometimes slow
+            if attempt == attempts:
+                raise RuntimeError(f"{aid}: download failed {attempts} times ({e}); re-run to resume") from e
+            print(f"    {aid}: {e}; retrying in {10 * attempt} s")
+            time.sleep(10 * attempt)
     with open(dest + ".part", "rb") as f:
         if f.read(5) != b"%PDF-":
             raise RuntimeError(f"{aid}: response is not a PDF")

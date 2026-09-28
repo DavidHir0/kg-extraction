@@ -14,6 +14,10 @@ venv/
 # Run outputs
 outputs/
 
+# Downloaded by scripts/fetch_assets.sh (release assets, not tracked)
+models/pdffigures2/pdffigures2.jar
+models/classification/*.pth
+
 # Downloaded by scripts/fetch_golden_figures.py; not redistributable
 data/pdf_cache/
 data/golden_dataset/images_300dpi/
