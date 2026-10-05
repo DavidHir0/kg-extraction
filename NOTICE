@@ -1,0 +1,11 @@
+kg-extraction
+Copyright 2026 David Hiroki Ortelt
+
+Developed during a research internship at the National Institute of
+Informatics (NII), Tokyo, supervised by Prof. Dr. Hideaki Takeda (NII) and
+Dr. Daniel Kurzawe (University of Göttingen).
+
+Licensed under the Apache License, Version 2.0; see LICENSE.
+Third-party components fetched by scripts/fetch_assets.sh carry their own
+licences, listed in models/pdffigures2/NOTICE.md and
+models/classification/NOTICE.md.

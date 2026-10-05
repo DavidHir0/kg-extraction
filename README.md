@@ -276,4 +276,13 @@ spread.
   `models/classification/NOTICE.md`.
 - **Python packages** are installed from PyPI under their own licences.
 
-This repository is not licensed yet.
+## Licence
+
+The code and the labels are licensed under the
+[Apache License 2.0](LICENSE). Copyright 2026 David Hiroki Ortelt.
+
+## Acknowledgements
+
+Developed during a research internship at the National Institute of Informatics
+(NII), Tokyo, supervised by Prof. Dr. Hideaki Takeda (NII) and Dr. Daniel
+Kurzawe (University of Göttingen).
