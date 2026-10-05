@@ -5,9 +5,10 @@ and converts each one into a **knowledge graph**: the layers, data and
 operations the figure draws become typed nodes, and the arrows between them
 become directed edges.
 
-It ships with a benchmark of 73 hand-labelled figures. With the two models listed
-in `.env.example`, the pipeline scores **strict triplet F1 0.527 ± 0.038** and
-node F1 0.796 ± 0.021 (mean of 3 runs). Other models will score differently.
+It ships with a benchmark of 73 hand-labelled figures. With Qwen3.5-122B-A10B for
+vision and DeepSeek-V4-Flash for text, the pipeline scores **strict triplet F1
+0.527 ± 0.038** and node F1 0.796 ± 0.021 (mean of 3 runs). Other models will
+score differently.
 
 ## What it does
 
@@ -142,8 +143,8 @@ KG_TEXT_MODEL=your-text-model
 
 **Both model names are required**, since which models exist depends on your
 endpoint. The vision model matters most, because it does the actual reading of
-the figure. `.env.example` lists the two models the benchmark number was
-measured with.
+the figure. The benchmark number was measured with Qwen3.5-122B-A10B (vision)
+and DeepSeek-V4-Flash (text).
 
 Confirm the setup before spending a real call:
 
@@ -255,9 +256,9 @@ lower it if your endpoint returns HTTP 429 (rate limited).
 
 **How the 0.527 was measured:** strict triplet F1, micro, as the mean of 3 full
 runs with all 73 figures completed. It uses the 300 DPI images and the corrected
-labels in this repo (see `data/README.md`), with the models in `.env.example`.
-Model outputs vary between identical runs, which is why it is a mean with a
-spread.
+labels in this repo (see `data/README.md`), with Qwen3.5-122B-A10B and
+DeepSeek-V4-Flash. Model outputs vary between identical runs, which is why it is
+a mean with a spread.
 
 ## Credits and licences
 
